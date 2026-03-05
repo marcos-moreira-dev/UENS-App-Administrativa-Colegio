@@ -1,13 +1,13 @@
 ﻿# 36_backend_v_1_integracion_ia_modelos_locales_y_en_linea
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: integración de IA en producto, backend y operaciones
 - Relacionado con:
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
-  - `31_backend_v_1_patrones_diseno_usados_con_criterio.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
+ - `31_backend_v_1_patrones_diseno_usados_con_criterio.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 
@@ -40,7 +40,7 @@ Empieza por:
 
 Ejemplos de problemas válidos:
 
-1. resumir auditorias largas
+1. resumir auditorías largas
 2. clasificar tickets o incidencias
 3. extraer campos de documentos
 4. responder preguntas sobre manuales internos
@@ -274,7 +274,7 @@ Define que pasa si el modelo falla:
 
 ## 7. Modelos locales: que debes entender
 
-No necesitas casarte con una herramienta unica.
+No necesitas casarte con una herramienta única.
 
 Lo que debes entender es el tipo de stack.
 
@@ -322,16 +322,16 @@ Debes contar:
 
 ---
 
-## 8. Modelos en linea: que debes mirar
+## 8. Modelos en línea: que debes mirar
 
 No elijas solo por hype.
 
 Mira al menos:
 
 1. precio por uso
-2. limites de tasa
+2. límites de tasa
 3. latencia
-4. contexto maximo
+4. contexto máximo
 5. calidad de salida estructurada
 6. políticas de retención de datos
 7. regiones y cumplimiento
@@ -400,11 +400,11 @@ Medidas:
 Si algun día la IA llama herramientas o acciones:
 
 - define allowlist
-- limita parametros
+- limita parámetros
 - registra ejecución
 - exige confirmación humana en acciones sensibles
 
-### 10.4 Auditoria
+### 10.4 Auditoría
 
 Registra:
 
@@ -440,7 +440,7 @@ Suele implicar:
 ### 11.2 Cuando no usarlo todavia
 
 - si solo quieres resumir texto enviado por el usuario
-- si el problema se resuelve con busqueda tradicional
+- si el problema se resuelve con búsqueda tradicional
 - si no tienes documentos minimamente limpios
 
 ### 11.3 Componentes que suelen entrar
@@ -455,7 +455,7 @@ En local, una opción didáctica suele ser `pgvector` o un vector store sencillo
 
 ---
 
-## 12. Observabilidad y evaluacion
+## 12. Observabilidad y evaluación
 
 Si integras IA y no mides, no sabes si realmente mejora algo.
 
@@ -481,10 +481,10 @@ Puedes arrancar con:
 
 ### 12.2 Lo que debes guardar
 
-- version de prompt
-- version de modelo
+- versión de prompt
+- versión de modelo
 - proveedor
-- temperatura o parametros relevantes
+- temperatura o parámetros relevantes
 - salida resumida o hash si no puedes guardar texto completo
 
 ---
@@ -498,7 +498,7 @@ Puntos operativos:
 1. timeouts estrictos
 2. reintentos controlados
 3. circuit breaker o bloqueo temporal si proveedor falla
-4. limites por usuario o por feature
+4. límites por usuario o por feature
 5. cache si el caso lo permite
 6. jobs asíncronos para tareas pesadas
 
@@ -522,7 +522,7 @@ Lo más sensato para este proyecto seria:
 
 Lo menos sensato hoy:
 
-1. dejar que IA edite notas academicas automaticamente
+1. dejar que IA edite notas académicas automaticamente
 2. tomar decisiones disciplinarias o administrativas solo con IA
 3. reemplazar reglas de negocio con prompts
 
@@ -556,7 +556,7 @@ Lo menos sensato hoy:
 
 ---
 
-## 16. Lo que debes saber como backend engineer
+## 16. Lo que debes saber cómo backend engineer
 
 Si algún día quieres trabajar IA desde backend, deberías poder:
 
@@ -581,7 +581,7 @@ Significa:
 - desacoplar proveedor
 - medir resultado
 - proteger datos
-- mantener control arquitectonico
+- mantener control arquitectónico
 
 La mejor integración con IA es la que mejora el producto sin romper la disciplina del backend.
 

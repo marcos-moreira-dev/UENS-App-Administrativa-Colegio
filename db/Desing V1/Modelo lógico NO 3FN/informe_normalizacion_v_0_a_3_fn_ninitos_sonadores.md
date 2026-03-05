@@ -241,8 +241,8 @@ Estos introducen redundancia y posibles inconsistencias.
 
 ### Qué cambiaré casi seguro
 - Quitar columnas derivadas:
-  - `estudiante.edad`
-  - `seccion.cantidad_estudiantes_registrados`
+ - `estudiante.edad`
+ - `seccion.cantidad_estudiantes_registrados`
 
 ### Qué revisaré adicionalmente (sin sobrecomplicar)
 - Dependencias transitivas evitables.

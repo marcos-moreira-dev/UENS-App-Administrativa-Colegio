@@ -1,23 +1,23 @@
 ﻿# 32_backend_v_1_freelance_backend_y_trabajo_autonomo
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: trabajo autónomo, freelance y mantenimiento cobrado
 - Relacionado con:
-  - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
-  - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
-  - `33_backend_v_1_habilidades_complementarias_y_analisis_de_datos.md`
+ - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
+ - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
+ - `33_backend_v_1_habilidades_complementarias_y_analisis_de_datos.md`
 
 ---
 
 ## 1. Propósito
 
 Trabajar freelance no es solo programar.
-Es resolver negocio, poner limites y dejar el sistema operable.
+Es resolver negocio, poner límites y dejar el sistema operable.
 
 ---
 
-## 2. Lo que debes saber ademas de codigo
+## 2. Lo que debes saber ademas de código
 
 1. levantar requerimientos
 2. acotar alcance
@@ -30,7 +30,7 @@ Es resolver negocio, poner limites y dejar el sistema operable.
 
 ## 3. Entregables mínimos sanos
 
-1. codigo
+1. código
 2. README de despliegue
 3. `.env.example`
 4. backups y criterio de restauracion
@@ -85,7 +85,7 @@ Debes separar:
 
 ## 7. Aplicado a UENS
 
-Si este sistema fuera para cliente real, yo recomendaria entregar junto al codigo:
+Si este sistema fuera para cliente real, yo recomendaria entregar junto al código:
 
 1. guía de despliegue
 2. guía de backup

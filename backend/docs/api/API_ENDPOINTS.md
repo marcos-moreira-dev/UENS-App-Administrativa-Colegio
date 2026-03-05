@@ -133,7 +133,7 @@ Request body opcional:
 ```
 
 Notas:
-- si el cliente aun conserva el refresh token, el backend lo revoca
+- si el cliente aún conserva el refresh token, el backend lo revoca
 - si el cliente ya perdio el estado completo, puede hacer logout local igualmente
 - no requiere `Authorization` porque el desktop puede llegar aqui con access token ya expirado
 
@@ -552,7 +552,7 @@ Request body:
 Tipos soportados en V1:
 - `LISTADO_ESTUDIANTES_POR_SECCION`
 - `CALIFICACIONES_POR_SECCION_Y_PARCIAL`
-- `AUDITORIA_ADMIN_OPERACIONES` (reservado para endpoint ADMIN de auditoria)
+- `AUDITORIA_ADMIN_OPERACIONES` (reservado para endpoint ADMIN de auditoría)
 
 Formatos de salida soportados en V1:
 - `XLSX`
@@ -607,7 +607,7 @@ Regla de ownership:
 Sin body.
 Response: `ReporteSolicitudCreadaResponseDto`.
 
-## 12) Auditoria operativa (solo ADMIN)
+## 12) Auditoría operativa (solo ADMIN)
 
 ### GET `/api/v1/auditoria/eventos` (ADMIN)
 Query opcional: `q,módulo,accion,resultado,actorLogin,fechaDesde,fechaHasta,page,size,sort`.
@@ -640,7 +640,7 @@ Response: `ReporteSolicitudCreadaResponseDto`.
 
 - Público: `POST /api/v1/auth/login`, `POST /api/v1/auth/refresh`, `POST /api/v1/auth/logout`, `GET /api/v1/system/ping`
 - ADMIN y SECRETARIA: lecturas y operaciones funcionales de gestión diaria
-- Solo ADMIN: cambios de estado sensibles, creacion/edicion de configuración academica (secciones, asignaturas, clases), reintento de reportes y toda la capa de auditoria
+- Solo ADMIN: cambios de estado sensibles, creacion/edición de configuración académica (secciones, asignaturas, clases), reintento de reportes y toda la capa de auditoría
 
 ## 14) Inventario completo de endpoints
 
@@ -657,7 +657,7 @@ Total endpoints implementados: `49`
 - Clases: 5
 - Calificaciones: 4
 - Reportes: 7
-- Auditoria: 2
+- Auditoría: 2
 
 ## 15) Recomendación para Postman
 
@@ -668,13 +668,13 @@ const json = pm.response.json();
 pm.collectionVariables.set("token", json.data.accessToken);
 ```
 
-Luego en Authorization (Bearer Token) de la coleccion:
+Luego en Authorization (Bearer Token) de la colección:
 
 ```text
 {{token}}
 ```
 
-## 16) Catálogo técnico completo (metodo + ruta + rol)
+## 16) Catálogo técnico completo (método + ruta + rol)
 
 Fuente de verdad funcional:
 - Swagger UI: `GET /swagger-ui.html`
@@ -683,9 +683,9 @@ Fuente de verdad funcional:
 Notas:
 - `ADMIN, SECRETARIA` significa que ambos roles pueden acceder.
 - `PUBLICO` significa sin token.
-- Total catalogado en esta seccion: 49 endpoints.
+- Total catalogado en esta sección: 49 endpoints.
 
-| # | Metodo | Ruta | Rol |
+| # | Método | Ruta | Rol |
 |---|---|---|---|
 | 1 | POST | `/api/v1/auth/login` | PUBLICO |
 | 2 | POST | `/api/v1/auth/refresh` | PUBLICO |
@@ -740,17 +740,17 @@ Notas:
 ## 17) Flujo recomendado para frontend (resumen operativo)
 
 1. Login:
-   `POST /api/v1/auth/login` con `login` y `password`.
+ `POST /api/v1/auth/login` con `login` y `password`.
 2. Guardar token:
-   usar `data.accessToken` y `data.refreshToken`.
+ usar `data.accessToken` y `data.refreshToken`.
 3. Renovar sesión cuando el `accessToken` este por expirar:
-   `POST /api/v1/auth/refresh` con el `refreshToken`.
+ `POST /api/v1/auth/refresh` con el `refreshToken`.
 4. Enviar header:
-   `Authorization: Bearer <token>`.
+ `Authorization: Bearer <token>`.
 5. Consumir módulos CRUD:
-   estudiantes, docentes, secciones, clases, calificaciones.
+ estudiantes, docentes, secciones, clases, calificaciones.
 6. Para reportes:
-   crear solicitud -> consultar estado/resultado -> descargar archivo.
+ crear solicitud -> consultar estado/resultado -> descargar archivo.
 
 Flujo de reportes async:
 - `POST /api/v1/reportes/solicitudes`

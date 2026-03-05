@@ -58,14 +58,14 @@ Fuentes:
 - `06_desktop_roles_y_visibilidad_de_acciones.md`
 
 - `ADMIN` y `SECRETARIA`:
-  - listar
-  - ver detalle
-  - crear
-  - editar
-  - asignar sección vigente
+ - listar
+ - ver detalle
+ - crear
+ - editar
+ - asignar sección vigente
 
 - Solo `ADMIN`:
-  - cambiar estado (`PATCH /estado`)
+ - cambiar estado (`PATCH /estado`)
 
 Regla UI:
 - botón de “Activar/Inactivar” oculto a SECRETARIA.
@@ -180,8 +180,8 @@ Nota:
 ### 7.3 Selección de representante
 Patrón recomendado:
 - campo “Representante” con:
-  - botón “Buscar/Seleccionar” → abre modal de búsqueda (tabla de representantes)
-  - muestra resumen del seleccionado
+ - botón “Buscar/Seleccionar” → abre modal de búsqueda (tabla de representantes)
+ - muestra resumen del seleccionado
 
 Alternativa:
 - ComboBox con búsqueda si el volumen es pequeño.

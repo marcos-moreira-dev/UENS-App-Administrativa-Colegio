@@ -41,16 +41,16 @@ La app administrativa debe traducir eso en experiencia:
 En fase 1 hay dos roles operativos:
 
 - **SECRETARIA** (operación diaria):
-  - gestiona estudiantes, representantes, docentes (datos generales), calificaciones;
-  - consulta secciones/asignaturas/clases;
-  - crea reportes genéricos.
+ - gestiona estudiantes, representantes, docentes (datos generales), calificaciones;
+ - consulta secciones/asignaturas/clases;
+ - crea reportes genéricos.
 
 - **ADMIN** (operación + configuración + supervisión):
-  - todo lo anterior;
-  - crea/edita catálogos académicos (asignaturas, secciones, clases);
-  - cambia estados sensibles;
-  - accede a auditoría;
-  - reintenta reportes fallidos.
+ - todo lo anterior;
+ - crea/edita catálogos académicos (asignaturas, secciones, clases);
+ - cambia estados sensibles;
+ - accede a auditoría;
+ - reintenta reportes fallidos.
 
 **Criterio UX clave:**
 - La UI debe estar diseñada **por permisos**, no solo por páginas.
@@ -66,7 +66,7 @@ Para evitar confusión y saturación de contexto, el frontend usa exactamente es
 - **Sección**: grado + paralelo + año lectivo + cupo + estado.
 - **Asignatura**: catálogo por grado (convención: `nombre + grado`).
 - **Clase**: oferta concreta de una asignatura en una sección.
-  - En UI, “horario” se representa como: `díaSemana + horaInicio + horaFin`.
+ - En UI, “horario” se representa como: `díaSemana + horaInicio + horaFin`.
 - **Calificación**: nota por **estudiante + clase + parcial (1/2)**.
 - **Usuario sistema administrativo**: cuenta para operar el sistema.
 - **Estado**: `ACTIVO | INACTIVO`.
@@ -119,9 +119,9 @@ Fuentes de verdad del vocabulario:
 - **Shell fijo:** Sidebar + Topbar + Content.
 - **Módulos** en el mismo orden de navegación.
 - **Acciones** siempre en ubicaciones predecibles:
-  - “Crear” arriba a la derecha o encima de la tabla.
-  - “Editar/Ver” por fila.
-  - “Cambiar estado” solo cuando aplique y solo ADMIN.
+ - “Crear” arriba a la derecha o encima de la tabla.
+ - “Editar/Ver” por fila.
+ - “Cambiar estado” solo cuando aplique y solo ADMIN.
 
 ### 7.3 Consistencia de tablas
 - Columna de acciones alineada.
@@ -155,22 +155,22 @@ Manejo UX por HTTP:
 Estas plantillas serán FXML desde el inicio:
 
 1. **LoginView.fxml**
-   - login + password + botón.
+ - login + password + botón.
 
 2. **AppShell.fxml**
-   - sidebar (módulos) + topbar (usuario/rol) + content area.
+ - sidebar (módulos) + topbar (usuario/rol) + content area.
 
 3. **ListView.fxml (base por módulo)**
-   - barra de búsqueda + filtros + tabla + paginación.
+ - barra de búsqueda + filtros + tabla + paginación.
 
 4. **FormDialog.fxml / Drawer.fxml (base)**
-   - formulario create/edit con validación.
+ - formulario create/edit con validación.
 
 5. **AsyncJobsView.fxml (Reportes)**
-   - crear solicitud + historial + estado + descarga.
+ - crear solicitud + historial + estado + descarga.
 
 6. **AuditLogView.fxml (Auditoría ADMIN)**
-   - tabla con filtros fuertes + solicitud de reporte.
+ - tabla con filtros fuertes + solicitud de reporte.
 
 ---
 
@@ -197,15 +197,15 @@ Estas plantillas serán FXML desde el inicio:
 
 ## 12) Enlaces de contexto para Codex (cuando implemente)
 - Dominio:
-  - `docs/01_levantamiento_informacion_negocio.md`
-  - `docs/03_modelo_conceptual_dominio.md`
-  - `docs/05_glosario_alcance_y_limites.md`
+ - `docs/01_levantamiento_informacion_negocio.md`
+ - `docs/03_modelo_conceptual_dominio.md`
+ - `docs/05_glosario_alcance_y_limites.md`
 
 - Contrato API:
-  - `backend/docs/api/API_ENDPOINTS.md`
+ - `backend/docs/api/API_ENDPOINTS.md`
 
 - Integración y criterios:
-  - `backend/docs/backend_v_1/19_backend_v_1_contexto_integracion_y_diseno_frontend.md`
+ - `backend/docs/backend_v_1/19_backend_v_1_contexto_integracion_y_diseno_frontend.md`
 
 ---
 

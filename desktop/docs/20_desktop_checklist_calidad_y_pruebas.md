@@ -1,7 +1,7 @@
 ﻿# 20_desktop_checklist_calidad_y_pruebas
 
 - **Proyecto:** UENS Desktop (JavaFX)
-- **Objetivo:** checklist honesto de calidad funcional, arquitectonica y documental.
+- **Objetivo:** checklist honesto de calidad funcional, arquitectónica y documental.
 
 ---
 
@@ -21,8 +21,8 @@ Este checklist sirve para:
 - [x] Ningun controller construye `*Api`.
 - [x] Ningun controller construye servicios por su cuenta.
 - [x] Los servicios se resuelven desde `AppContext` / `ApplicationServices`.
-- [x] Existe un `ApiClient` unico.
-- [x] Existe un `Navigator` unico.
+- [x] Existe un `ApiClient` único.
+- [x] Existe un `Navigator` único.
 - [x] Fonts y CSS se cargan una vez.
 - [x] Todo I/O va en background.
 - [x] La UI solo se actualiza en FX thread.
@@ -31,7 +31,7 @@ Este checklist sirve para:
 - [x] `view` no depende de `api.client` ni de `api.modules.*Api`.
 - [x] `api` no conoce JavaFX.
 - [x] `application` no usa `Node`, `Control` o `Scene`.
-- [x] Reportes y Auditoria ya usan `Presenter/Mapper` donde habia mezcla de formato visual.
+- [x] Reportes y Auditoría ya usan `Presenter/Mapper` donde habia mezcla de formato visual.
 - [x] Los listados complejos ya usan `Query Object`.
 
 Pendiente estructural:
@@ -53,14 +53,14 @@ Pendiente estructural:
 ## 4) Checklist de contratos API
 - [x] Se usa `ApiResponse<T>.data`.
 - [x] Los listados leen `PageResponse.items`.
-- [x] Los filtros envian solo parametros útiles.
+- [x] Los filtros envian solo parámetros útiles.
 - [x] El cliente interpreta `requestId`, `errorCode` y `message`.
 - [x] Descargas y reportes binarios siguen el contrato real del backend.
 
 ---
 
 ## 5) Checklist de UX global
-- [x] Jerarquia tipografica consistente.
+- [x] Jerarquía tipografica consistente.
 - [x] Un solo primary button por zona principal.
 - [x] Estados loading / empty / error diferenciados.
 - [x] Drawers y modales con patron consistente.
@@ -87,7 +87,7 @@ Pendiente estructural:
 
 ### 7.2 Estudiantes
 - [x] Listado, create, edit y cambio de estado funcionan.
-- [x] Representante y seccion se seleccionan con controles buscables.
+- [x] Representante y sección se seleccionan con controles buscables.
 
 ### 7.3 Representantes / Docentes / Secciones / Asignaturas / Clases
 - [x] CRUD consistente.
@@ -105,10 +105,10 @@ Pendiente estructural:
 - [x] Descarga solo cuando el backend lo permite.
 - [x] Ruta o evidencia de descarga visible.
 
-### 7.6 Auditoria
+### 7.6 Auditoría
 - [x] Filtros fuertes.
 - [x] requestId visible.
-- [x] Reporte administrativo de auditoria integrado.
+- [x] Reporte administrativo de auditoría integrado.
 
 ---
 
@@ -121,22 +121,22 @@ Pendiente estructural:
 
 Pendiente todavia:
 - [ ] controllers con flujos integrados;
-- [ ] pruebas de interaccion UI más cercanas a runtime.
+- [ ] pruebas de interacción UI más cercanas a runtime.
 
 ---
 
 ## 9) Criterio de "listo para iterar"
 El desktop puede considerarse listo para seguir creciendo cuando:
 
-- la arquitectura documentada coincide con el codigo real;
+- la arquitectura documentada coincide con el código real;
 - los controllers no conocen la capa HTTP;
 - la sesión y permisos funcionan;
 - los módulos nucleares operan con UX consistente;
-- los textos visibles estan bien escritos;
+- los textos visibles están bien escritos;
 - los docs no prometen componentes o reglas que ya no existen.
 
 Estado actual:
-- el frente arquitectonico principal ya esta alineado;
+- el frente arquitectónico principal ya esta alineado;
 - la deuda visible más clara que queda es terminar de normalizar copy e i18n.
 
 

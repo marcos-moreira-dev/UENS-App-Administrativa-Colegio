@@ -52,10 +52,10 @@ Fuente:
 - `backend/docs/api/API_ENDPOINTS.md`
 
 - `ADMIN` y `SECRETARIA`:
-  - listar
-  - ver detalle
-  - crear
-  - editar
+ - listar
+ - ver detalle
+ - crear
+ - editar
 
 No hay “cambiar estado” para calificación en V1.
 
@@ -122,7 +122,7 @@ Basado en `10_desktop_patron_tablas_filtros_paginacion.md`.
 - sección vigente (opcional en tooltip)
 
 ### 6.3 Resumen de clase (importante)
-Mostrar como texto corto:
+Mostrar cómo texto corto:
 - `Asignatura` + `Sección` + `díaSemana horaInicio–horaFin`
 Ejemplo:
 - “Matemática – 5to A (LUN 07:00–07:45)”
@@ -142,12 +142,12 @@ Calificaciones sin filtros se vuelve ruidoso.
 
 ### 7.2 UX de filtros
 - Mostrar filtros como selectores con búsqueda:
-  - Estudiante → buscar por nombre/apellido
-  - Clase → filtrar por sección/asignatura si el volumen es alto
+ - Estudiante → buscar por nombre/apellido
+ - Clase → filtrar por sección/asignatura si el volumen es alto
 
 Recomendación:
 - En el listado de calificaciones, tener un modo “seleccionar estudiante” primero.
-  - Muchas operaciones reales empiezan por “quiero ver las notas de este estudiante”.
+ - Muchas operaciones reales empiezan por “quiero ver las notas de este estudiante”.
 
 ---
 
@@ -173,9 +173,9 @@ Regla:
 ### 8.3 Input numérico (nota)
 Recomendación UX:
 - control numérico con:
-  - restringir caracteres,
-  - permitir decimales,
-  - formateo consistente.
+ - restringir caracteres,
+ - permitir decimales,
+ - formateo consistente.
 
 Regla:
 - Mostrar ejemplo o hint (“Ej: 8.75”).

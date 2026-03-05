@@ -1,12 +1,12 @@
 ﻿# 28_backend_v_1_despliegue_realista_dev_stage_prod
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: despliegue serio pero realista
 - Relacionado con:
-  - `09_backend_v_1_seguridad_documentacion_y_despliegue_minimo.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
+ - `09_backend_v_1_seguridad_documentacion_y_despliegue_minimo.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
 
 ---
 
@@ -64,7 +64,7 @@ Aunque al inicio hagas partes manuales, la secuencia mental debe ser esa.
 
 ## 5. Componentes de despliegue que debes entender
 
-1. aplicacion
+1. aplicación
 2. base de datos
 3. reverse proxy
 4. HTTPS

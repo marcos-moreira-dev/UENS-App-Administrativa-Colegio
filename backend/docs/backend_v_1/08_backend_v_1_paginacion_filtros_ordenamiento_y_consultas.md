@@ -831,16 +831,16 @@ Cuando hay varios filtros, usar objetos de criterio evita firmas largas y repeti
 
 ### Ejemplos
 - `EstudianteSearchCriteria`
-  - `q`
-  - `estado`
-  - `seccionId`
+ - `q`
+ - `estado`
+ - `seccionId`
 
 - `ReporteSolicitudSearchCriteria`
-  - `q`
-  - `estado`
-  - `tipoReporte`
-  - `fechaDesde`
-  - `fechaHasta`
+ - `q`
+ - `estado`
+ - `tipoReporte`
+ - `fechaDesde`
+ - `fechaHasta`
 
 ✅ Esto también ayuda a testear después sin tocar controller.
 

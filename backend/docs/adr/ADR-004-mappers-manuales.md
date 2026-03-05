@@ -11,11 +11,11 @@ Se usan mappers manuales por módulo (`*DtoMapper`) en capa `application`.
 
 ## Consecuencias
 - Positivas:
-  - Transformaciones explicitas y faciles de auditar.
-  - Menor magia en compilacion.
-  - Cambios de contrato más controlados.
+ - Transformaciones explicitas y faciles de auditar.
+ - Menor magia en compilacion.
+ - Cambios de contrato más controlados.
 - Negativas:
-  - Más codigo boilerplate.
+ - Más código boilerplate.
 
 ## Notas de implementacion
 - No exponer entidades JPA en controllers.

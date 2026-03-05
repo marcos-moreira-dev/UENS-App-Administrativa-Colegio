@@ -99,11 +99,11 @@ El sistema se inicializa así:
 
 1. `AppBootstrap` crea el `AppContext`.
 2. `AppContext.createDefault()` construye singletons base:
-   - `ApiClient`
-   - `SessionState`
-   - `Navigator`
-   - `UiFeedbackService`
-   - `ResourceBundle`
+ - `ApiClient`
+ - `SessionState`
+ - `Navigator`
+ - `UiFeedbackService`
+ - `ResourceBundle`
 3. `ApplicationServices.create(apiClient)` construye los servicios de aplicación por módulo.
 4. `ControllerFactory` entrega el `AppContext` al controller.
 
@@ -147,19 +147,19 @@ Regla:
 
 ### 6.1 Reglas reales
 - `view` puede depender de:
-  - `viewmodel`
-  - `application`
-  - `presenter`
-  - `ui`
-  - `common`
-  - `session`
-  - `nav`
+ - `viewmodel`
+ - `application`
+ - `presenter`
+ - `ui`
+ - `common`
+ - `session`
+ - `nav`
 - `view` no debe depender de:
-  - `api.client`
-  - `api.modules.*Api`
+ - `api.client`
+ - `api.modules.*Api`
 - `application` puede depender de:
-  - `api.*`
-  - `common`
+ - `api.*`
+ - `common`
 - `api.*` no depende de JavaFX
 
 ### 6.2 Nota importante

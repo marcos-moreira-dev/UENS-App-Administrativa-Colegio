@@ -1,12 +1,12 @@
 ﻿# 24_backend_v_1_observabilidad_logs_metricas_alertas
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: ver y entender que pasa en el backend
 - Relacionado con:
-  - `16_backend_v_1_base_trazabilidad_backend.md`
-  - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
-  - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
+ - `16_backend_v_1_base_trazabilidad_backend.md`
+ - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
+ - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
 
 ---
 
@@ -68,7 +68,7 @@ Flujo recomendado:
 1. entra request
 2. se genera o propaga requestId
 3. se pone en MDC
-4. viaja por logs, errores y auditoria
+4. viaja por logs, errores y auditoría
 
 Con eso puedes seguir una falla punta a punta.
 
@@ -168,9 +168,9 @@ Tu siguiente nivel natural seria:
 1. mantener `requestId` visible siempre
 2. agregar métricas con Actuator + Prometheus
 3. dashboard de:
-   - login
-   - errores
-   - reportes
+ - login
+ - errores
+ - reportes
 4. alertas simples
 
 Eso ya te mete en práctica real sin convertir el proyecto en una nave espacial.

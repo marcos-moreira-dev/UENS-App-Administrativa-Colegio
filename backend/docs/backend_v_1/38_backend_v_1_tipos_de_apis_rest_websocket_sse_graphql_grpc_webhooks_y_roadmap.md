@@ -1,13 +1,13 @@
 ﻿# 38_backend_v_1_tipos_de_apis_rest_websocket_sse_graphql_grpc_webhooks_y_roadmap
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: tipologías de API, criterios de uso y ruta de aprendizaje
 - Relacionado con:
-  - `05_backend_v_1_diseno_api_contrato_respuestas_y_errores.md`
-  - `06_backend_v_1_api_endpoints_y_casos_de_uso.md`
-  - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `05_backend_v_1_diseno_api_contrato_respuestas_y_errores.md`
+ - `06_backend_v_1_api_endpoints_y_casos_de_uso.md`
+ - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 

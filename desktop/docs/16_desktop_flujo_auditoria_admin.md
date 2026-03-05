@@ -37,12 +37,12 @@ Fuentes:
 
 ## 2) Permisos por rol
 - **Solo `ADMIN`**:
-  - listar eventos
-  - filtrar/buscar
-  - solicitar reporte de auditoría (async)
+ - listar eventos
+ - filtrar/buscar
+ - solicitar reporte de auditoría (async)
 
 - `SECRETARIA`:
-  - sin acceso (ni menú ni rutas)
+ - sin acceso (ni menú ni rutas)
 
 Reglas UI:
 - módulo oculto a SECRETARIA.
@@ -120,18 +120,18 @@ Reglas:
 ## 6) Filtros (cómo se usan en la práctica)
 ### 6.1 Búsquedas típicas
 1. “¿Por qué falló un reporte?”
-   - módulo=REPORTE
-   - resultado=ERROR
-   - rango de fechas
+ - módulo=REPORTE
+ - resultado=ERROR
+ - rango de fechas
 
 2. “¿Quién cambió el estado de una entidad?”
-   - acción relevante (según catálogo)
-   - actorLogin
-   - entidad + entidadId
+ - acción relevante (según catálogo)
+ - actorLogin
+ - entidad + entidadId
 
 3. “Errores recurrentes”
-   - resultado=ERROR
-   - q con palabra clave
+ - resultado=ERROR
+ - q con palabra clave
 
 ### 6.2 Reglas UX
 - Filtros por defecto simples, los demás visibles pero ordenados.
@@ -154,7 +154,7 @@ En la vista de auditoría:
 Modal incluye:
 - formatoSalida (XLSX/PDF/DOCX)
 - fechaDesde/fechaHasta
-- filtros opcionales: módulo, accion, resultado, actorLogin
+- filtros opcionales: módulo, acción, resultado, actorLogin
 - incluirDetalle (boolean)
 
 Al confirmar:

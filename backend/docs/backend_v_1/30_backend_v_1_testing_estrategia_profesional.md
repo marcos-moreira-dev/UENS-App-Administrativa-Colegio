@@ -1,12 +1,12 @@
 ﻿# 30_backend_v_1_testing_estrategia_profesional
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: estrategia de pruebas para backend realista
 - Relacionado con:
-  - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
+ - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
 
 ---
 
@@ -36,7 +36,7 @@ Es reducir miedo al cambio y detectar regresiones donde más duelen.
 ### API
 
 - contratos HTTP
-- codigos de error
+- códigos de error
 - headers
 - permisos
 

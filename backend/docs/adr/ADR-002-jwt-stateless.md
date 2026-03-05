@@ -17,13 +17,13 @@ Se usa autenticación JWT stateless:
 
 ## Consecuencias
 - Positivas:
-  - Escalabilidad horizontal sin afinidad de sesión.
-  - Modelo simple para clientes web y moviles.
+ - Escalabilidad horizontal sin afinidad de sesión.
+ - Modelo simple para clientes web y moviles.
 - Negativas:
-  - Revocacion inmediata no nativa (se resuelve con expiraciones cortas o blacklist futura).
+ - Revocacion inmediata no nativa (se resuelve con expiraciones cortas o blacklist futura).
 
 ## Notas de implementacion
 - Roles soportados definidos en `SecurityRoles`.
-- Errores de token mapeados a codigos `AUTH-*`.
+- Errores de token mapeados a códigos `AUTH-*`.
 - Endpoints publicos definidos en `SecurityConfig`.
 

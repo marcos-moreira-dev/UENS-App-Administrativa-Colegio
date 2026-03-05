@@ -1,12 +1,12 @@
 ﻿# 31_backend_v_1_patrones_diseno_usados_con_criterio
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: patrones útiles para backend sin caer en sobreingenieria
 - Relacionado con:
-  - `04_backend_v_1_modelado_aplicacion_y_modulos.md`
-  - `21_backend_v_1_sesion_renovable_y_repositorio_documental_local.md`
-  - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
+ - `04_backend_v_1_modelado_aplicacion_y_modulos.md`
+ - `21_backend_v_1_sesion_renovable_y_repositorio_documental_local.md`
+ - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
 
 ---
 

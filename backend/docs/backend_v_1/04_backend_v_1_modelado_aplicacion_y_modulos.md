@@ -157,7 +157,7 @@ Ejemplos naturales:
 
 ### B. Puerto + adaptador cuando la dependencia es técnica
 
-Cuando una regla de aplicacion necesita algo técnico que podria cambiar, conviene ocultarlo detras de un puerto pequeno.
+Cuando una regla de aplicación necesita algo técnico que podria cambiar, conviene ocultarlo detras de un puerto pequeno.
 
 Ejemplo claro para esta V1:
 - `UsuarioPasswordService` en `application/port`
@@ -165,7 +165,7 @@ Ejemplo claro para esta V1:
 
 Beneficio:
 - `auth` y `usuario` no quedan acoplados a `PasswordEncoder`
-- permite cambiar hash, testing o integración futura sin contaminar la capa de aplicacion
+- permite cambiar hash, testing o integración futura sin contaminar la capa de aplicación
 
 ### C. Query repository + read model para lecturas agregadas
 
@@ -183,7 +183,7 @@ Esto encaja especialmente bien en:
 
 ### D. Specification para filtros paginados
 
-Cuando un listado admite filtros opcionales, conviene encapsular el criterio en `Specification` en vez de multiplicar metodos de repositorio.
+Cuando un listado admite filtros opcionales, conviene encapsular el criterio en `Specification` en vez de multiplicar métodos de repositorio.
 
 Beneficio:
 - escala mejor al crecer filtros
@@ -192,7 +192,7 @@ Beneficio:
 
 ### E. Factory method / named constructor en entidades persistentes
 
-Para entidades con estados o invariantes básicos, es preferible ofrecer metodos con intencion como:
+Para entidades con estados o invariantes básicos, es preferible ofrecer métodos con intencion como:
 - `crear(...)`
 - `activar()`
 - `inactivar()`
@@ -523,10 +523,10 @@ Este módulo es de **lectura/orquestación**, no un CRUD.
 **Decisión V1 (alineada al proyecto):**
 - La presentación/exportación final del reporte se hará en **JavaFX**.
 - El backend puede manejar:
-  - solicitudes de reporte,
-  - estado de solicitud,
-  - dataset/resultado JSON (si se implementa),
-  - endpoints placeholder para practicar arquitectura.
+ - solicitudes de reporte,
+ - estado de solicitud,
+ - dataset/resultado JSON (si se implementa),
+ - endpoints placeholder para practicar arquitectura.
 
 ✅ Así prácticas backend profesional sin trabarte con la capa de rendering/exportación.
 
@@ -846,7 +846,7 @@ Esto formaliza tu idea de backend orientado a capacidades, no solo a entidades.
 
 ---
 
-## 10.3. Paginación: qué se pagina y qué no
+## 10.3. Paginación: qué se página y qué no
 
 No todos los endpoints llevan paginación.
 
@@ -1151,19 +1151,19 @@ Estado recomendado:
 ## 18. Relación con documentos siguientes
 
 - **`05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`**
-  formaliza `ApiResponse`, `ApiErrorResponse`, errores y contratos mencionados aquí.
+ formaliza `ApiResponse`, `ApiErrorResponse`, errores y contratos mencionados aquí.
 
 - **`06_backend_v1_api_endpoints_y_casos_de_uso.md`**
-  aterriza el catálogo de endpoints por módulo y por orquestación.
+ aterriza el catálogo de endpoints por módulo y por orquestación.
 
 - **`07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`**
-  aterriza VR/RN y su ubicación real en `application`/`domain`/excepciones.
+ aterriza VR/RN y su ubicación real en `application`/`domain`/excepciones.
 
 - **`08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`**
-  formaliza `page/size/sort/q`, filtros y criterios de consulta.
+ formaliza `page/size/sort/q`, filtros y criterios de consulta.
 
 - **`10_backend_v1_reporte_solicitudes_cola_simple_db_queue.md`**
-  detalla el módulo `reporte` cuando se implemente cola simple en BD.
+ detalla el módulo `reporte` cuando se implemente cola simple en BD.
 
 ---
 

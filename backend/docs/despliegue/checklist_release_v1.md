@@ -1,6 +1,6 @@
 ﻿# Checklist release v1
 
-## Codigo
+## Código
 - [ ] `mvn -DskipTests=false test` en verde.
 - [ ] `mvn -DskipTests package` en verde.
 - [ ] Sin TODO críticos pendientes.
@@ -8,7 +8,7 @@
 
 ## API y contrato
 - [ ] Endpoints clave validados (auth, estudiantes, reportes).
-- [ ] Codigos de error estables documentados.
+- [ ] Códigos de error estables documentados.
 - [ ] Swagger accesible en entorno release.
 - [ ] Flujo asíncrono de reportes validado (`PENDIENTE -> EN_PROCESO -> COMPLETADA/ERROR`).
 - [ ] Descarga de archivo de reporte validada (si ya aplica en esta release).
@@ -16,7 +16,7 @@
 ## Datos y migraciones
 - [ ] Esquema DB v2 aplicado en ambiente objetivo.
 - [ ] Backups previos disponibles.
-- [ ] Variables de conexion verificadas.
+- [ ] Variables de conexión verificadas.
 
 ## Seguridad
 - [ ] `JWT_SECRET` fuerte en ambiente release.

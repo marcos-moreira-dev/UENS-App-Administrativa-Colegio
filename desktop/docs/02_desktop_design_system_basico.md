@@ -102,8 +102,8 @@ Regla:
 ### 5.2 Grid práctico
 - Usar **contenedores** con ancho máximo (no estirar todo siempre).
 - Columnas recomendadas:
-  - listas/tablas: 1 columna principal + panel lateral opcional
-  - formularios: 1 columna (simple) o 2 columnas (cuando hay muchos campos)
+ - listas/tablas: 1 columna principal + panel lateral opcional
+ - formularios: 1 columna (simple) o 2 columnas (cuando hay muchos campos)
 
 ### 5.3 Breakpoints (desktop)
 No se trabaja como responsive web, pero sí:
@@ -264,7 +264,7 @@ Reglas:
 
 ### 8.2 Naming
 - Evitar espacios en nombres de archivo en assets finales.
-  - ejemplo recomendado: `representante_legal.png` en vez de `Representante legal.png`
+ - ejemplo recomendado: `representante_legal.png` en vez de `Representante legal.png`
 
 ---
 

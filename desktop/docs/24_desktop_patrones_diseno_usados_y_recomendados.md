@@ -2,42 +2,42 @@
 
 - **Proyecto:** UENS Desktop (JavaFX)
 - **Arquitectura base:** MVVM + Navigator
-- **Objetivo:** explicar que patrones ya estan implementados, por que se eligieron y bajo que criterio conviene seguir usandolos.
+- **Objetivo:** explicar que patrones ya están implementados, por qué se eligieron y bajo qué criterio conviene seguir usándolos.
 
 ---
 
 ## 1) Propósito
 Este documento no busca adornar la arquitectura.
 
-Su funcion es:
+Su función es:
 
-1. decir que patrones existen de verdad en el codigo;
+1. decir que patrones existen de verdad en el código;
 2. justificar por que se adoptaron;
 3. dejar criterios claros para decidir si un patron nuevo merece entrar o no;
 4. servir como material docente para revisiones técnicas del frontend desktop.
 
 ---
 
-## 2) Criterios de decision arquitectonica
+## 2) Criterios de decision arquitectónica
 
 Un patron solo debe entrar si cumple al menos dos de estos criterios:
 
 ### Criterio A: reduce repeticion real
-Si la repeticion aparece en varios controllers, servicios o flujos, el patron puede ahorrar codigo y errores.
+Si la repeticion aparece en varios controllers, servicios o flujos, el patron puede ahorrar código y errores.
 
 ### Criterio B: mejora legibilidad
-Si el codigo queda más facil de leer para estudiantes, revisores y mantenedores, el patron aporta valor docente y técnico.
+Si el código queda más facil de leer para estudiantes, revisores y mantenedores, el patron aporta valor docente y técnico.
 
 ### Criterio C: baja acoplamiento
 Si separa mejor UI, sesión, backend o capa visual, el patron vale la pena.
 
 ### Criterio D: prepara crecimiento natural
-Si el sistema probablemente crecera por la misma linea, el patron ayuda a no rehacer la arquitectura luego.
+Si el sistema probablemente crecera por la misma línea, el patron ayuda a no rehacer la arquitectura luego.
 
 ### Criterio E: no rompe simplicidad operativa
 Si para entenderlo se necesita demasiada infraestructura extra, no conviene en esta etapa.
 
-**Regla final:** si un patron agrega más lenguaje que solucion, no entra.
+**Regla final:** si un patron agrega más lenguaje que solución, no entra.
 
 ---
 
@@ -68,7 +68,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 - `ObservableList`
 
 **Por que se usa:**
-- la UI reacciona a cambios de estado sin codigo imperativo repetitivo;
+- la UI reacciona a cambios de estado sin código imperativo repetitivo;
 - reduce sincronizacion manual.
 
 **Criterio que cumple:** A, B, C.
@@ -95,7 +95,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 
 **Por que se usa:**
 - FXMLLoader recibe controllers ya cableados;
-- evita construccion manual repetida.
+- evita construcción manual repetida.
 
 **Criterio que cumple:** A, B, C.
 
@@ -108,7 +108,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 - `ViewId`
 
 **Por que se usa:**
-- toda navegación pasa por un punto comun;
+- toda navegación pasa por un punto común;
 - se pueden aplicar guards de sesión y rol;
 - evita que cada controller cargue FXML por su cuenta.
 
@@ -231,13 +231,13 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 ### 4.1 Presenter / Mapper en CRUD secundarios
 **Recomendación:** seguir sacando formato visual de controllers de `Docentes`, `Secciones`, `Asignaturas` y similares.
 
-**Por que todavia vale la pena:** esos controllers aun concentran demasiado texto visible y decisiones de presentacion.
+**Por que todavia vale la pena:** esos controllers aún concentran demasiado texto visible y decisiones de presentacion.
 
 ### 4.2 Command en acciones de tabla más complejas
 **Recomendación:** extender `Command` a flujos como reintentos, cambios de estado, refrescos fuertes y acciones compuestas.
 
 ### 4.3 Query Object en cualquier listado nuevo
-**Regla práctica:** si un listado ya tiene busqueda, paginacion y tres filtros, no debe nacer con firma larga.
+**Regla práctica:** si un listado ya tiene búsqueda, paginación y tres filtros, no debe nacer con firma larga.
 
 ---
 
@@ -261,7 +261,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 
 ### Un patron SI se acepta si:
 - reduce ruido técnico visible;
-- deja el codigo más didáctico;
+- deja el código más didáctico;
 - baja duplicacion;
 - desacopla UI de backend o de detalles visuales;
 - tiene un punto claro de reaprovechamiento.
@@ -281,13 +281,13 @@ Hoy el frontend desktop ya tiene una base sana para fines productivos y educativ
 - MVVM real, no simulado;
 - navegación centralizada;
 - composition root clara;
-- servicios de aplicacion coherentes;
+- servicios de aplicación coherentes;
 - polling y concurrencia encapsulados;
 - consultas de listados mejor modeladas;
 - drawers y feedback desacoplados;
 - presentacion más limpia en módulos complejos.
 
-Lo que aun queda como deuda natural:
+Lo que aún queda como deuda natural:
 
 - aplicar `Presenter` a más CRUD secundarios;
 - seguir achicando controllers grandes;

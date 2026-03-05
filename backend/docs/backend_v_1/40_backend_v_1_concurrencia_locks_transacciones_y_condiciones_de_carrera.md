@@ -1,13 +1,13 @@
 ﻿# 40_backend_v_1_concurrencia_locks_transacciones_y_condiciones_de_carrera
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: concurrencia, exclusión mutua, transacciones y fallos por acceso simultáneo
 - Relacionado con:
-  - `18_backend_v_1_acid_transacciones_consistencia_backend.md`
-  - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
-  - `30_backend_v_1_testing_estrategia_profesional.md`
-  - `39_backend_v_1_algoritmos_y_estructuras_de_datos_riesgos_backend.md`
+ - `18_backend_v_1_acid_transacciones_consistencia_backend.md`
+ - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
+ - `30_backend_v_1_testing_estrategia_profesional.md`
+ - `39_backend_v_1_algoritmos_y_estructuras_de_datos_riesgos_backend.md`
 
 ---
 
@@ -15,7 +15,7 @@
 
 Este documento busca aclarar uno de los temas más traicioneros del backend real:
 
-el sistema puede funcionar perfecto con un solo usuario, y aun así romperse cuando dos o más actores tocan el mismo recurso casi al mismo tiempo.
+el sistema puede funcionar perfecto con un solo usuario, y aún así romperse cuando dos o más actores tocan el mismo recurso casi al mismo tiempo.
 
 Ese tipo de fallo rara vez se ve bonito.
 
@@ -493,7 +493,7 @@ Cuando una operación importa de verdad, pregúntate:
 1. ¿qué recurso exacto estoy protegiendo?
 2. ¿cuál es la ventana crítica?
 3. ¿quién más puede tocar esto al mismo tiempo?
-4. ¿qué pasa si llega doble request?
+4. ¿qué pasa si llega doble requestá
 5. ¿qué pasa si el proceso cae a mitad?
 6. ¿puedo reintentar sin duplicar efectos?
 7. ¿qué evidencia quedará para soporte?

@@ -84,17 +84,17 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 2. **Backend agnóstico del frontend**, pero orientado a **casos de uso** reales.
 3. **Contrato API uniforme**:
 
-   * éxito: `ApiResponse<T>`
-   * error: `ApiErrorResponse`
-   * listados: `ApiResponse<PageResponseDto<T>>`
+ * éxito: `ApiResponse<T>`
+ * error: `ApiErrorResponse`
+ * listados: `ApiResponse<PageResponseDto<T>>`
 4. **Paginación/consulta uniforme:** `page`, `size`, `sort`, `q` (con whitelist).
 5. **Errores trazables** por categoría: `VR / RN / AUTH / API / SYS`.
 6. **Seguridad V1:** JWT stateless + BCrypt + roles.
 7. **Configuración por `.properties`** (no YAML) + `MessageSource`.
 8. **Reportes asíncronos (DB queue):**
 
-   * `POST /reportes/solicitudes` crea una solicitud (**recomendado:** `201 Created`)
-   * procesamiento interno (worker) y polling a estado/resultado
+ * `POST /reportes/solicitudes` crea una solicitud (**recomendado:** `201 Created`)
+ * procesamiento interno (worker) y polling a estado/resultado
 
 ---
 
@@ -140,7 +140,7 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 * **23** `23_backend_v_1_mantenimiento_operacion_incidentes.md` - trabajo real de mantenimiento, soporte, incidentes y hotfix
 * **24** `24_backend_v_1_observabilidad_logs_metricas_alertas.md` - logs, métricas, dashboards, tracing y alertas
 * **25** `25_backend_v_1_seguridad_practica_backend.md` - seguridad aplicada al backend y a su operación diaria
-* **26** `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md` - performance, tuning, concurrencia y limites
+* **26** `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md` - performance, tuning, concurrencia y límites
 * **27** `27_backend_v_1_integraciones_externas_y_storage_providers.md` - integraciones con terceros, timeouts, retries y storage providers
 * **28** `28_backend_v_1_despliegue_realista_dev_stage_prod.md` - despliegue por ambientes y operación mínima seria
 * **29** `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md` - gobierno de esquema, índices y migraciones
@@ -150,7 +150,7 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 * **33** `33_backend_v_1_habilidades_complementarias_y_analisis_de_datos.md` - habilidades de soporte, SQL analitico, BI y criterio de datos
 * **34** `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md` - siguiente paso realista hacia DevOps e infraestructura
 * **35** `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md` - colas, eventos, RabbitMQ, Kafka, CQRS y CDN con criterio
-* **36** `36_backend_v_1_integracion_ia_modelos_locales_y_en_linea.md` - IA aplicada a producto y backend con modelos locales y en linea
+* **36** `36_backend_v_1_integracion_ia_modelos_locales_y_en_linea.md` - IA aplicada a producto y backend con modelos locales y en línea
 * **37** `37_backend_v_1_landing_page_ux_ui_y_pagos_en_linea.md` - landing page, hero, conversion, UX/UI y gestión técnica de pagos
 * **38** `38_backend_v_1_tipos_de_apis_rest_websocket_sse_graphql_grpc_webhooks_y_roadmap.md` - tipos de API, comparación, cuándo usar cada estilo y roadmap de aprendizaje
 * **39** `39_backend_v_1_algoritmos_y_estructuras_de_datos_riesgos_backend.md` - errores típicos de algoritmos y estructuras de datos que rompen un backend real
@@ -161,7 +161,7 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 
 * **11 (histórico)** `11_backend_v_1_arbol_archivos_proyecto_hipotetico.md`
 
-  * Útil como referencia de contexto, pero **no** es el árbol final de implementación (ese es `14`).
+ * Útil como referencia de contexto, pero **no** es el árbol final de implementación (ese es `14`).
 
 ---
 
@@ -270,8 +270,8 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 * `14` materializa el árbol de archivos final para implementación.
 * `16` consolida trazabilidad RF/VR↔código y prioriza brechas para ejecución incremental.
 
-* `17` cierra auditoria operativa y reporte administrativo desacoplado sobre DB queue.
-* `18` formaliza ACID, limites transaccionales y decisiones de consistencia del backend.
+* `17` cierra auditoría operativa y reporte administrativo desacoplado sobre DB queue.
+* `18` formaliza ACID, límites transaccionales y decisiones de consistencia del backend.
 * `19` traduce el estado real del backend a implicaciones de UX, navegación, permisos y arquitectura frontend.
 * `20` endurece seguridad operativa con controles concretos de abuso, headers web y ownership.
 * `21` consolida la narrativa de refresh token y repositorio documental desacoplado.
@@ -285,7 +285,7 @@ Estas decisiones gobiernan **todos** los documentos del paquete:
 * `31` da criterio de patrones.
 * `32` y `33` cierran la perspectiva de trabajo autónomo y habilidades complementarias.
 * `36` abre la perspectiva de integración con IA desde producto y arquitectura.
-* `37` cubre producto web, landing y pagos desde la programacion.
+* `37` cubre producto web, landing y pagos desde la programación.
 * `38` organiza el mapa de estilos de API y los conecta con una ruta de aprendizaje técnica.
 * `39` baja teoría de algoritmos y estructuras de datos a fallos concretos del backend.
 * `40` profundiza en tiempo, concurrencia y coordinación sobre recursos compartidos.
@@ -300,18 +300,18 @@ Marca como “cerrado” cuando se cumpla:
 * [ ] Los documentos **no referencian archivos que no existan** (o están marcados explícitamente como “pendiente”).
 * [ ] `06` (endpoints) coincide con:
 
-  * `13` (DTOs y permisos)
-  * `08` (whitelists de filtros/sort)
+ * `13` (DTOs y permisos)
+ * `08` (whitelists de filtros/sort)
 * [ ] `05` (contrato) coincide con:
 
-  * `07` (códigos y excepciones)
-  * `09` (401/403 JSON)
-  * `10` (async/polling)
+ * `07` (códigos y excepciones)
+ * `09` (401/403 JSON)
+ * `10` (async/polling)
 * [ ] Se decidió y quedó uniforme:
 
-  * campos exactos de `PageResponseDto` (**elegir 1:** `items` o `content`)
-  * formato exacto de códigos de error (y catálogo mínimo estable)
-  * catálogo mínimo de roles (por lo menos `ADMIN` y `SECRETARIA`) y su política base
+ * campos exactos de `PageResponseDto` (**elegir 1:** `items` o `content`)
+ * formato exacto de códigos de error (y catálogo mínimo estable)
+ * catálogo mínimo de roles (por lo menos `ADMIN` y `SECRETARIA`) y su política base
 * [ ] `09` describe `.properties` (no YAML) y coincide con `14`.
 
 ---

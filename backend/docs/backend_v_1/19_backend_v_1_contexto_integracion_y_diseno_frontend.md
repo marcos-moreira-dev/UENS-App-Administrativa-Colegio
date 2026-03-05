@@ -1,6 +1,6 @@
 ﻿# 19_backend_v_1_contexto_integracion_y_diseno_frontend
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Base de contexto para iniciar frontend
 - Ámbito: Integración frontend <-> backend V1
 - Fecha de corte: 2026-02-27
@@ -36,7 +36,7 @@ El backend V1 ya expone una base funcional consistente para estas areas:
 8. clases
 9. calificaciones
 10. reportes asíncronos
-11. auditoria operativa
+11. auditoría operativa
 
 Eso significa que el frontend ya puede plantearse como un sistema administrativo escolar completo, no solo como CRUDs sueltos.
 
@@ -44,26 +44,26 @@ Eso significa que el frontend ya puede plantearse como un sistema administrativo
 
 ## 3. Estado de confianza del backend
 
-Se realizo validación operativa sobre una instancia limpia del backend y el resultado practico fue:
+Se realizo validación operativa sobre una instancia limpia del backend y el resultado práctico fue:
 
 1. endpoints base funcionando
 2. autenticación por JWT funcionando
 3. permisos `ADMIN` y `SECRETARIA` funcionando en los flujos probados
 4. CRUDs principales funcionando
 5. reportes genericos funcionando
-6. reporte de auditoria funcionando
+6. reporte de auditoría funcionando
 7. descarga de archivos funcionando
 
 Resultado de verificacion manual automatizada:
 
 - 46 de 47 endpoints reales cubiertos de forma operativa
 - el endpoint no cubierto fue `POST /api/v1/reportes/solicitudes/{solicitudId}/reintentar`
-- razon: requiere una solicitud preexistente en estado `ERROR`
+- razón: requiere una solicitud preexistente en estado `ERROR`
 
 Conclusion de frontend:
 
 - ya puedes avanzar con confianza en el diseño del frontend para el flujo normal
-- no debes asumir aun una UX central basada en `reintentar reporte fallido` hasta validarlo en un escenario forzado
+- no debes asumir aún una UX central basada en `reintentar reporte fallido` hasta validarlo en un escenario forzado
 
 ---
 
@@ -107,7 +107,7 @@ Implicacion de frontend:
 2. conserva `errorCode` para logging técnico y reglas UI
 3. no ocultes `requestId` en consola de desarrollo; sirve para soporte
 
-## 4.3 Paginacion
+## 4.3 Paginación
 
 Los listados paginados usan `PageResponseDto` con esta forma:
 
@@ -127,7 +127,7 @@ Los listados paginados usan `PageResponseDto` con esta forma:
 
 Decision importante:
 
-- en este backend la coleccion paginada canonica es `items`
+- en este backend la colección paginada canonica es `items`
 - no disenes tablas esperando `content`
 
 ## 4.4 Autorización
@@ -163,9 +163,9 @@ Puede:
 
 1. ver todo lo que ve `SECRETARIA`
 2. cambiar estados sensibles
-3. crear y actualizar catalogos academicos restringidos
-4. acceder a auditoria
-5. solicitar reporte de auditoria
+3. crear y actualizar catalogos académicos restringidos
+4. acceder a auditoría
+5. solicitar reporte de auditoría
 6. reintentar reportes fallidos
 
 ## 5.2 `SECRETARIA`
@@ -183,8 +183,8 @@ Puede:
 
 No puede:
 
-1. entrar a auditoria
-2. solicitar reportes de auditoria
+1. entrar a auditoría
+2. solicitar reportes de auditoría
 3. ejecutar endpoints marcados solo para `ADMIN`
 
 ---
@@ -274,14 +274,14 @@ Frontend:
 
 Permisos:
 
-- `ADMIN`, `SECRETARIA`: listar, ver detalle, crear, actualizar, asignar seccion vigente
+- `ADMIN`, `SECRETARIA`: listar, ver detalle, crear, actualizar, asignar sección vigente
 - `ADMIN`: cambiar estado
 
 Frontend:
 
 1. es uno de los módulos principales
 2. requiere formulario más rico
-3. la accion de asignar seccion merece CTA propio
+3. la acción de asignar sección merece CTA propio
 
 ## 6.9 Clases
 
@@ -321,11 +321,11 @@ Frontend:
 3. historial de solicitudes
 4. descargas
 
-## 6.12 Auditoria
+## 6.12 Auditoría
 
 Permisos:
 
-- `ADMIN`: listar eventos, crear solicitud de reporte de auditoria
+- `ADMIN`: listar eventos, crear solicitud de reporte de auditoría
 - `SECRETARIA`: sin acceso
 
 Frontend:
@@ -351,16 +351,16 @@ Debe resolver:
 
 1. estado autenticado/no autenticado
 2. lectura de `auth/me`
-3. construccion dinamica del menu por rol
+3. construcción dinamica del menu por rol
 
 ## 7.2 Flujo de estudiantes
 
 Pantallas:
 
 1. listado de estudiantes
-2. detalle o edicion
+2. detalle o edición
 3. crear estudiante
-4. asignar seccion vigente
+4. asignar sección vigente
 
 Por que primero:
 
@@ -373,12 +373,12 @@ Por que primero:
 Pantallas:
 
 1. listado filtrable
-2. crear/editar calificacion
+2. crear/editar calificación
 
 Por que pronto:
 
 1. toca un flujo operativo real
-2. te obliga a manejar validaciones de numeros y parciales
+2. te obliga a manejar validaciones de números y parciales
 
 ## 7.4 Flujo de reportes
 
@@ -394,7 +394,7 @@ Por que antes de cerrar frontend:
 1. define experiencia asíncrona
 2. cambia la arquitectura del manejo de loading y background states
 
-## 7.5 Flujo de auditoria
+## 7.5 Flujo de auditoría
 
 Pantallas:
 
@@ -458,7 +458,7 @@ Ejemplo real observado:
 
 Eso significa que el frontend no debe traducir todo error a "fallo técnico".
 
-## 8.4 Necesitas patron de tablas con filtros y paginacion
+## 8.4 Necesitas patron de tablas con filtros y paginación
 
 Porque casi todos los módulos lo usan.
 
@@ -493,12 +493,12 @@ Tiene:
 1. roles
 2. estados
 3. reportes asíncronos
-4. auditoria
+4. auditoría
 5. descargas binarias
 
 Si disenas solo tablas + formularios, el frontend va a quedar corto.
 
-## 9.2 Debes diseñar por permisos, no solo por paginas
+## 9.2 Debes diseñar por permisos, no solo por páginas
 
 Ejemplo:
 
@@ -585,7 +585,7 @@ Recomendación de navegación:
 1. tabla principal
 2. drawer/modal de detalle
 3. formulario crear/editar
-4. accion asignar seccion
+4. acción asignar sección
 
 ### Representantes
 
@@ -611,7 +611,7 @@ Recomendación de navegación:
 ### Clases
 
 1. tabla tipo horario o lista
-2. filtros por seccion/asignatura/docente/día
+2. filtros por sección/asignatura/docente/día
 3. CRUD solo ADMIN
 
 ### Calificaciones
@@ -628,11 +628,11 @@ Recomendación de navegación:
 4. descarga
 5. reintentar solo ADMIN
 
-### Auditoria
+### Auditoría
 
 1. tabla de eventos
-2. filtros por módulo/accion/resultado/actor/fecha
-3. generación de reporte de auditoria
+2. filtros por módulo/acción/resultado/actor/fecha
+3. generación de reporte de auditoría
 
 ---
 
@@ -659,7 +659,7 @@ Flujo:
 4. frontend consulta estado
 5. cuando esta `COMPLETADA`, habilita descarga
 
-## 11.2 Reporte de auditoria
+## 11.2 Reporte de auditoría
 
 Acceso:
 
@@ -684,7 +684,7 @@ No disenes:
 
 ## 12. Validaciones de frontend recomendadas
 
-Aunque el backend valida, el frontend debe validar lo obvio para reducir friccion.
+Aunque el backend valida, el frontend debe validar lo obvio para reducir fricción.
 
 ## 12.1 Generales
 
@@ -719,7 +719,7 @@ Aunque el backend valida, el frontend debe validar lo obvio para reducir friccio
 
 Conduce a:
 
-1. botones que luego hay que esconder a ultima hora
+1. botones que luego hay que esconder a última hora
 2. UX inconsistente entre `ADMIN` y `SECRETARIA`
 
 ## 13.2 Diseñar reportes como descarga inmediata
@@ -730,7 +730,7 @@ Conduce a:
 2. errores de expectativa
 3. acoplamiento incorrecto con backend
 
-## 13.3 Diseñar tablas sin paginacion real
+## 13.3 Diseñar tablas sin paginación real
 
 Conduce a:
 
@@ -760,14 +760,14 @@ Orden recomendado:
 8. módulo clases
 9. módulo calificaciones
 10. módulo reportes
-11. módulo auditoria
+11. módulo auditoría
 
 Justificacion:
 
 1. resuelves primero sesión y permisos
 2. luego resuelves componentes reutilizables
 3. luego resuelves el dominio central
-4. dejas auditoria al final porque depende de un backend ya estable
+4. dejas auditoría al final porque depende de un backend ya estable
 
 ---
 
@@ -802,7 +802,7 @@ Conviene definir desde el inicio:
 ## 16.2 Estado por vista
 
 1. filtros
-2. paginacion
+2. paginación
 3. ordenamiento
 4. loading
 5. error
@@ -814,7 +814,7 @@ Conviene definir desde el inicio:
 1. solicitudes cargadas
 2. solicitud seleccionada
 3. estado actual
-4. ultimo refresh
+4. último refresh
 5. archivo disponible o no
 
 ---
@@ -839,9 +839,9 @@ Implicacion:
 1. no necesitas construir el PDF en frontend
 2. el frontend solo dispara solicitud y descarga
 
-## 17.3 Auditoria
+## 17.3 Auditoría
 
-La auditoria no es solo `otra tabla`.
+La auditoría no es solo `otra tabla`.
 
 Es módulo de trazabilidad y supervision.
 
@@ -878,8 +878,8 @@ Para iniciar frontend, estas son las decisiones que debes asumir como base:
 1. el backend ya no se disena como hipotesis; ya responde con contratos y permisos reales
 2. la UI debe ser sensible a rol desde el primer día
 3. la experiencia de reportes debe ser asíncrona
-4. la paginacion y filtros deben ser un patron comun
-5. auditoria debe existir como módulo de administración avanzada, no como detalle secundario
+4. la paginación y filtros deben ser un patron común
+5. auditoría debe existir como módulo de administración avanzada, no como detalle secundario
 6. la integración debe centrarse en `data`, `errorCode`, `message` y `requestId`
 
 Si disenas respetando este contexto, el frontend va a quedar alineado con el backend actual y no vas a tener que rehacer arquitectura por choques de contrato.
@@ -891,17 +891,17 @@ Si disenas respetando este contexto, el frontend va a quedar alineado con el bac
 Actualizacion importante para frontend:
 
 1. La sesión ya no es solo `accessToken + usuario`.
-   El desktop mantiene:
-   - `accessToken`
-   - `refreshToken`
-   - expiración absoluta de ambos
-   - usuario autenticado
+ El desktop mantiene:
+ - `accessToken`
+ - `refreshToken`
+ - expiración absoluta de ambos
+ - usuario autenticado
 
 2. `ApiClient` intenta renovar el `accessToken` automaticamente antes de que expire.
 
 3. Si `refresh` falla y el `accessToken` ya no sirve, el cliente ejecuta logout local y vuelve al flujo de autenticación.
 
 4. Las descargas de reportes salen como binario HTTP, pero el backend ya no depende de rutas fisicas expuestas al frontend.
-   Internamente usa un repositorio documental desacoplado.
+ Internamente usa un repositorio documental desacoplado.
 
 

@@ -1,12 +1,12 @@
 ﻿# 33_backend_v_1_habilidades_complementarias_y_analisis_de_datos
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: habilidades que suman mucho al backend
 - Relacionado con:
-  - `15_backend_v_1_reportes_generacion_archivos_excel_pdf_word.md`
-  - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
-  - `32_backend_v_1_freelance_backend_y_trabajo_autonomo.md`
+ - `15_backend_v_1_reportes_generacion_archivos_excel_pdf_word.md`
+ - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
+ - `32_backend_v_1_freelance_backend_y_trabajo_autonomo.md`
 
 ---
 

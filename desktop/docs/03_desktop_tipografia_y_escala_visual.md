@@ -68,10 +68,10 @@ La carga debe hacerse **una vez** en el arranque de la app (por ejemplo al inici
 
 ### 4.1 Regla de arquitectura
 - El **bootstrap** y el **ThemeManager** deben garantizar:
-  1) registrar fonts desde `resources`,
-  2) cargar CSS base,
-  3) aplicar la familia activa a la Scene,
-  4) y luego navegar a login/shell.
+ 1) registrar fonts desde `resources`,
+ 2) cargar CSS base,
+ 3) aplicar la familia activa a la Scene,
+ 4) y luego navegar a login/shell.
 
 Esto evita que al cambiar escenas/vistas se “pierda” el look.
 

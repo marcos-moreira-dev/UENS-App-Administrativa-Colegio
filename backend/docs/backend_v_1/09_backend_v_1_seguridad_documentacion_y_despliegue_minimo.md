@@ -1,27 +1,27 @@
 ﻿# 09_backend_v1_seguridad_documentacion_y_despliegue_minimo
 
-> Complemento vigente: para el hardening operativo ya implementado en codigo revisar tambien `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`.
+> Complemento vigente: para el hardening operativo ya implementado en código revisar tambien `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`.
 
 - **Versión:** 0.2
 - **Estado:** En revisión (reconstruido y alineado con `05–08`)
 - **Ámbito:** Backend V1 (Spring Boot + Java 21 + ORM + DTOs + mappers manuales)
 - **Depende de:**
-  - `00_backend_v1_indice_y_mapa_documental.md`
-  - `01_backend_v1_vision_y_alcance.md`
-  - `02_backend_v1_arquitectura_general.md`
-  - `03_backend_v1_convenciones_y_estandares_codigo.md`
-  - `04_backend_v1_modelado_aplicacion_y_modulos.md`
-  - `05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`
-  - `06_backend_v1_api_endpoints_y_casos_de_uso.md`
-  - `07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`
-  - `08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`
+ - `00_backend_v1_indice_y_mapa_documental.md`
+ - `01_backend_v1_vision_y_alcance.md`
+ - `02_backend_v1_arquitectura_general.md`
+ - `03_backend_v1_convenciones_y_estandares_codigo.md`
+ - `04_backend_v1_modelado_aplicacion_y_modulos.md`
+ - `05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`
+ - `06_backend_v1_api_endpoints_y_casos_de_uso.md`
+ - `07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`
+ - `08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`
 - **Referencias de contexto funcional/base de datos:**
-  - `01_levantamiento_informacion_negocio.md`
-  - `02_levantamiento_requerimientos.md`
-  - `03_modelo_conceptual_dominio.md`
-  - `04_reglas_negocio_y_supuestos.md`
-  - `05_glosario_alcance_y_limites.md`
-  - `V2_3FN.sql`
+ - `01_levantamiento_informacion_negocio.md`
+ - `02_levantamiento_requerimientos.md`
+ - `03_modelo_conceptual_dominio.md`
+ - `04_reglas_negocio_y_supuestos.md`
+ - `05_glosario_alcance_y_limites.md`
+ - `V2_3FN.sql`
 - **Objetivo de esta revisión:** Definir una base V1 profesional y pragmática para seguridad, documentación de API y despliegue mínimo, manteniendo compatibilidad con JavaFX (cliente) sin acoplar el backend a la UI.
 
 ---
@@ -211,10 +211,10 @@ Bajo `ApiResponse<T>` (`05`), devolver por ejemplo:
 - `tokenType` = `Bearer`
 - `expiresInSeconds`
 - `usuario` (resumen sin datos sensibles)
-  - `id`
-  - `login`
-  - `rol`
-  - `estado`
+ - `id`
+ - `login`
+ - `rol`
+ - `estado`
 
 ✅ No devolver password, hashes, ni campos internos.
 
@@ -1012,12 +1012,12 @@ Para este proyecto didáctico, lo más útil es dejar ambos canales activos:
 - archivo rotativo para soporte operativo
 
 Base sugerida:
-- `requestId` en cada linea via MDC
+- `requestId` en cada línea via MDC
 - salida a consola para ver el flujo en tiempo real
 - archivo `logs/uens-backend.log`
 - rotacion por tamano y fecha para no crecer sin control
 
-Variables útiles para no tocar codigo:
+Variables útiles para no tocar código:
 - `LOG_LEVEL_ROOT`
 - `LOG_LEVEL_APP`
 - `LOG_FILE_PATH`
@@ -1270,7 +1270,7 @@ La cola simple DB queue puede requerir:
 
 ## Addendum 2026-03-03: refresh token y storage documental
 
-Las secciones antiguas que marcaban "sin refresh token en V1" quedan superadas por el estado actual del codigo.
+Las secciones antiguas que marcaban "sin refresh token en V1" quedan superadas por el estado actual del código.
 
 Estado vigente:
 - `accessToken` JWT corto

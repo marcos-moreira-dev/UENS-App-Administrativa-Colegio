@@ -841,22 +841,22 @@ Estas reglas se consideran obligatorias (salvo justificación documentada):
 Este documento condiciona directamente:
 
 - **`03_backend_v1_convenciones_y_estandares_codigo.md`**
-  - naming, comentarios, estructura fina de clases/paquetes.
+ - naming, comentarios, estructura fina de clases/paquetes.
 
 - **`04_backend_v1_modelado_aplicacion_y_modulos.md`**
-  - aterriza mapa de módulos, responsabilidades y casos compuestos.
+ - aterriza mapa de módulos, responsabilidades y casos compuestos.
 
 - **`05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`**
-  - formaliza contrato API que esta arquitectura usará en todos los módulos.
+ - formaliza contrato API que esta arquitectura usará en todos los módulos.
 
 - **`06_backend_v1_api_endpoints_y_casos_de_uso.md`**
-  - define el catálogo real de endpoints con base en esta arquitectura.
+ - define el catálogo real de endpoints con base en esta arquitectura.
 
 - **`07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`**
-  - aterriza dónde viven VR/RN y cómo se convierten en errores API.
+ - aterriza dónde viven VR/RN y cómo se convierten en errores API.
 
 - **`10_backend_v1_reporte_solicitudes_cola_simple_db_queue.md`**
-  - detalla la asincronía simple compatible con esta arquitectura.
+ - detalla la asincronía simple compatible con esta arquitectura.
 
 ---
 

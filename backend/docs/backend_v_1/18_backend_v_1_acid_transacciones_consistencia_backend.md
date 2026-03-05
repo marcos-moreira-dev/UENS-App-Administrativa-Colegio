@@ -1,6 +1,6 @@
 ﻿# 18_backend_v_1_acid_transacciones_consistencia_backend
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Aterrizado sobre implementacion real
 - Ámbito: Backend V1 + PostgreSQL
 - Fecha de corte: 2026-02-27
@@ -9,7 +9,7 @@
 
 ## 1. Propósito
 
-Explicar como se aplica ACID en el backend UENS, que parte resuelve PostgreSQL, que parte resuelve Spring Boot y que decisiones concretas se tomaron para mantener consistencia transaccional sin sobreingenieria.
+Explicar cómo se aplica ACID en el backend UENS, que parte resuelve PostgreSQL, que parte resuelve Spring Boot y que decisiones concretas se tomaron para mantener consistencia transaccional sin sobreingenieria.
 
 ---
 
@@ -21,7 +21,7 @@ Una operación transaccional debe ocurrir completa o no ocurrir.
 
 Ejemplo:
 
-- crear un estudiante y asignarlo a una seccion no debe dejar media operación persistida.
+- crear un estudiante y asignarlo a una sección no debe dejar media operación persistida.
 
 ## 2.2 Consistencia
 
@@ -29,7 +29,7 @@ La base debe pasar de un estado válido a otro estado válido.
 
 Ejemplo:
 
-- no se debe permitir una calificacion fuera de rango o una referencia a una entidad inexistente.
+- no se debe permitir una calificación fuera de rango o una referencia a una entidad inexistente.
 
 ## 2.3 Aislamiento
 
@@ -41,11 +41,11 @@ Ejemplo:
 
 ## 2.4 Durabilidad
 
-Cuando una transaccion hace `COMMIT`, el dato debe quedar persistido.
+Cuando una transacción hace `COMMIT`, el dato debe quedar persistido.
 
 Ejemplo:
 
-- una solicitud de reporte confirmada o un evento de auditoria confirmado deben sobrevivir a reinicios normales del proceso.
+- una solicitud de reporte confirmada o un evento de auditoría confirmado deben sobrevivir a reinicios normales del proceso.
 
 ---
 
@@ -64,19 +64,19 @@ PostgreSQL aporta:
 
 Spring aporta:
 
-1. limites transaccionales via `@Transactional`
+1. límites transaccionales via `@Transactional`
 2. propagacion de transacciones
-3. separacion entre comandos y consultas
+3. separación entre comandos y consultas
 4. control del ciclo de persistencia JPA
 
 ## 3.3 Backend UENS
 
-La aplicacion aporta:
+La aplicación aporta:
 
 1. validaciones funcionales antes de persistir
 2. manejo de worker de reportes con claim concurrente
 3. compensacion cuando interviene filesystem
-4. trazabilidad de auditoria desacoplada
+4. trazabilidad de auditoría desacoplada
 
 ---
 
@@ -132,11 +132,11 @@ Justificacion:
 
 ## 4.4 Durabilidad ya aplicada
 
-Cuando PostgreSQL confirma una transaccion:
+Cuando PostgreSQL confirma una transacción:
 
 - la solicitud de reporte queda persistida
 - los cambios funcionales quedan persistidos
-- los eventos de auditoria, si confirman, quedan persistidos
+- los eventos de auditoría, si confirman, quedan persistidos
 
 ---
 
@@ -155,12 +155,12 @@ Eso no rompe ACID de PostgreSQL, pero si rompe atomicidad de negocio entre:
 - filesystem
 - metadata SQL
 
-## 5.2 Auditoria dentro de la misma transaccion principal
+## 5.2 Auditoría dentro de la misma transacción principal
 
 Problema anterior:
 
-- un evento de auditoria podia formar parte de la misma transaccion del caso de uso
-- si la transaccion principal revertia, la evidencia podia perderse
+- un evento de auditoría podia formar parte de la misma transacción del caso de uso
+- si la transacción principal revertia, la evidencia podia perderse
 
 Eso era aceptable para V1 simple, pero debil para trazabilidad operativa.
 
@@ -168,7 +168,7 @@ Eso era aceptable para V1 simple, pero debil para trazabilidad operativa.
 
 ## 6. Mejoras implementadas ahora
 
-## 6.1 Auditoria con transaccion independiente
+## 6.1 Auditoría con transacción independiente
 
 Archivo:
 
@@ -180,13 +180,13 @@ Cambio:
 
 Justificacion:
 
-1. la auditoria es evidencia operativa
-2. conviene que su confirmación no dependa por completo de la transaccion llamadora
-3. si el registro de auditoria falla, no debe tumbar el caso de uso principal
+1. la auditoría es evidencia operativa
+2. conviene que su confirmación no dependa por completo de la transacción llamadora
+3. si el registro de auditoría falla, no debe tumbar el caso de uso principal
 
 Resultado:
 
-- mejor durabilidad de auditoria
+- mejor durabilidad de auditoría
 - menor acoplamiento transaccional
 
 ## 6.2 Compensacion de archivos de reporte
@@ -198,11 +198,11 @@ Archivos:
 
 Cambio:
 
-- si el worker ya genero archivo pero luego ocurre error en la persistencia del resultado, se elimina el archivo en disco de forma compensatoria
+- si el worker ya género archivo pero luego ocurre error en la persistencia del resultado, se elimina el archivo en disco de forma compensatoria
 
 Justificacion:
 
-1. el filesystem no participa en la transaccion SQL
+1. el filesystem no participa en la transacción SQL
 2. sin compensacion, quedan residuos no trazados
 3. la compensacion reduce inconsistencia observable
 
@@ -231,9 +231,9 @@ Justificacion:
 
 ## 8. Limitaciones que siguen existiendo
 
-## 8.1 Filesystem y base de datos no forman una sola transaccion real
+## 8.1 Filesystem y base de datos no forman una sola transacción real
 
-La compensacion mejora mucho el problema, pero no convierte disco + SQL en una transaccion unica.
+La compensacion mejora mucho el problema, pero no convierte disco + SQL en una transacción única.
 
 Interpretacion correcta:
 
@@ -245,12 +245,12 @@ El procesamiento de pendientes sigue agrupado por lote dentro del worker.
 
 Eso es suficiente para V1, pero a futuro puede endurecerse con:
 
-- una transaccion nueva por item procesado
+- una transacción nueva por item procesado
 - servicio dedicado por unidad de trabajo
 
-## 8.3 Auditoria tolerante a fallo
+## 8.3 Auditoría tolerante a fallo
 
-La auditoria sigue capturando excepciones internas y registrando `warn`.
+La auditoría sigue capturando excepciones internas y registrando `warn`.
 
 Esto es una decision deliberada:
 
@@ -259,7 +259,7 @@ Esto es una decision deliberada:
 
 ---
 
-## 9. Justificacion arquitectonica
+## 9. Justificacion arquitectónica
 
 La política adoptada es:
 
@@ -267,22 +267,22 @@ La política adoptada es:
 2. transacciones Spring en servicios de escritura
 3. aislamiento reforzado donde realmente hay concurrencia (`DB queue`)
 4. compensacion donde sale del motor transaccional (filesystem)
-5. auditoria en transaccion aparte por valor pedagogico y operativo
+5. auditoría en transacción aparte por valor pedagogico y operativo
 
-Es una solucion profesional y realista para este contexto.
+Es una solución profesional y realista para este contexto.
 
 ---
 
-## 10. Evidencia técnica en codigo
+## 10. Evidencia técnica en código
 
 - `modules/reporte/infrastructure/persistence/repository/ReporteSolicitudQueueClaimRepositoryImpl`
-  - claim concurrente con `FOR UPDATE SKIP LOCKED`
+ - claim concurrente con `FOR UPDATE SKIP LOCKED`
 - `modules/auditoria/application/AuditoriaEventService`
-  - auditoria con `REQUIRES_NEW`
+ - auditoría con `REQUIRES_NEW`
 - `modules/reporte/application/ReporteSolicitudWorkerService`
-  - compensacion y persistencia del resultado
+ - compensacion y persistencia del resultado
 - `modules/reporte/application/ReporteFileGenerationService`
-  - eliminacion silenciosa del archivo durante compensacion
+ - eliminacion silenciosa del archivo durante compensacion
 
 ---
 
@@ -294,7 +294,7 @@ Frase corta útil:
 
 Frase más técnica:
 
-> En UENS, ACID se garantiza de forma fuerte dentro de la base de datos y de forma pragmatica en integraciones no transaccionales, especialmente en reportes, donde se aplico compensacion de archivos y auditoria desacoplada con `REQUIRES_NEW`.
+> En UENS, ACID se garantiza de forma fuerte dentro de la base de datos y de forma pragmatica en integraciones no transaccionales, especialmente en reportes, donde se aplico compensacion de archivos y auditoría desacoplada con `REQUIRES_NEW`.
 
 ---
 
@@ -302,7 +302,7 @@ Frase más técnica:
 
 Si luego quieres subir un nivel más:
 
-1. procesar cada solicitud de reporte en transaccion independiente
+1. procesar cada solicitud de reporte en transacción independiente
 2. agregar pruebas de concurrencia sobre la cola
 3. registrar checksum del archivo generado para trazabilidad
 4. agregar política de limpieza de archivos huerfanos por tarea programada

@@ -1,12 +1,12 @@
 ﻿# 26_backend_v_1_performance_escalabilidad_y_cuello_de_botella
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: rendimiento y escalabilidad con criterio
 - Relacionado con:
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 
@@ -29,7 +29,7 @@ Es medir, encontrar el cuello de botella y actuar donde realmente duele.
 
 ---
 
-## 3. Regla numero uno
+## 3. Regla número uno
 
 No optimices algo que no mediste.
 
@@ -96,12 +96,12 @@ Escalar horizontalmente sin arreglar eso solo multiplica el caos.
 
 ---
 
-## 8. Criterio practico para este proyecto
+## 8. Criterio práctico para este proyecto
 
 Lo siguiente más rentable para UENS seria:
 
 1. medir tiempos de CRUD grandes
-2. vigilar queries de filtros y paginacion
+2. vigilar queries de filtros y paginación
 3. vigilar generación de reportes
 4. revisar crecimiento de archivos y disco
 
@@ -109,7 +109,7 @@ Lo siguiente más rentable para UENS seria:
 
 ## 9. Señales de que necesitas otra arquitectura
 
-Podrias pensar en colas más serias o mensajeria cuando:
+Podrias pensar en colas más serias o mensajería cuando:
 
 - los jobs aumentan mucho
 - aparecen integraciones externas lentas

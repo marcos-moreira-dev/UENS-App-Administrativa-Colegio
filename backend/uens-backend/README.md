@@ -1,20 +1,20 @@
 ﻿# UENS Backend
 
-README global del backend para arrancar rapido y entender como esta organizado.
+README global del backend para arrancar rápido y entender cómo está organizado.
 
 ## En una frase
 Flujo recomendado para desarrollo diario:
 - Docker para PostgreSQL.
 - Maven local para la API Spring Boot.
 
-"Todo Docker" queda como opcion para demo, pruebas de integracion o validar la imagen.
+"Todo Docker" queda como opción para demo, pruebas de integración o validar la imagen.
 
 ## Requisitos
 - Java 21
-- Docker Desktop (para PostgreSQL y opcion full Docker)
+- Docker Desktop (para PostgreSQL y opción full Docker)
 - PowerShell (Windows) o Bash (Linux/macOS)
 
-## Inicio rapido (recomendado)
+## Inicio rápido (recomendado)
 
 ### Windows (PowerShell)
 ```powershell
@@ -37,15 +37,15 @@ Que hace este flujo:
 - Carga variables desde `.env`.
 - Arranca Spring Boot con perfil `dev`.
 
-## Como correr la API (opciones)
+## Cómo correr la API (opciones)
 
-### Opcion A: DB en Docker + API local (Maven) [recomendada]
+### Opción A: DB en Docker + API local (Maven) [recomendada]
 Ventajas:
 - Mejor debugging (breakpoints, logs, hot reload/devtools).
-- Build y reinicio mas rapido que reconstruir imagen Docker.
-- Menos friccion para desarrollar endpoints.
+- Build y reinicio mas rápido que reconstruir imagen Docker.
+- Menos fricción para desarrollar endpoints.
 
-Comandos utiles:
+Comandos útiles:
 ```powershell
 cd backend/uens-backend
 .\tools\scripts\dev\up-db.ps1
@@ -57,7 +57,7 @@ Para bajar la DB:
 .\tools\scripts\dev\down-db.ps1
 ```
 
-### Opcion B: Todo Docker (DB + API)
+### Opción B: Todo Docker (DB + API)
 Usa el perfil `full` del `docker-compose.yml`.
 
 ```powershell
@@ -75,7 +75,7 @@ Cuando conviene:
 - Verificar que la imagen Docker de la API compila y arranca.
 - Simular entorno mas cercano a despliegue.
 
-## Como usar Docker en este backend
+## Cómo usar Docker en este backend
 
 ### Servicios definidos en `docker-compose.yml`
 - `db`: PostgreSQL de desarrollo.
@@ -89,7 +89,7 @@ Cuando conviene:
 - API local (Maven) se conecta a `localhost:5433`.
 - API en contenedor se conecta a `db:5432` (red interna Docker).
 
-### Comandos Docker utiles
+### Comandos Docker útiles
 ```powershell
 # Ver estado de servicios
 docker compose ps
@@ -107,26 +107,26 @@ docker compose --profile full up --build
 docker compose down
 ```
 
-## Configuracion: que archivo manda que cosa
+## Configuración: que archivo manda que cosa
 
 ### Archivos de entorno
 - `.env`
-  - Configuracion local real (NO versionar secretos).
-  - Docker Compose lo usa para interpolar variables.
-  - Los scripts `run-local.*` lo cargan para Spring Boot.
+ - Configuración local real (NO versionar secretos).
+ - Docker Compose lo usa para interpolar variables.
+ - Los scripts `run-local.*` lo cargan para Spring Boot.
 - `.env.example`
-  - Plantilla para crear tu `.env`.
+ - Plantilla para crear tu `.env`.
 
-### Configuracion Spring (`src/main/resources`)
+### Configuración Spring (`src/main/resources`)
 - `application.properties`
-  - Configuracion comun minima de la app.
+ - Configuración común minima de la app.
 - `application-default.properties`
-  - Perfil `default`: arranque minimo sin DB (desactiva DataSource/JPA).
+ - Perfil `default`: arranque mínimo sin DB (desactiva DataSource/JPA).
 - `application-dev.properties`
-  - Perfil `dev`: habilita PostgreSQL/JPA.
-  - Lee `DB_URL` o (`DB_HOST`, `DB_PORT`, `DB_NAME`) + credenciales.
+ - Perfil `dev`: habilita PostgreSQL/JPA.
+ - Lee `DB_URL` o (`DB_HOST`, `DB_PORT`, `DB_NAME`) + credenciales.
 
-### Precedencia practica de DB en `dev`
+### Precedencia práctica de DB en `dev`
 1. `DB_URL` (si existe)
 2. `DB_HOST` + `DB_PORT` + `DB_NAME`
 3. Fallbacks definidos en properties
@@ -144,47 +144,47 @@ Flujo full Docker:
 - -> contenedor `api`
 - -> contenedor `db`
 
-### Estructura del codigo (`src/main/java/com/marcosmoreiradev/uensbackend`)
+### Estructura del código (`src/main/java/com/marcosmoreiradev/uensbackend`)
 - `boot/`
-  - Arranque y utilidades de inicializacion para dev (por ejemplo seed/init local).
+ - Arranque y utilidades de inicialización para dev (por ejemplo seed/init local).
 - `common/`
-  - Componentes compartidos: respuestas API, errores, validacion, paginacion, utilidades.
+ - Componentes compartidos: respuestas API, errores, validación, paginación, utilidades.
 - `config/`
-  - Configuracion de Spring (Jackson, OpenAPI, scheduling, properties, etc.).
+ - Configuración de Spring (Jackson, OpenAPI, scheduling, properties, etc.).
 - `security/`
-  - Seguridad/JWT: filtros, servicios de token, `SecurityConfig`, handlers.
+ - Seguridad/JWT: filtros, servicios de token, `SecurityConfig`, handlers.
 - `modules/`
-  - Funcionalidades del dominio (asignatura, auth, estudiante, seccion, etc.).
+ - Funcionalidades del dominio (asignatura, auth, estudiante, sección, etc.).
 
 ### Patron dentro de `modules/*`
-La mayoria de modulos siguen una separacion por capas:
+La mayoría de módulos siguen una separación por capas:
 - `api/`
-  - Controllers y DTOs de request/response.
+ - Controllers y DTOs de request/response.
 - `application/`
-  - Casos de uso/servicios, validadores, mappers.
+ - Casos de uso/servicios, validadores, mappers.
 - `infrastructure/`
-  - Persistencia JPA (entities y repositories) y adaptadores concretos.
+ - Persistencia JPA (entities y repositories) y adaptadores concretos.
 
 Esto ayuda a mantener:
 - Endpoint claro (`api`).
-- Logica de negocio en `application`.
-- Detalles tecnicos (DB/JPA) en `infrastructure`.
+- Lógica de negocio en `application`.
+- Detalles técnicos (DB/JPA) en `infrastructure`.
 
 ### Scripts del backend (`tools/scripts`)
-- `dev/` (utiles hoy)
-  - `up-db.*`: levanta Postgres.
-  - `down-db.*`: baja servicios Docker Compose.
-  - `run-local.*`: carga `.env` y corre backend local con perfil `dev`.
+- `dev/` (útiles hoy)
+ - `up-db.*`: levanta Postgres.
+ - `down-db.*`: baja servicios Docker Compose.
+ - `run-local.*`: carga `.env` y corre backend local con perfil `dev`.
 - `db/`, `ci/`, `quality/`
-  - Varios scripts aun estan como placeholder y se iran completando.
+ - Varios scripts aún están como placeholder y se irán completando.
 
 ## Variables importantes de `.env`
 - `APP_PORT`: puerto host de la API en full Docker.
-- `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`: conexion a PostgreSQL.
-- `DB_URL`: opcional, si quieres una URL JDBC unica.
-- `JWT_SECRET`, `JWT_ISSUER`, `JWT_EXPIRATION_SECONDS`: configuracion JWT de dev.
+- `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`: conexión a PostgreSQL.
+- `DB_URL`: opcional, si quieres una URL JDBC única.
+- `JWT_SECRET`, `JWT_ISSUER`, `JWT_EXPIRATION_SECONDS`: configuración JWT de dev.
 
-## PowerShell vs CMD (error comun)
+## PowerShell vs CMD (error común)
 En PowerShell NO uses:
 ```cmd
 set DB_URL=...
@@ -198,16 +198,16 @@ $env:DB_PASSWORD = "postgres"
 .\mvnw.cmd -DskipTests spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
-## Troubleshooting rapido
+## Troubleshooting rápido
 - `Connection refused` hacia Postgres:
-  - Verifica `docker compose ps`.
-  - Si la API corre local, revisa `DB_PORT=5433` en `.env`.
+ - Verifica `docker compose ps`.
+ - Si la API corre local, revisa `DB_PORT=5433` en `.env`.
 - `Falta .env`:
-  - Ejecuta `Copy-Item .env.example .env`.
+ - Ejecuta `Copy-Item .env.example .env`.
 - Error de credenciales:
-  - Revisa `DB_USER`/`DB_PASSWORD` en `.env` y lo que usa el contenedor `db`.
+ - Revisa `DB_USER`/`DB_PASSWORD` en `.env` y lo que usa el contenedor `db`.
 - Error de esquema (Hibernate `ddl-auto=validate`):
-  - La BD debe tener el esquema esperado antes de arrancar `dev`.
+ - La BD debe tener el esquema esperado antes de arrancar `dev`.
 
 ## Archivos clave (resumen)
 - `backend/uens-backend/docker-compose.yml`
@@ -221,17 +221,17 @@ $env:DB_PASSWORD = "postgres"
 
 ## Arquitectura backend (DDD + monolito modular)
 
-Este backend aplica una separacion por modulos de dominio y por capas:
+Este backend aplica una separación por módulos de dominio y por capas:
 
 - `modules/<modulo>/api`
-  expone endpoints REST, valida contrato HTTP y delega.
+ expone endpoints REST, valida contrato HTTP y delega.
 - `modules/<modulo>/application`
-  contiene casos de uso, reglas de negocio, validadores y mapeos.
+ contiene casos de uso, reglas de negocio, validadores y mapeos.
 - `modules/<modulo>/infrastructure`
-  implementa persistencia JPA y adaptadores tecnicos.
+ implementa persistencia JPA y adaptadores técnicos.
 
-Regla practica:
-- `api` no contiene logica de negocio compleja.
+Regla práctica:
+- `api` no contiene lógica de negocio compleja.
 - `application` no depende de detalles HTTP.
 - `infrastructure` no define reglas funcionales del dominio.
 
@@ -239,13 +239,13 @@ Regla practica:
 
 1. El cliente llama endpoint en un `Controller`.
 2. Seguridad valida JWT y rol.
-3. Controller transforma request a DTO de aplicacion.
+3. Controller transforma request a DTO de aplicación.
 4. `application service` ejecuta reglas y orquesta repositorios.
 5. `infrastructure repository` lee/escribe en PostgreSQL.
 6. `mapper` arma DTO de respuesta.
 7. Se retorna `ApiResponse` estandar.
 
-## Modulo de reportes async (cola + archivos)
+## Módulo de reportes async (cola + archivos)
 
 Flujo:
 
@@ -264,22 +264,22 @@ Beneficios:
 - permite reintentos.
 - facilita auditar errores por solicitud.
 
-## Buenas practicas implementadas en el proyecto
+## Buenas prácticas implementadas en el proyecto
 
 - Contrato de respuesta uniforme (`ok`, `message`, `data`, `timestamp`).
-- Validacion de entrada en DTOs (`jakarta.validation`).
-- Paginacion y orden controlados (listas).
+- Validación de entrada en DTOs (`jakarta.validation`).
+- Paginación y orden controlados (listas).
 - Seguridad basada en roles (`ADMIN`, `SECRETARIA`) con JWT.
 - Mapeo explicito DTO <-> entidad.
-- Errores con codigos de negocio y HTTP status coherentes.
+- Errores con códigos de negocio y HTTP status coherentes.
 - Reportes desacoplados por estrategia:
-  - `ReporteDataProcessor` por tipo de reporte.
-  - `ReporteFileExporter` por formato de salida.
-- Configuracion externa por `.env` y properties por perfil.
+ - `ReporteDataProcessor` por tipo de reporte.
+ - `ReporteFileExporter` por formato de salida.
+- Configuración externa por `.env` y properties por perfil.
 
-## Como extender el backend sin romper arquitectura
+## Cómo extender el backend sin romper arquitectura
 
-Para crear un modulo nuevo:
+Para crear un módulo nuevo:
 
 1. Crear paquete `modules/<nuevo_modulo>`.
 2. Definir DTOs y controller en `api`.
@@ -292,7 +292,7 @@ Para agregar un nuevo reporte:
 
 1. Definir nuevo `tipoReporte`.
 2. Implementar `ReporteDataProcessor`.
-3. Registrar reglas de validacion en request validator.
+3. Registrar reglas de validación en request validator.
 4. Si aplica, extender exportadores/formato.
 5. Actualizar docs API y postman collection.
 
@@ -312,10 +312,10 @@ cd backend/uens-backend
 mvn clean test
 ```
 
-## Documentacion relacionada
+## Documentación relacionada
 
 - API funcional: `backend/docs/api/API_ENDPOINTS.md`
-- Coleccion Postman: `backend/docs/api/UENS.postman_collection.json`
+- Colección Postman: `backend/docs/api/UENS.postman_collection.json`
 - Variables de entorno: `backend/docs/despliegue/variables_entorno.md`
 - Docker local: `backend/docs/despliegue/docker_local.md`
 - Checklist release: `backend/docs/despliegue/checklist_release_v1.md`

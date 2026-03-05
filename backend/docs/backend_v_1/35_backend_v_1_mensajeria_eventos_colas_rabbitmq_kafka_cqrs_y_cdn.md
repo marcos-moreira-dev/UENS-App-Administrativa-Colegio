@@ -1,12 +1,12 @@
 ﻿# 35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: colas, eventos y componentes distribuidos con criterio
 - Relacionado con:
-  - `10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
-  - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
-  - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
+ - `10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
+ - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
+ - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
 
 ---
 
@@ -93,7 +93,7 @@ Arquitectura por eventos sirve cuando:
 Ejemplo:
 
 - "reporte generado" dispara notificacion
-- "usuario bloqueado" dispara auditoria de seguridad
+- "usuario bloqueado" dispara auditoría de seguridad
 
 ---
 

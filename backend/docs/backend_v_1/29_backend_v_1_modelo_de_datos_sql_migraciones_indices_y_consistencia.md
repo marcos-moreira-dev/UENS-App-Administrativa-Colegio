@@ -1,12 +1,12 @@
 ﻿# 29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: disciplina de datos y evolucion de esquema
 - Relacionado con:
-  - `V2_3FN.sql`
-  - `18_backend_v_1_acid_transacciones_consistencia_backend.md`
-  - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
+ - `V2_3FN.sql`
+ - `18_backend_v_1_acid_transacciones_consistencia_backend.md`
+ - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
 
 ---
 
@@ -36,7 +36,7 @@ Vive de una base de datos gobernada con criterio.
 
 Siempre piensa:
 
-1. que codigo usa esa tabla
+1. que código usa esa tabla
 2. que consulta se rompe
 3. que datos antiguos existen
 4. si el frontend depende del contrato actual
@@ -108,7 +108,7 @@ Por eso debes cuidar especialmente:
 1. ids y relaciones
 2. enums persistidos
 3. filtros usados por listados
-4. datos historicos de auditoria y reportes
+4. datos historicos de auditoría y reportes
 
 ---
 

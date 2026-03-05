@@ -1,6 +1,6 @@
 ﻿# 15_backend_v_1_reportes_generacion_archivos_excel_pdf_word
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Aprobado para implementacion
 - Ámbito: Backend V1 (módulo `reporte`)
 
@@ -22,7 +22,7 @@ Esta decision se apoya en:
 
 ---
 
-## 2. Estado actual del codigo (base real)
+## 2. Estado actual del código (base real)
 
 Ya existen:
 
@@ -31,18 +31,18 @@ Ya existen:
 - Claim repository
 - Selector de processors
 - Processors reales:
-  - `LISTADO_ESTUDIANTES_POR_SECCION`
-  - `CALIFICACIONES_POR_SECCION_Y_PARCIAL`
-  - `AUDITORIA_ADMIN_OPERACIONES`
+ - `LISTADO_ESTUDIANTES_POR_SECCION`
+ - `CALIFICACIONES_POR_SECCION_Y_PARCIAL`
+ - `AUDITORIA_ADMIN_OPERACIONES`
 - Strategy de presentacion documental por tipo de reporte (`ReporteDocumentModelAssembler`)
-- Strategy de exportacion por formato (`ReporteFileExporter`)
+- Strategy de exportación por formato (`ReporteFileExporter`)
 - Endpoints:
-  - `POST /api/v1/reportes/solicitudes`
-  - `GET /api/v1/reportes/solicitudes`
-  - `GET /api/v1/reportes/solicitudes/{id}`
-  - `GET /api/v1/reportes/solicitudes/{id}/estado`
-  - `GET /api/v1/reportes/solicitudes/{id}/resultado`
-  - `POST /api/v1/reportes/solicitudes/{id}/reintentar`
+ - `POST /api/v1/reportes/solicitudes`
+ - `GET /api/v1/reportes/solicitudes`
+ - `GET /api/v1/reportes/solicitudes/{id}`
+ - `GET /api/v1/reportes/solicitudes/{id}/estado`
+ - `GET /api/v1/reportes/solicitudes/{id}/resultado`
+ - `POST /api/v1/reportes/solicitudes/{id}/reintentar`
 
 ---
 
@@ -52,7 +52,7 @@ Se deben implementar al menos estos 2:
 
 1. `LISTADO_ESTUDIANTES_POR_SECCION`
 2. `CALIFICACIONES_POR_SECCION_Y_PARCIAL`
-3. `AUDITORIA_ADMIN_OPERACIONES` (solicitado solo desde módulo auditoria por rol ADMIN)
+3. `AUDITORIA_ADMIN_OPERACIONES` (solicitado solo desde módulo auditoría por rol ADMIN)
 
 Siguientes recomendados:
 
@@ -68,7 +68,7 @@ Siguientes recomendados:
 1. Controller valida request y crea solicitud (`PENDIENTE`).
 2. Worker hace claim, pasa a `EN_PROCESO`.
 3. `ReporteDataProcessor` genera `resultadoPayload` estructurado.
-4. Capa de exportacion genera archivo fisico (`xlsx`, `pdf`, `docx`).
+4. Capa de exportación genera archivo fisico (`xlsx`, `pdf`, `docx`).
 5. Solicitud pasa a `COMPLETADA` con metadata de salida.
 6. Cliente consulta estado y luego descarga.
 
@@ -76,16 +76,16 @@ Siguientes recomendados:
 
 - `ReporteDataProcessor`: ya existe, mantiene responsabilidad de preparar datos.
 - `ReporteDocumentModelAssembler`:
-  - `boolean soporta(String tipoReporte)`
-  - `ReporteDocumentModel assemble(ReporteSolicitudQueueJpaEntity solicitud, Object payload)`
+ - `boolean soporta(String tipoReporte)`
+ - `ReporteDocumentModel assemble(ReporteSolicitudQueueJpaEntity solicitud, Object payload)`
 - `ReporteDocumentModelAssemblerSelector`: resuelve assembler por tipo.
 - `ReporteFileExporter`:
-  - `boolean soporta(String formato)`
-  - `void exportar(Path outputFile, ReporteDocumentModel documentModel)`
+ - `boolean soporta(String formato)`
+ - `void exportar(Path outputFile, ReporteDocumentModel documentModel)`
 - `ReporteFileExporterSelector`: resuelve exporter por formato.
 - `ReporteFileGenerationService`: orquesta assembler + export + persistencia metadata.
 
-Esta separacion evita que cada exportador conozca el payload crudo y permite mantener consistencia visual entre `PDF`, `DOCX` y `XLSX`.
+Esta separación evita que cada exportador conozca el payload crudo y permite mantener consistencia visual entre `PDF`, `DOCX` y `XLSX`.
 
 ## 4.3 Formatos de salida permitidos
 
@@ -101,7 +101,7 @@ Valor recomendado para request: `formatoSalida` (`XLSX|PDF|DOCX`).
 
 ## 5.1 Regla V1 pragmatica
 
-- `resultado_json`: conservar payload normalizado (útil para auditoria y re-render).
+- `resultado_json`: conservar payload normalizado (útil para auditoría y re-render).
 - Archivo final: guardar en filesystem local controlado por configuración.
 - En BD guardar metadata de archivo dentro de `resultado_json` mientras el esquema siga compacto.
 
@@ -121,15 +121,15 @@ Valor recomendado para request: `formatoSalida` (`XLSX|PDF|DOCX`).
 Se mantienen endpoints actuales y se agrega descarga de archivo:
 
 - `GET /api/v1/reportes/solicitudes/{id}/resultado`
-  - responde estado + metadata + payload
+ - responde estado + metadata + payload
 - `GET /api/v1/reportes/solicitudes/{id}/archivo`
-  - devuelve binario segun `mimeType`
-  - `404` si no existe
-  - `409` si aun no esta `COMPLETADA`
+ - devuelve binario segun `mimeType`
+ - `404` si no existe
+ - `409` si aún no esta `COMPLETADA`
 - `POST /api/v1/auditoria/reportes/solicitudes`
-  - crea solicitudes de tipo `AUDITORIA_ADMIN_OPERACIONES` (solo `ADMIN`)
+ - crea solicitudes de tipo `AUDITORIA_ADMIN_OPERACIONES` (solo `ADMIN`)
 
-Nota: si prefieres no agregar endpoint nuevo en primera iteracion, `resultado` puede incluir `downloadUrl` diferido para la siguiente entrega.
+Nota: si prefieres no agregar endpoint nuevo en primera iteración, `resultado` puede incluir `downloadUrl` diferido para la siguiente entrega.
 
 ---
 
@@ -153,7 +153,7 @@ Recomendación V1: iniciar con `PDFBox` si quieres control programatico y sin pi
 - `APP_REPORT_OUTPUT_DIR`: directorio raiz de salida de archivos de reporte
 - `APP_REPORT_PUBLIC_BASE_URL`: base URL para construir links de descarga (si aplica)
 - `APP_REPORT_FILE_TTL_DAYS`: retención de archivos generados
-- `APP_REPORT_MAX_FILE_MB`: limite de tamano de salida
+- `APP_REPORT_MAX_FILE_MB`: límite de tamano de salida
 
 ---
 
@@ -172,7 +172,7 @@ Recomendación V1: iniciar con `PDFBox` si quieres control programatico y sin pi
 ## 10. Orden de implementacion recomendado
 
 1. Mantener sincronizados processors, assemblers y exportadores cuando se agregue un nuevo tipo de reporte.
-2. Blindar el `GlobalExceptionHandler` y el worker con pruebas sobre errores de exportacion.
+2. Blindar el `GlobalExceptionHandler` y el worker con pruebas sobre errores de exportación.
 3. Mantener probado el endpoint `GET /api/v1/reportes/solicitudes/{id}/archivo` con validación de ruta, MIME y headers de descarga.
 4. Actualizar Postman y Swagger con flujo completo.
 5. Si crecen los formatos, mover estilos compartidos a una capa de plantillas reutilizable.

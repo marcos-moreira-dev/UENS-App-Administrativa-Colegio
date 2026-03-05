@@ -1,14 +1,14 @@
 ﻿# 26_desktop_criterios_decision_arquitectonica_frontend
 
 - **Proyecto:** UENS Desktop (JavaFX)
-- **Objetivo:** dejar documentados los criterios practicos usados para tomar decisiones de arquitectura, UI y organizacion del codigo en el frontend desktop.
+- **Objetivo:** dejar documentados los criterios practicos usados para tomar decisiones de arquitectura, UI y organización del código en el frontend desktop.
 
 ---
 
 ## 1) Propósito
 Este documento responde una pregunta simple:
 
-**por que el proyecto eligio esta solucion y no otra?**
+**por que el proyecto eligio esta solución y no otra?**
 
 Sirve para:
 
@@ -22,7 +22,7 @@ Sirve para:
 ## 2) Criterios maestros
 
 ### 2.1 Claridad
-Una solucion se prefiere si deja más clara la responsabilidad de cada pieza.
+Una solución se prefiere si deja más clara la responsabilidad de cada pieza.
 
 **Ejemplo:** `Query Object` hace más clara la consulta que una firma larga en un servicio.
 
@@ -34,7 +34,7 @@ Una pieza debe encargarse de una familia de responsabilidades cercanas entre si.
 ### 2.3 Bajo acoplamiento
 La UI no debe depender de detalles de red, URLs o parseo HTTP.
 
-**Ejemplo:** un controller no llama `ApiClient` directamente; usa un servicio de aplicacion.
+**Ejemplo:** un controller no llama `ApiClient` directamente; usa un servicio de aplicación.
 
 ### 2.4 Reuso real
 Una abstraccion solo vale si puede ser aprovechada por más de un módulo o más de un flujo.
@@ -48,7 +48,7 @@ El sistema debe poder crecer sin reescritura agresiva, pero sin meter complejida
 Este proyecto tambien es educativo. Por eso se favorecen soluciones que:
 - se puedan explicar bien;
 - muestren responsabilidades limpias;
-- conecten teoria con codigo real.
+- conecten teoria con código real.
 
 ---
 
@@ -72,8 +72,8 @@ Este proyecto tambien es educativo. Por eso se favorecen soluciones que:
 
 ### 4.1 Cuando introducir Query Object
 Usarlo si una consulta tiene:
-- paginacion;
-- busqueda;
+- paginación;
+- búsqueda;
 - tres o más filtros;
 - o varias fechas/opciones de orden.
 
@@ -85,7 +85,7 @@ Usarlo si el controller:
 - compone texto visible para usuarios.
 
 ### 4.3 Cuando introducir Command
-Usarlo si una accion:
+Usarlo si una acción:
 - tiene varios pasos;
 - necesita loading + resultado + feedback;
 - o se repite en varios handlers.
@@ -98,16 +98,16 @@ No introducirlo si:
 - solo cambia nombres;
 - agrega clases sin bajar complejidad;
 - no se puede reaprovechar;
-- cuesta más explicarlo que mantener la solucion actual.
+- cuesta más explicarlo que mantener la solución actual.
 
 ---
 
 ## 5) Criterios para diseño de interfaces
 
-### 5.1 Un bloque, una accion principal
+### 5.1 Un bloque, una acción principal
 No debe haber dos CTAs dominantes en el mismo bloque.
 
-### 5.2 La jerarquia visual debe guiar el trabajo
+### 5.2 La jerarquía visual debe guiar el trabajo
 Titulos, labels, filtros y acciones deben competir lo menos posible.
 
 ### 5.3 Las tablas deben privilegiar lectura operativa
@@ -158,14 +158,14 @@ Por eso se usa `Navigator`.
 ### 8.2 El rol debe afectar visibilidad y acceso
 No basta con esconder botones; tambien debe existir control de flujo.
 
-### 8.3 El cierre de ventana debe respetar auditoria
+### 8.3 El cierre de ventana debe respetar auditoría
 Por eso la salida con `X` intenta logout y deja trazabilidad.
 
 ---
 
 ## 9) Criterios para documentación técnica
 
-### 9.1 La documentación debe seguir al codigo real
+### 9.1 La documentación debe seguir al código real
 No puede describir arquitectura inventada.
 
 ### 9.2 La documentación debe ser útil para ensenar
@@ -183,7 +183,7 @@ Si aparece un termino raro nuevo, debe documentarse.
 3. Se puede explicar facilmente a un estudiante?
 4. Desacopla responsabilidades o las mezcla?
 5. La UI sigue entendible para el usuario administrativo?
-6. La solucion esta alineada con MVVM y Navigator?
+6. La solución esta alineada con MVVM y Navigator?
 
 Si la respuesta a varias de estas preguntas es "no", el cambio debe revisarse.
 

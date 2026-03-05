@@ -1,13 +1,13 @@
 ﻿# 41_backend_v_1_backend_iot_protocolos_udp_mqtt_coap_y_arquitecturas
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: backend conectado a dispositivos IoT, protocolos, arquitecturas y patrones
 - Relacionado con:
-  - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
-  - `38_backend_v_1_tipos_de_apis_rest_websocket_sse_graphql_grpc_webhooks_y_roadmap.md`
-  - `40_backend_v_1_concurrencia_locks_transacciones_y_condiciones_de_carrera.md`
+ - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `38_backend_v_1_tipos_de_apis_rest_websocket_sse_graphql_grpc_webhooks_y_roadmap.md`
+ - `40_backend_v_1_concurrencia_locks_transacciones_y_condiciones_de_carrera.md`
 
 ---
 

@@ -10,23 +10,23 @@
 Este documento define un estándar para consumir el backend UENS sin caos:
 
 1. Un **ApiClient** central (HTTP) que maneje:
-   - base URL,
-   - headers,
-   - parseo JSON,
-   - errores,
-   - y autenticación Bearer.
+ - base URL,
+ - headers,
+ - parseo JSON,
+ - errores,
+ - y autenticación Bearer.
 
 2. Contratos y DTOs “base”:
-   - `ApiResponse<T>`
-   - `ApiErrorResponse`
-   - `PageResponse<T>` (colección en `items`)
+ - `ApiResponse<T>`
+ - `ApiErrorResponse`
+ - `PageResponse<T>` (colección en `items`)
 
 3. Un mapeo consistente de respuestas a **estados de UI**:
-   - `loading`, `success`, `empty`, `error`.
+ - `loading`, `success`, `empty`, `error`.
 
 4. Separación clara entre:
-   - **DTOs de API** (lo que viene del backend),
-   - **UI Models** (lo que la vista necesita).
+ - **DTOs de API** (lo que viene del backend),
+ - **UI Models** (lo que la vista necesita).
 
 Fuentes de verdad:
 - `backend/docs/api/API_ENDPOINTS.md`
@@ -73,9 +73,9 @@ Regla:
 ### 3.1 Responsabilidades
 - Construir requests HTTP.
 - Agregar headers:
-  - `Content-Type: application/json`
-  - `Accept: application/json`
-  - `Authorization: Bearer <token>` si hay sesión.
+ - `Content-Type: application/json`
+ - `Accept: application/json`
+ - `Authorization: Bearer <token>` si hay sesión.
 - Parsear JSON (Jackson recomendado).
 - Convertir errores HTTP en un modelo de error uniforme.
 
@@ -126,20 +126,20 @@ Y para listados:
 ### 5.2 Reglas de transición
 - Antes de llamar API: `loading=true`, limpiar error.
 - Si éxito:
-  - `loading=false`
-  - poblar data
-  - toast opcional con `message`.
+ - `loading=false`
+ - poblar data
+ - toast opcional con `message`.
 - Si error:
-  - `loading=false`
-  - setear `errorInfo`
-  - si 401: disparar logout + navegación a Login.
+ - `loading=false`
+ - setear `errorInfo`
+ - si 401: disparar logout + navegación a Login.
 
 ### 5.3 “Empty state”
 Si el listado llega con `items=[]`:
 - no es error.
 - mostrar estado vacío con:
-  - mensaje
-  - CTA (“Crear…”) si el rol lo permite.
+ - mensaje
+ - CTA (“Crear…”) si el rol lo permite.
 
 ---
 
@@ -173,9 +173,9 @@ Si el listado llega con `items=[]`:
 
 ### 7.2 UI Models
 - adaptan datos para presentación:
-  - concatenar nombres
-  - formatear fechas
-  - traducir enums a labels
+ - concatenar nombres
+ - formatear fechas
+ - traducir enums a labels
 
 Regla:
 - el formateo se hace en capa de presentación, no en ApiClient.

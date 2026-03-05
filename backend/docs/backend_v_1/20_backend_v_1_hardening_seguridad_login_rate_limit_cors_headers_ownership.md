@@ -5,7 +5,7 @@ Este documento cierra el endurecimiento básico del backend UENS en cuatro frent
 
 1. proteccion del login contra abuso
 2. CORS y headers HTTP defensivos
-3. ownership estricto sobre reportes y defensa adicional sobre auditoria
+3. ownership estricto sobre reportes y defensa adicional sobre auditoría
 4. trazabilidad operativa útil para mantenimiento real
 
 El objetivo no es convertir el sistema en una plataforma enterprise total, sino dejarlo en un punto didáctico serio, coherente y mantenible.
@@ -66,7 +66,7 @@ Beneficio:
 Archivo: `src/main/java/com/marcosmoreiradev/uensbackend/security/config/ApiCorsConfigurationSourceFactory.java`
 
 Rol:
-- construir una unica política CORS declarativa
+- construir una única política CORS declarativa
 - dejar la configuración lista para `SecurityConfig`
 
 Beneficio:
@@ -170,18 +170,18 @@ Significado:
 | `max-failed-attempts` | umbral de fallos por identidad |
 | `failure-window-seconds` | ventana donde se cuentan esos fallos |
 | `lock-duration-seconds` | tiempo de bloqueo temporal |
-| `max-requests-per-ip-window` | maximo de requests de login por IP |
+| `max-requests-per-ip-window` | máximo de requests de login por IP |
 | `ip-window-seconds` | ventana del rate limit por IP |
 
 ---
 
 ## 4.5 Errores nuevos
-Se agregaron dos codigos trazables:
+Se agregaron dos códigos trazables:
 
-| Codigo | HTTP | Significado |
+| Código | HTTP | Significado |
 | --- | --- | --- |
 | `AUTH-06-LOGIN_TEMPORALMENTE_BLOQUEADO` | `429` | la identidad supero el umbral de fallos |
-| `AUTH-07-RATE_LIMIT_LOGIN_EXCEDIDO` | `429` | la IP excedio el limite temporal de requests |
+| `AUTH-07-RATE_LIMIT_LOGIN_EXCEDIDO` | `429` | la IP excedio el límite temporal de requests |
 
 Respuesta tipo:
 
@@ -254,7 +254,7 @@ app.security.cors.max-age-seconds=1800
 
 Política por defecto:
 - sin origenes cruzados permitidos mientras `allowed-origins` este vacio
-- metodos y headers ya preparados para un cliente web futuro
+- métodos y headers ya preparados para un cliente web futuro
 
 Esto es importante:
 - `enabled=true` no significa "todo permitido"
@@ -310,7 +310,7 @@ Eso evita publicar una política incorrecta en entornos locales HTTP.
 
 ---
 
-## 6.3 Excepcion deliberada: H2 en dev
+## 6.3 Excepción deliberada: H2 en dev
 La consola H2 usa una cadena de seguridad separada con `frameOptions.sameOrigin()`.
 
 Eso es intencional para no romper la herramienta de desarrollo.
@@ -361,12 +361,12 @@ Si una `SECRETARIA` intenta abrir una solicitud ajena, el backend responde como 
 Motivo:
 - no revelar que existe un recurso válido perteneciente a otra cuenta
 
-Eso es una medida comun para recursos con ownership.
+Eso es una medida común para recursos con ownership.
 
 ---
 
 ## 7.4 Descarga de archivo y ownership
-La descarga binaria no es una excepcion.
+La descarga binaria no es una excepción.
 
 Antes de tocar el archivo fisico:
 1. se valida ownership
@@ -380,10 +380,10 @@ Asi se cubren dos capas:
 
 ---
 
-## 8) Auditoria: acceso estricto y defensa en profundidad
+## 8) Auditoría: acceso estricto y defensa en profundidad
 
 ## 8.1 Regla funcional
-La auditoria es solo ADMIN.
+La auditoría es solo ADMIN.
 
 Endpoints:
 - `GET /api/v1/auditoria/eventos`
@@ -392,10 +392,10 @@ Endpoints:
 ---
 
 ## 8.2 Por que no se usa ownership por usuario aqui
-Porque auditoria operativa es un recurso global y sensible.
+Porque auditoría operativa es un recurso global y sensible.
 
 No tiene sentido funcional que:
-- cada usuario vea "su pedazo" de auditoria
+- cada usuario vea "su pedazo" de auditoría
 
 La política correcta es:
 - acceso global solo para ADMIN
@@ -424,7 +424,7 @@ El backend ya registra:
 - `requestId`
 - logs a consola
 - logs a archivo rotativo
-- auditoria operativa en BD
+- auditoría operativa en BD
 
 Configuración actual:
 
@@ -435,7 +435,7 @@ logging.pattern.level=%5p [req:%X{requestId:-na}]
 logging.file.name=${LOG_FILE_PATH:logs/uens-backend.log}
 ```
 
-Resultado practico:
+Resultado práctico:
 - un error que llega al cliente incluye `requestId`
 - el mismo `requestId` aparece en logs
 - y puede aparecer en `auditoria_evento` cuando aplica
@@ -447,13 +447,13 @@ Flujo recomendado:
 
 1. tomar `requestId` desde la respuesta de error del cliente
 2. buscarlo en `logs/uens-backend.log`
-3. correlacionar con auditoria si el caso fue operativo
+3. correlacionar con auditoría si el caso fue operativo
 4. revisar `errorCode`
 5. decidir si era:
-   - validación
-   - negocio
-   - autenticación/autorización
-   - sistema/infrastructura
+ - validación
+ - negocio
+ - autenticación/autorización
+ - sistema/infrastructura
 
 En el caso concreto de login:
 - revisar si fue `AUTH-01`, `AUTH-06` o `AUTH-07`
@@ -483,7 +483,7 @@ En el caso concreto de login:
 - `security/config/ApiCorsConfigurationSourceFactoryTest`
 - `security/filter/SecurityResponseHeadersFilterTest`
 
-### Ownership y auditoria
+### Ownership y auditoría
 - `modules/reporte/application/ReporteSolicitudQueryServiceTest`
 - `modules/auditoria/application/AuditoriaQueryServiceTest`
 - `modules/auditoria/application/AuditoriaReporteServiceTest`
@@ -501,7 +501,7 @@ El frontend debe contemplar estos errores:
 Comportamiento esperado:
 - no borrar el login escrito
 - mostrar el `message` del backend sin inventar otra semántica
-- si viene `retryAfterSeconds`, usarlo solo como ayuda visual, no como fuente unica de verdad
+- si viene `retryAfterSeconds`, usarlo solo como ayuda visual, no como fuente única de verdad
 
 ### Reportes
 Una `SECRETARIA` solo vera sus propias solicitudes.
@@ -510,8 +510,8 @@ Implicacion:
 - si el desktop recibe `404` al abrir una solicitud ajena, no debe asumir "backend roto"
 - puede ser una denegacion por ownership intencional
 
-### Auditoria
-La UI de auditoria debe seguir siendo solo ADMIN.
+### Auditoría
+La UI de auditoría debe seguir siendo solo ADMIN.
 
 ---
 
@@ -540,7 +540,7 @@ El backend ya no solo autentica y autoriza:
 - declara una política CORS mantenible
 - emite headers defensivos coherentes
 - restringe reportes por ownership real
-- protege auditoria con defensa adicional en application
+- protege auditoría con defensa adicional en application
 - mantiene trazabilidad útil para soporte con logs y `requestId`
 
 Ese conjunto ya se parece a un backend pequeno pero serio, y sigue siendo entendible para fines educativos.

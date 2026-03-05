@@ -2,7 +2,7 @@
 
 - **Proyecto:** UENS Desktop (JavaFX)
 - **Arquitectura base:** MVVM + Navigator + JavaFX CSS
-- **Objetivo:** dar un vocabulario comun, practico y útil para entender el frontend desktop sin caer en jerga vacia.
+- **Objetivo:** dar un vocabulario común, práctico y útil para entender el frontend desktop sin caer en jerga vacia.
 
 ---
 
@@ -12,7 +12,7 @@ Este glosario existe para:
 1. traducir terminos técnicos a lenguaje entendible;
 2. conectar cada termino con ejemplos reales del repo;
 3. ayudar a estudiantes, revisores y docentes a hablar del sistema con precision;
-4. evitar que se usen palabras de arquitectura sin entender su funcion.
+4. evitar que se usen palabras de arquitectura sin entender su función.
 
 ---
 
@@ -47,7 +47,7 @@ Este glosario existe para:
 ### Model
 **Significado:** representacion de datos del dominio o de UI.
 
-**Ejemplos:** DTOs, rows de tabla, datos de formularios, metadatos de paginacion.
+**Ejemplos:** DTOs, rows de tabla, datos de formularios, metadatos de paginación.
 
 ### Application Service
 **Significado:** capa intermedia entre UI y backend.
@@ -81,7 +81,7 @@ Este glosario existe para:
 ### Guard / Navigation Guard
 **Significado:** regla que bloquea el acceso a vistas o acciones no permitidas.
 
-**Ejemplo:** auditoria o ciertas acciones solo para `ADMIN`.
+**Ejemplo:** auditoría o ciertas acciones solo para `ADMIN`.
 
 ### SessionState
 **Significado:** estado global mínimo de sesión.
@@ -99,7 +99,7 @@ Este glosario existe para:
 **Ejemplo real:** perfiles tipograficos en `TypographyManager`.
 
 ### Query Object
-**Significado:** objeto que encapsula filtros, busqueda y paginacion.
+**Significado:** objeto que encapsula filtros, búsqueda y paginación.
 
 **Ejemplos reales:**
 - `EstudiantesListQuery`
@@ -124,7 +124,7 @@ Este glosario existe para:
 **Diferencia con Presenter:** el mapper suele transformar estructura; el presenter traduce a algo visible para el usuario.
 
 ### Command
-**Significado:** encapsular una accion en un objeto ejecutable.
+**Significado:** encapsular una acción en un objeto ejecutable.
 
 **Ejemplos reales:**
 - `UiCommand`
@@ -174,7 +174,7 @@ Este glosario existe para:
 **Significado:** lista observable usada por tablas y combos.
 
 ### Controller
-**Significado:** clase que conecta FXML con la lógica de interaccion.
+**Significado:** clase que conecta FXML con la lógica de interacción.
 
 **Regla en este proyecto:** no hace HTTP directo ni construye URLs.
 
@@ -196,10 +196,10 @@ Este glosario existe para:
 **Significado:** ejecutor capaz de correr tareas cada cierto intervalo.
 
 ### Listener / Event Handler
-**Significado:** codigo que reacciona a eventos de teclado, raton, ventana o propiedades.
+**Significado:** código que reacciona a eventos de teclado, raton, ventana o propiedades.
 
 ### Modal
-**Significado:** ventana o capa que exige atencion antes de volver al contenido base.
+**Significado:** ventana o capa que exige atención antes de volver al contenido base.
 
 ### Drawer
 **Significado:** panel lateral o centrado para detalle o formulario.
@@ -236,13 +236,13 @@ Este glosario existe para:
 **Significado:** tabla operativa con acciones por fila.
 
 ### Row Action
-**Significado:** accion por fila como `Ver`, `Editar`, `Descargar`, `Reintentar`.
+**Significado:** acción por fila como `Ver`, `Editar`, `Descargar`, `Reintentar`.
 
 ### Pagination
-**Significado:** navegación por paginas de resultados.
+**Significado:** navegación por páginas de resultados.
 
 ### Query State
-**Significado:** estado completo de una busqueda: texto, filtros, pagina, size y sort.
+**Significado:** estado completo de una búsqueda: texto, filtros, página, size y sort.
 
 ### Sort
 **Significado:** criterio de ordenamiento de una tabla.
@@ -254,7 +254,7 @@ Este glosario existe para:
 **Significado:** reglas que impiden enviar formularios invalidos.
 
 ### Primary Action
-**Significado:** accion principal de un bloque visual.
+**Significado:** acción principal de un bloque visual.
 
 ---
 
@@ -273,13 +273,13 @@ Este glosario existe para:
 **Significado:** envoltorio de error del backend.
 
 ### PageResponse
-**Significado:** contrato de paginacion.
+**Significado:** contrato de paginación.
 
 ### requestId
-**Significado:** identificador unico de una operación o error.
+**Significado:** identificador único de una operación o error.
 
 ### errorCode
-**Significado:** codigo semántico de error.
+**Significado:** código semántico de error.
 
 ### Binary Download
 **Significado:** descarga de archivos binarios como PDF, XLSX o DOCX.
@@ -297,14 +297,14 @@ Este glosario existe para:
 ### Reporte asíncrono
 **Significado:** reporte que se solicita primero y se descarga después.
 
-### Auditoria operativa
+### Auditoría operativa
 **Significado:** registro de acciones administrativas del sistema.
 
 ### Actor
-**Significado:** usuario o proceso que ejecuto una accion.
+**Significado:** usuario o proceso que ejecuto una acción.
 
 ### Resultado
-**Significado:** desenlace de una accion auditada: `EXITO`, `ERROR`, `INFO`, etc.
+**Significado:** desenlace de una acción auditada: `EXITO`, `ERROR`, `INFO`, etc.
 
 ### Reintento
 **Significado:** nuevo intento de ejecutar una solicitud fallida.
@@ -323,7 +323,7 @@ Este glosario existe para:
 **Significado:** que tan enfocada esta una pieza en una sola responsabilidad.
 
 ### Boilerplate
-**Significado:** codigo repetitivo con poco valor semántico.
+**Significado:** código repetitivo con poco valor semántico.
 
 ### Wiring
 **Significado:** armado de dependencias.
@@ -337,7 +337,7 @@ Este glosario existe para:
 ---
 
 ## 8) Regla pedagogica final
-Si un termino aparece en codigo, FXML, CSS o documentación y un estudiante no puede explicarlo en una frase corta:
+Si un termino aparece en código, FXML, CSS o documentación y un estudiante no puede explicarlo en una frase corta:
 
 - falta glosario,
 - falta contexto,

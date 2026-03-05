@@ -1,14 +1,14 @@
 ﻿# 21_backend_v_1_sesion_renovable_y_repositorio_documental_local
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: backend V1 y su integración con desktop
 - Relacionado con:
-  - `09_backend_v_1_seguridad_documentacion_y_despliegue_minimo.md`
-  - `10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
-  - `15_backend_v_1_reportes_generacion_archivos_excel_pdf_word.md`
-  - `19_backend_v_1_contexto_integracion_y_diseno_frontend.md`
-  - `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`
+ - `09_backend_v_1_seguridad_documentacion_y_despliegue_minimo.md`
+ - `10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
+ - `15_backend_v_1_reportes_generacion_archivos_excel_pdf_word.md`
+ - `19_backend_v_1_contexto_integracion_y_diseno_frontend.md`
+ - `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`
 
 ---
 
@@ -19,7 +19,7 @@ Este documento explica dos evoluciones importantes del sistema:
 1. Sesión renovable con `refreshToken` para evitar cierres abruptos en desktop.
 2. Repositorio documental desacoplado para reportes, comenzando con una simulacion local en filesystem.
 
-Tambien deja clara la lectura arquitectonica correcta:
+Tambien deja clara la lectura arquitectónica correcta:
 - esto sigue siendo un monolito modular
 - no es un microservicio
 - pero ya usa patrones comunes del mundo corporativo
@@ -70,14 +70,14 @@ Eso permite que la capa application piense en "guardar/cargar/eliminar documento
 Aunque el sistema ya tiene:
 - JWT
 - cola de reportes
-- auditoria
+- auditoría
 - módulos separados
 - puertos y adapters
 - contratos de error y trazabilidad
 
 ...sigue siendo un monolito modular porque:
 
-1. se despliega como una sola aplicacion Spring Boot
+1. se despliega como una sola aplicación Spring Boot
 2. comparte un solo runtime principal
 3. comparte una misma base de datos operacional
 4. los módulos se separan por paquetes y capas, no por despliegues independientes
@@ -89,7 +89,7 @@ Conclusion:
 
 ---
 
-## 4. Patrones de diseño que ya se estan usando
+## 4. Patrones de diseño que ya se están usando
 
 ### 4.1 Inyeccion de dependencias
 
@@ -108,10 +108,10 @@ Beneficio:
 Este es el patron principal usado en las dos piezas nuevas.
 
 Puerto:
-- define lo que la aplicacion necesita
+- define lo que la aplicación necesita
 
 Adapter:
-- resuelve como se hace en una tecnologia concreta
+- resuelve como se hace en una tecnología concreta
 
 Ejemplos:
 - `RefreshTokenStore`
@@ -131,7 +131,7 @@ Ejemplos:
 
 ### 4.5 Strategy
 
-En reportes ya existia una linea de `Strategy` con selector por tipo de reporte y por formato de salida.
+En reportes ya existia una línea de `Strategy` con selector por tipo de reporte y por formato de salida.
 
 ---
 
@@ -161,7 +161,7 @@ Esto es suficiente para:
 - una sola instancia del backend
 - un proyecto didáctico o demo seria
 
-Limites reales:
+Límites reales:
 - si el proceso reinicia, se pierden refresh tokens
 - si algun día levantas multiples instancias, cada una tendria su memoria separada
 
@@ -182,7 +182,7 @@ Eso es debil porque:
 - dificulta migracion a otro proveedor
 - mezcla reglas de negocio con preocupaciones de almacenamiento
 
-### 7.2 Solucion aplicada
+### 7.2 Solución aplicada
 
 Se introdujo este puerto:
 - `DocumentStoragePort`
@@ -192,7 +192,7 @@ Con operaciones de alto nivel:
 - `load(...)`
 - `delete(...)`
 
-La aplicacion ya no piensa en "carpeta exacta y ruta completa".
+La aplicación ya no piensa en "carpeta exacta y ruta completa".
 Piensa en "documento almacenado" y "clave documental".
 
 ### 7.3 Implementacion local actual
@@ -243,13 +243,13 @@ La capa application seguiria igual:
 La arquitectura nueva ya deja estas buenas prácticas:
 
 1. Ownership de reportes:
-   - `ADMIN` puede ver todo
-   - `SECRETARIA` solo sus propias solicitudes y archivos
+ - `ADMIN` puede ver todo
+ - `SECRETARIA` solo sus propias solicitudes y archivos
 
 2. Descarga binaria con headers correctos:
-   - `Content-Disposition`
-   - `Cache-Control: no-store`
-   - `X-Content-Type-Options: nosniff`
+ - `Content-Disposition`
+ - `Cache-Control: no-store`
+ - `X-Content-Type-Options: nosniff`
 
 3. Saneamiento de nombre de archivo y validación de MIME.
 
@@ -257,7 +257,7 @@ La arquitectura nueva ya deja estas buenas prácticas:
 
 ---
 
-## 11. Que faltaria para un backend aun más robusto
+## 11. Que faltaria para un backend aún más robusto
 
 Sin salirte de expectativas realistas, los siguientes pasos con mejor retorno serian:
 

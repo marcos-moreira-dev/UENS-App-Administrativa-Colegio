@@ -126,7 +126,7 @@ Después:
 - componentes reutilizables
 - módulos de soporte
 - reportes
-- auditoria
+- auditoría
 
 ---
 

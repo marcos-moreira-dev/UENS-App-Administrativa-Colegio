@@ -38,9 +38,9 @@ Ruta sugerida:
 
 Estructura:
 - `BorderPane` como raíz
-  - `left`: Sidebar
-  - `top`: Topbar
-  - `center`: ContentHost (contenedor donde se inyecta la vista actual)
+ - `left`: Sidebar
+ - `top`: Topbar
+ - `center`: ContentHost (contenedor donde se inyecta la vista actual)
 
 ### 3.2 LoginView.fxml
 Ruta sugerida:
@@ -59,14 +59,14 @@ Objetivo: cambiar pantallas sin mezclar lógica de navegación dentro de cada co
 
 ### 4.1 Responsabilidades
 - **Navigator**:
-  - conoce rutas de vistas (FXML) y crea instancias
-  - controla el “host” donde se renderiza la vista (center del Shell)
-  - aplica guardias por rol
-  - centraliza navegación (no se navega desde cualquier lado)
+ - conoce rutas de vistas (FXML) y crea instancias
+ - controla el “host” donde se renderiza la vista (center del Shell)
+ - aplica guardias por rol
+ - centraliza navegación (no se navega desde cualquier lado)
 
 - **ViewController (FXML Controller)**:
-  - no debe decidir navegación por su cuenta
-  - solicita navegación mediante Navigator (o un servicio de navegación)
+ - no debe decidir navegación por su cuenta
+ - solicita navegación mediante Navigator (o un servicio de navegación)
 
 ### 4.2 Navegación por “ViewId”
 Se recomienda un enum o catálogo:
@@ -112,12 +112,12 @@ Dos opciones válidas (elegir una y mantenerla):
 
 ### 5.3 Sesión expirada
 - `401` en cualquier request:
-  1. limpiar sesión
-  2. navegar a `LOGIN`
+ 1. limpiar sesión
+ 2. navegar a `LOGIN`
 
 ### 5.4 Sin permisos
 - `403`:
-  - mostrar mensaje “sin permisos” y mantener en la vista actual.
+ - mostrar mensaje “sin permisos” y mantener en la vista actual.
 
 ---
 
@@ -226,18 +226,18 @@ Reglas:
 Se agrega una regla de runtime para el `Stage` principal:
 
 - Si existe sesión activa y la persona usuaria intenta salir con el botón `X` del sistema:
-  - la app muestra un dialogo de confirmación,
-  - informa que la sesión sera cerrada de forma obligatoria,
-  - intenta `POST /api/v1/auth/logout` en modo best-effort,
-  - y luego invalida la sesión local antes del cierre de la app.
+ - la app muestra un dialogo de confirmación,
+ - informa que la sesión sera cerrada de forma obligatoria,
+ - intenta `POST /api/v1/auth/logout` en modo best-effort,
+ - y luego invalida la sesión local antes del cierre de la app.
 
 - Motivo:
-  - evitar tokens activos al cerrar por ventana,
-  - y mejorar trazabilidad para auditoria.
+ - evitar tokens activos al cerrar por ventana,
+ - y mejorar trazabilidad para auditoría.
 
 - Acceso rápido de ventana:
-  - `F11` alterna pantalla completa
-  - el hint visible debe indicar: `Presiona F11 o Esc para salir de pantalla completa`
+ - `F11` alterna pantalla completa
+ - el hint visible debe indicar: `Presiona F11 o Esc para salir de pantalla completa`
 
 Notas:
 - La estructura exacta de paquetes y clases del Navigator se detalla en `18_desktop_arquitectura_paquetes_y_capas_mvvm.md`.

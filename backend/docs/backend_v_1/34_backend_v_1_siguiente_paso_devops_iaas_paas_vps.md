@@ -1,12 +1,12 @@
 ﻿# 34_backend_v_1_siguiente_paso_devops_iaas_paas_vps
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: siguiente paso realista después del backend actual
 - Relacionado con:
-  - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 
@@ -226,7 +226,7 @@ Eso ya te da muchísima más experiencia útil que aprender un catálogo de serv
 - backups
 - restauración
 
-Si una de esas capas falla, el backend puede estar perfectamente programado y aun así el sistema seguir siendo frágil.
+Si una de esas capas falla, el backend puede estar perfectamente programado y aún así el sistema seguir siendo frágil.
 
 ---
 

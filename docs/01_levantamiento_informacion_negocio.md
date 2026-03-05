@@ -290,7 +290,7 @@ Estas consideraciones se registran aquí como parte del levantamiento y se forma
 * La asignatura asociada a una clase debe ser coherente con el grado de la sección a la que pertenece esa clase.
 * Solo usuarios sistema administrativo en estado **ACTIVO** deben poder operar el sistema.
 * Cada usuario sistema administrativo debe tener un **rol de uso básico** definido para la operación de fase 1.
-* Pueden presentarse condiciones logísticas (por ejemplo, contingencias climáticas) que afecten la operación presencial de clases en ciertos periodos.
+* Pueden presentarse condiciones logísticas (por ejemplo, contingencias climáticas) que afecten la operación presencial de clases en ciertos períodos.
 
 ---
 

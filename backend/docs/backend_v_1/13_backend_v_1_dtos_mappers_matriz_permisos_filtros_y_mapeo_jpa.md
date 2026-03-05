@@ -75,34 +75,34 @@ Un DTO (**Data Transfer Object**) es una estructura para mover datos entre capas
 ### 4.2 Auth (`auth`)
 #### Requests
 - `LoginRequestDto`
-  - `login`
-  - `password`
+ - `login`
+ - `password`
 
 #### Responses
 - `LoginResponseDto`
-  - `accessToken`
-  - `tokenType`
-  - `expiresInSeconds`
-  - `usuario` (resumen)
+ - `accessToken`
+ - `tokenType`
+ - `expiresInSeconds`
+ - `usuario` (resumen)
 - `AuthUsuarioResumenDto`
-  - `id`
-  - `login`
-  - `rol`
-  - `estado`
+ - `id`
+ - `login`
+ - `rol`
+ - `estado`
 - (Opcional) `AuthMeResponseDto`
 
 ### 4.3 Estudiantes (`estudiante`)
 #### Requests
 - `EstudianteCreateRequestDto`
-  - datos del estudiante
-  - `representanteLegalId` (obligatorio)
-  - `seccionId` (opcional si el flujo lo permite)
+ - datos del estudiante
+ - `representanteLegalId` (obligatorio)
+ - `seccionId` (opcional si el flujo lo permite)
 - `EstudianteUpdateRequestDto`
 - `EstudiantePatchEstadoRequestDto`
-  - `estado`
+ - `estado`
 - `AsignarSeccionVigenteRequestDto` (**orquestación**)
-  - `seccionId`
-  - (opcional) `motivo` / `observacion` si quieres trazabilidad simple
+ - `seccionId`
+ - (opcional) `motivo` / `observacion` si quieres trazabilidad simple
 
 #### Responses
 - `EstudianteResponseDto` (detalle)
@@ -152,13 +152,13 @@ Un DTO (**Data Transfer Object**) es una estructura para mover datos entre capas
 ### 4.8 Clases (`clase`)
 #### Requests
 - `ClaseCreateRequestDto`
-  - `seccionId`
-  - `asignaturaId`
-  - `docenteId` (nullable)
-  - `diaSemana`
-  - `horaInicio`
-  - `horaFin`
-  - `estado` (opcional, o derivado por defecto)
+ - `seccionId`
+ - `asignaturaId`
+ - `docenteId` (nullable)
+ - `diaSemana`
+ - `horaInicio`
+ - `horaFin`
+ - `estado` (opcional, o derivado por defecto)
 - `ClaseUpdateRequestDto`
 - `ClasePatchEstadoRequestDto`
 - `ClaseAsignarDocenteRequestDto` (si prefieres endpoint específico)
@@ -170,12 +170,12 @@ Un DTO (**Data Transfer Object**) es una estructura para mover datos entre capas
 ### 4.9 Calificaciones (`calificacion`)
 #### Requests
 - `CalificacionCreateRequestDto`
-  - `estudianteId`
-  - `claseId`
-  - `numeroParcial`
-  - `nota`
-  - `fechaRegistro` (opcional)
-  - `observacion` (opcional)
+ - `estudianteId`
+ - `claseId`
+ - `numeroParcial`
+ - `nota`
+ - `fechaRegistro` (opcional)
+ - `observacion` (opcional)
 - `CalificacionUpdateRequestDto`
 
 #### Responses
@@ -190,9 +190,9 @@ Un DTO (**Data Transfer Object**) es una estructura para mover datos entre capas
 ### 4.11 Reportes / cola DB queue (`reporte`)
 #### Requests
 - `CrearReporteSolicitudRequestDto`
-  - `tipoReporte`
-  - `parametros` (estructura JSON/objeto)
-  - `idempotencyKey` (opcional)
+ - `tipoReporte`
+ - `parametros` (estructura JSON/objeto)
+ - `idempotencyKey` (opcional)
 
 #### Responses
 - `ReporteSolicitudCreadaResponseDto`
@@ -208,17 +208,17 @@ Un DTO (**Data Transfer Object**) es una estructura para mover datos entre capas
 
 > Nota: estos payloads representan el JSON que el backend prepara y JavaFX consume para renderizar/exportar.
 
-### 4.12 Auditoria operativa (`auditoria`)
+### 4.12 Auditoría operativa (`auditoria`)
 #### Requests
 - `CrearAuditoriaReporteRequestDto`
-  - `formatoSalida` (`XLSX|PDF|DOCX`)
-  - `fechaDesde` (opcional)
-  - `fechaHasta` (opcional)
-  - `módulo` (opcional)
-  - `accion` (opcional)
-  - `resultado` (opcional)
-  - `actorLogin` (opcional)
-  - `incluirDetalle` (opcional, default `true`)
+ - `formatoSalida` (`XLSX|PDF|DOCX`)
+ - `fechaDesde` (opcional)
+ - `fechaHasta` (opcional)
+ - `módulo` (opcional)
+ - `accion` (opcional)
+ - `resultado` (opcional)
+ - `actorLogin` (opcional)
+ - `incluirDetalle` (opcional, default `true`)
 
 #### Responses
 - `AuditoriaEventoListItemDto`
@@ -250,9 +250,9 @@ Los mappers manuales convierten entre:
 ### 5.4 Reglas de estilo
 - Un mapper por módulo/caso de uso cuando el volumen crezca
 - Métodos con nombres explícitos:
-  - `toResponseDto(...)`
-  - `toListItemDto(...)`
-  - `toEntity(...)` (solo si aplica y no rompe la encapsulación)
+ - `toResponseDto(...)`
+ - `toListItemDto(...)`
+ - `toEntity(...)` (solo si aplica y no rompe la encapsulación)
 - Si el mapper empieza a tener lógica de negocio, esa lógica se mueve a `application` o `domain`
 
 ---
@@ -307,7 +307,7 @@ Los mappers manuales convierten entre:
 - `GET /api/v1/reportes/solicitudes/{id}/resultado` → `ADMIN`, `SECRETARIA`
 - `POST /api/v1/reportes/solicitudes/{id}/reintentar` (si se implementa) → `ADMIN`
 
-#### Auditoria
+#### Auditoría
 - `GET /api/v1/auditoria/eventos` → `ADMIN`
 - `POST /api/v1/auditoria/reportes/solicitudes` → `ADMIN`
 
@@ -456,7 +456,7 @@ Los mappers manuales convierten entre:
 #### Sort por defecto
 - `requestedAt,desc`
 
-### 7.9 Auditoria — `GET /api/v1/auditoria/eventos`
+### 7.9 Auditoría — `GET /api/v1/auditoria/eventos`
 #### Filtros permitidos
 - `q`
 - `módulo`
@@ -619,9 +619,9 @@ La tabla de cola de reportes es **complementaria** al núcleo oficial 3FN y se d
 
 Ejemplo (conceptual):
 - Un reporte de “Listado de estudiantes por sección” puede devolver:
-  - metadatos (`seccion`, `anioLectivo`, `generadoEn`)
-  - filas (`estudiantes[]`)
-  - resumen (`totalEstudiantes`)
+ - metadatos (`seccion`, `anioLectivo`, `generadoEn`)
+ - filas (`estudiantes[]`)
+ - resumen (`totalEstudiantes`)
 
 Todo eso es el **payload del reporte** (el JSON que el backend prepara y el cliente JavaFX usa para renderizar/exportar).
 

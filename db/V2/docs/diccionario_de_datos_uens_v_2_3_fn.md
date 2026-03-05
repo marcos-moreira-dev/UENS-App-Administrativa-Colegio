@@ -169,7 +169,7 @@ Este documento cubre:
 - Unicidad operativa por combinación: `seccion_id + asignatura_id + dia_semana + hora_inicio + hora_fin`
 
 **Notas:**
-- En esta versión no necesariamente se fuerza por DB la coherencia entre `asignatura.grado` y `seccion.grado` (puede resolverse en backend/reglas).  
+- En esta versión no necesariamente se fuerza por DB la coherencia entre `asignatura.grado` y `seccion.grado` (puede resolverse en backend/reglas). 
 - La validación de solapamientos horarios puede quedar para backend o versión posterior.
 
 ---
@@ -195,36 +195,36 @@ Este documento cubre:
 
 ## 3.9 Tabla `reporte_solicitud_queue`
 
-**Descripción:** cola persistente de solicitudes de reportes asincronos del backend.
+**Descripción:** cola persistente de solicitudes de reportes asíncronos del backend.
 
 | Campo | Tipo | Nulo | Default | Clave / Restricción | Descripción |
 |---|---|---:|---|---|---|
-| `pk_id` | `BIGINT` (IDENTITY) | No | — | PK | Identificador unico de la solicitud de reporte. |
+| `pk_id` | `BIGINT` (IDENTITY) | No | — | PK | Identificador único de la solicitud de reporte. |
 | `tipo_reporte` | `VARCHAR(100)` | No | — | — | Tipo funcional de reporte solicitado. |
 | `estado` | `VARCHAR(20)` | No | — | `CHECK` (`PENDIENTE`,`EN_PROCESO`,`COMPLETADA`,`ERROR`) | Estado de procesamiento del worker. |
-| `parametros_json` | `TEXT` | Sí | — | — | JSON de parametros/filtros de entrada. |
+| `parametros_json` | `TEXT` | Sí | — | — | JSON de parámetros/filtros de entrada. |
 | `resultado_json` | `TEXT` | Sí | — | — | JSON con resultado y metadata de archivo generado. |
-| `error_detalle` | `TEXT` | Sí | — | — | Ultimo error tecnico/funcional de procesamiento. |
-| `solicitado_por_usuario` | `BIGINT` | Sí | — | — | Usuario administrativo que genero la solicitud. |
-| `intentos` | `INTEGER` | No | `0` | — | Numero de intentos del worker. |
+| `error_detalle` | `TEXT` | Sí | — | — | último error técnico/funcional de procesamiento. |
+| `solicitado_por_usuario` | `BIGINT` | Sí | — | — | Usuario administrativo que género la solicitud. |
+| `intentos` | `INTEGER` | No | `0` | — | Número de intentos del worker. |
 | `fecha_solicitud` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | — | Fecha de creacion de la solicitud. |
-| `fecha_actualizacion` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | — | Ultima fecha de cambio de estado. |
+| `fecha_actualizacion` | `TIMESTAMP` | No | `CURRENT_TIMESTAMP` | — | última fecha de cambio de estado. |
 
 ---
 
 ## 3.10 Tabla `auditoria_evento`
 
-**Descripción:** bitacora operativa de trazabilidad para acciones administrativas y flujo de reportes.
+**Descripción:** bitácora operativa de trazabilidad para acciones administrativas y flujo de reportes.
 
 | Campo | Tipo | Nulo | Default | Clave / Restricción | Descripción |
 |---|---|---:|---|---|---|
-| `pk_id` | `BIGINT` (IDENTITY) | No | — | PK | Identificador unico del evento. |
-| `modulo` | `VARCHAR(80)` | No | — | — | Modulo funcional que emite el evento (`REPORTE`,`AUDITORIA`, etc.). |
-| `accion` | `VARCHAR(120)` | No | — | — | Accion ejecutada (`SOLICITUD_CREADA`, `WORKER_SOLICITUD_ERROR`, etc.). |
+| `pk_id` | `BIGINT` (IDENTITY) | No | — | PK | Identificador único del evento. |
+| `modulo` | `VARCHAR(80)` | No | — | — | Módulo funcional que emite el evento (`REPORTE`,`AUDITORIA`, etc.). |
+| `accion` | `VARCHAR(120)` | No | — | — | Acción ejecutada (`SOLICITUD_CREADA`, `WORKER_SOLICITUD_ERROR`, etc.). |
 | `entidad` | `VARCHAR(120)` | Sí | — | — | Entidad de negocio afectada. |
 | `entidad_id` | `VARCHAR(120)` | Sí | — | — | Identificador de la entidad afectada. |
 | `resultado` | `VARCHAR(20)` | No | — | `CHECK` (`EXITO`,`ERROR`,`INFO`,`ADVERTENCIA`) | Resultado del evento. |
-| `detalle` | `TEXT` | Sí | — | — | Detalle tecnico/funcional controlado para trazabilidad. |
+| `detalle` | `TEXT` | Sí | — | — | Detalle técnico/funcional controlado para trazabilidad. |
 | `request_id` | `VARCHAR(64)` | Sí | — | — | Correlation id de la peticion HTTP original. |
 | `ip_origen` | `VARCHAR(64)` | Sí | — | — | IP origen capturada desde request/proxy. |
 | `actor_usuario_id` | `BIGINT` | Sí | — | FK → `usuario_sistema_administrativo(pk_id)` | Usuario autenticado asociado al evento. |
@@ -237,36 +237,36 @@ Este documento cubre:
 ## 4. Relaciones principales (cardinalidad lógica)
 
 - **representante_legal (1) — (N) estudiante**
-  - Un representante legal puede estar asociado a varios estudiantes.
-  - Un estudiante debe tener un representante legal.
+ - Un representante legal puede estar asociado a varios estudiantes.
+ - Un estudiante debe tener un representante legal.
 
-- **seccion (1) — (N) estudiante**
-  - Una sección puede tener múltiples estudiantes.
-  - Un estudiante puede no tener sección asignada temporalmente (`seccion_id` nullable).
+- **sección (1) — (N) estudiante**
+ - Una sección puede tener múltiples estudiantes.
+ - Un estudiante puede no tener sección asignada temporalmente (`seccion_id` nullable).
 
-- **seccion (1) — (N) clase**
-  - Una sección tiene múltiples bloques de clase.
+- **sección (1) — (N) clase**
+ - Una sección tiene múltiples bloques de clase.
 
 - **asignatura (1) — (N) clase**
-  - Una asignatura puede impartirse en múltiples bloques/clases.
+ - Una asignatura puede impartirse en múltiples bloques/clases.
 
 - **docente (1) — (N) clase**
-  - Un docente puede impartir múltiples clases.
-  - Una clase puede no tener docente asignado en fase 1.
+ - Un docente puede impartir múltiples clases.
+ - Una clase puede no tener docente asignado en fase 1.
 
-- **estudiante (1) — (N) calificacion**
-  - Un estudiante puede tener múltiples calificaciones.
+- **estudiante (1) — (N) calificación**
+ - Un estudiante puede tener múltiples calificaciones.
 
-- **clase (1) — (N) calificacion**
-  - Una clase puede generar múltiples calificaciones.
+- **clase (1) — (N) calificación**
+ - Una clase puede generar múltiples calificaciones.
 
 - **usuario_sistema_administrativo (1) — (N) reporte_solicitud_queue**
-  - Un usuario puede solicitar multiples reportes asincronos.
-  - Una solicitud puede no tener usuario asociado si se encola por proceso tecnico.
+ - Un usuario puede solicitar multiples reportes asíncronos.
+ - Una solicitud puede no tener usuario asociado si se encola por proceso técnico.
 
 - **usuario_sistema_administrativo (1) — (N) auditoria_evento**
-  - Un usuario autenticado puede generar multiples eventos de auditoria.
-  - Un evento puede existir sin actor cuando ocurre fuera de contexto HTTP.
+ - Un usuario autenticado puede generar multiples eventos de auditoría.
+ - Un evento puede existir sin actor cuando ocurre fuera de contexto HTTP.
 
 ---
 
@@ -322,8 +322,8 @@ Estas reglas pueden implementarse en backend (servicios/validadores) o reforzars
 
 1. **Coherencia de grado entre `seccion` y `asignatura` al crear `clase`.**
 2. **Evitar solapamientos horarios** por:
-   - docente
-   - sección
+ - docente
+ - sección
 3. **Validar rangos de nota** según política institucional (si se define máximo, ej. 10.00 o 100.00).
 4. **Catálogos de dominio** (estados, días de semana, etc.) en fases futuras si se desea mayor normalización.
 5. **Reglas de negocio de matrícula y promoción** fuera del alcance de esta versión física.

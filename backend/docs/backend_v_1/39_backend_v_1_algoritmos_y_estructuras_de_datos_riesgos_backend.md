@@ -1,13 +1,13 @@
 ﻿# 39_backend_v_1_algoritmos_y_estructuras_de_datos_riesgos_backend
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: teoría útil de algoritmos y estructuras de datos aplicada al backend
 - Relacionado con:
-  - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
-  - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
-  - `30_backend_v_1_testing_estrategia_profesional.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
+ - `29_backend_v_1_modelo_de_datos_sql_migraciones_indices_y_consistencia.md`
+ - `30_backend_v_1_testing_estrategia_profesional.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 
@@ -28,7 +28,7 @@ También puede romperse por decisiones pobres de:
 
 En otras palabras:
 
-un backend puede verse limpio por fuera y aun así estar condenado por dentro a consumir demasiada CPU, memoria o tiempo.
+un backend puede verse limpio por fuera y aún así estar condenado por dentro a consumir demasiada CPU, memoria o tiempo.
 
 ---
 
@@ -272,7 +272,7 @@ El backend consulta demasiados registros y luego:
 
 - filtra en Java
 - ordena en Java
-- pagina en Java
+- página en Java
 
 ### Error conceptual
 
@@ -636,7 +636,7 @@ No porque UENS sea un sistema "matemático", sino porque esos puntos ya concentr
 
 El mal diseño algorítmico no siempre se ve en el código como algo escandaloso.
 
-A veces se ve como:
+A veces se ve cómo:
 
 - un doble `for`
 - un `contains` aparentemente inocente

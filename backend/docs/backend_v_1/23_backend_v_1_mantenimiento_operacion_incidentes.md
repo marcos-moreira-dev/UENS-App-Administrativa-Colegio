@@ -1,18 +1,18 @@
 ﻿# 23_backend_v_1_mantenimiento_operacion_incidentes
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: trabajo real de mantenimiento mensual o continuo
 - Relacionado con:
-  - `16_backend_v_1_base_trazabilidad_backend.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `30_backend_v_1_testing_estrategia_profesional.md`
+ - `16_backend_v_1_base_trazabilidad_backend.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `30_backend_v_1_testing_estrategia_profesional.md`
 
 ---
 
 ## 1. Propósito
 
-Este documento explica como se trabaja cuando ya no estas "construyendo un proyecto", sino manteniendo un sistema real que alguien usa y por el que te pagan.
+Este documento explica cómo se trabaja cuando ya no estas "construyendo un proyecto", sino manteniendo un sistema real que alguien usa y por el que te pagan.
 
 ---
 
@@ -89,11 +89,11 @@ Pasa mucho tiempo en:
 
 1. identificar impacto y severidad
 2. capturar evidencia:
-   - requestId
-   - hora
-   - endpoint
-   - rol
-   - datos mínimos del caso
+ - requestId
+ - hora
+ - endpoint
+ - rol
+ - datos mínimos del caso
 3. reproducir
 4. clasificar la causa
 5. corregir
@@ -104,13 +104,13 @@ Pasa mucho tiempo en:
 
 ## 6. Como diagnosticar bien
 
-Nunca empieces "tocando codigo a ciegas".
+Nunca empieces "tocando código a ciegas".
 
 Primero revisa:
 
 1. `requestId`
 2. logs
-3. auditoria
+3. auditoría
 4. datos reales en BD
 5. si el error es nuevo o recurrente
 
@@ -118,7 +118,7 @@ Preguntas útiles:
 
 - fallo por dato raro
 - fallo por permiso
-- fallo por codigo
+- fallo por código
 - fallo por infraestructura
 - fallo por contrato frontend/backend
 
@@ -224,7 +224,7 @@ Si no aprendes a distinguir eso, te vas a desgastar.
 Tu backend ya tiene una base buena para mantenimiento porque tiene:
 
 - requestId
-- auditoria
+- auditoría
 - errores tipados
 - módulos claros
 - pruebas

@@ -12,18 +12,18 @@ Este documento define una guía práctica para:
 1. **Estructurar CSS** en archivos reutilizables.
 2. Definir un look & feel sobrio con **profundidad ligera** (degradados suaves, bordes y sombras discretas).
 3. Estilizar componentes clave:
-   - Shell (sidebar/topbar/content)
-   - botones
-   - inputs
-   - tablas
-   - badges
-   - dialogs/drawers
+ - Shell (sidebar/topbar/content)
+ - botones
+ - inputs
+ - tablas
+ - badges
+ - dialogs/drawers
 4. Establecer estados consistentes:
-   - hover
-   - focus
-   - disabled
-   - error
-   - loading
+ - hover
+ - focus
+ - disabled
+ - error
+ - loading
 
 Sin caer en:
 - animaciones complejas,
@@ -102,9 +102,9 @@ Regla:
 ## 5) “Win7 moderno”: cómo lograrlo sin exagerar
 ### 5.1 Degradados suaves
 - Úsalos en:
-  - botones,
-  - topbar,
-  - headers de paneles.
+ - botones,
+ - topbar,
+ - headers de paneles.
 
 No usarlos en:
 - tablas completas,

@@ -5,23 +5,23 @@
 - **Ámbito:** Backend V1 (Spring Boot + Java 21 + ORM + DTOs + mappers manuales)
 - **Propósito específico:** Diseñar una **cola simple de solicitudes de reporte** persistida en PostgreSQL (DB queue) para desacoplar la solicitud HTTP del procesamiento del reporte.
 - **Depende de:**
-  - `00_backend_v1_indice_y_mapa_documental.md`
-  - `01_backend_v1_vision_y_alcance.md`
-  - `02_backend_v1_arquitectura_general.md`
-  - `03_backend_v1_convenciones_y_estandares_codigo.md`
-  - `04_backend_v1_modelado_aplicacion_y_modulos.md`
-  - `05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`
-  - `06_backend_v1_api_endpoints_y_casos_de_uso.md`
-  - `07_backend_v1_validaciones_reglas_negocio_y_excepciones.md` *(si existe catálogo final de códigos; no bloqueante)*
-  - `08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`
-  - `09_backend_v1_seguridad_documentacion_y_despliegue_minimo.md`
+ - `00_backend_v1_indice_y_mapa_documental.md`
+ - `01_backend_v1_vision_y_alcance.md`
+ - `02_backend_v1_arquitectura_general.md`
+ - `03_backend_v1_convenciones_y_estandares_codigo.md`
+ - `04_backend_v1_modelado_aplicacion_y_modulos.md`
+ - `05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`
+ - `06_backend_v1_api_endpoints_y_casos_de_uso.md`
+ - `07_backend_v1_validaciones_reglas_negocio_y_excepciones.md` *(si existe catálogo final de códigos; no bloqueante)*
+ - `08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`
+ - `09_backend_v1_seguridad_documentacion_y_despliegue_minimo.md`
 - **Referencias de negocio / datos:**
-  - `01_levantamiento_informacion_negocio.md`
-  - `02_levantamiento_requerimientos.md`
-  - `03_modelo_conceptual_dominio.md`
-  - `04_reglas_negocio_y_supuestos.md`
-  - `05_glosario_alcance_y_limites.md`
-  - `V2_3FN.sql`
+ - `01_levantamiento_informacion_negocio.md`
+ - `02_levantamiento_requerimientos.md`
+ - `03_modelo_conceptual_dominio.md`
+ - `04_reglas_negocio_y_supuestos.md`
+ - `05_glosario_alcance_y_limites.md`
+ - `V2_3FN.sql`
 
 ---
 
@@ -319,7 +319,7 @@ Campos sugeridos:
 - `links` o referencias de endpoints de consulta *(opcional)*
 
 ### Errores comunes
-- `400` `VR-*` (parametros inválidos)
+- `400` `VR-*` (parámetros inválidos)
 - `401` `AUTH-*`
 - `403` `AUTH-*` sin permisos
 - `409` `RN-*` o `API-*` (duplicado/idempotencia, si aplica)
@@ -371,7 +371,7 @@ Campos sugeridos:
 
 ### Casos especiales recomendados
 - Si aún no está lista: `409` o `425` *(prácticamente mejor `409` en V1 por simplicidad)*
-  - código: `RN-REP-RESULTADO_NO_LISTO`
+ - código: `RN-REP-RESULTADO_NO_LISTO`
 
 ✅ Recomendación V1: usar `409` con mensaje claro y consistente.
 
@@ -435,9 +435,9 @@ Un usuario solo ve sus solicitudes, salvo `ADMIN`.
 
 ### Request
 - `CrearReporteSolicitudRequestDto`
-  - `tipoReporte`
-  - `parametros`
-  - `idempotencyKey` *(opcional)*
+ - `tipoReporte`
+ - `parametros`
+ - `idempotencyKey` *(opcional)*
 
 ### Response
 - `ReporteSolicitudCreadaResponseDto`
@@ -525,8 +525,8 @@ Puedes combinar algunos componentes en V1 para no fragmentar demasiado, pero man
 5. Guarda `resultadoPayload`.
 6. Marca `COMPLETADA`.
 7. Si falla:
-   - incrementa intento,
-   - decide reintento o `ERROR`.
+ - incrementa intento,
+ - decide reintento o `ERROR`.
 
 ✅ El scheduler dispara; el processor decide.
 
@@ -544,9 +544,9 @@ Garantizar que una solicitud sea “tomada” por un solo worker a la vez.
 
 ## 14.3. Estrategias posibles en DB queue
 
-- optimistic locking puro (`version`)  
-- actualización atómica con condición por estado  
-- `SELECT ... FOR UPDATE SKIP LOCKED` (PostgreSQL)  
+- optimistic locking puro (`version`) 
+- actualización atómica con condición por estado 
+- `SELECT ... FOR UPDATE SKIP LOCKED` (PostgreSQL) 
 - marca de claim con `workerId` + timestamps (más complejo)
 
 ## 14.4. Recomendación V1 concreta (PostgreSQL)

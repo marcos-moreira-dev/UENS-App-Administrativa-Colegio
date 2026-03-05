@@ -156,7 +156,7 @@ Una clase en estado **INACTIVO** no debe utilizarse para nuevas operaciones de r
 
 #### RN-22. Oferta académica mínima por sección (regla operativa)
 
-El sistema debe permitir validar o advertir cuando una sección operativa tenga menos de **5 clases** definidas en su oferta académica del periodo.
+El sistema debe permitir validar o advertir cuando una sección operativa tenga menos de **5 clases** definidas en su oferta académica del período.
 
 ---
 

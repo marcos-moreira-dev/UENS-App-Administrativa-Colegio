@@ -3,11 +3,11 @@
 ## 0) Contexto general del proyecto
 Este repositorio contiene:
 
-- **Backend UENS**: Spring Boot + PostgreSQL. Es la fuente de verdad del dominio operativo, validaciones, estados, roles, reportes asíncronos y auditoria.
-- **Desktop UENS**: JavaFX. Es la aplicacion administrativa que consume la API del backend.
+- **Backend UENS**: Spring Boot + PostgreSQL. Es la fuente de verdad del dominio operativo, validaciones, estados, roles, reportes asíncronos y auditoría.
+- **Desktop UENS**: JavaFX. Es la aplicación administrativa que consume la API del backend.
 
 Carpetas relevantes:
-- `backend/` -> codigo + documentación del backend
+- `backend/` -> código + documentación del backend
 - `db/` -> SQL, seeds y herramientas
 - `desktop/` -> app JavaFX + documentación del frontend
 
@@ -38,19 +38,19 @@ El desktop existe porque el negocio tiene problemas reales:
 - Estudiantes
 
 ### 1.2 Entidades base
-- **Estudiante** -> asociado a 1 representante legal principal y 0..1 seccion vigente
+- **Estudiante** -> asociado a 1 representante legal principal y 0..1 sección vigente
 - **Representante legal** -> puede tener varios estudiantes
-- **Seccion** -> grado/paralelo/año lectivo + cupo maximo + estado
+- **Sección** -> grado/paralelo/año lectivo + cupo máximo + estado
 - **Asignatura** -> catálogo por grado
-- **Clase** -> oferta concreta (seccion + asignatura + horario + docente opcional + estado)
-- **Calificacion** -> por (estudiante + clase + parcial 1/2)
+- **Clase** -> oferta concreta (sección + asignatura + horario + docente opcional + estado)
+- **Calificación** -> por (estudiante + clase + parcial 1/2)
 - **Usuario administrativo** -> login/rol/estado
 
 ### 1.3 Reglas clave
-- edad 6-13 validada respecto a fecha de registro/matricula;
-- cupo por seccion, maximo institucional 35;
+- edad 6-13 validada respecto a fecha de registro/matrícula;
+- cupo por sección, máximo institucional 35;
 - estados `ACTIVO/INACTIVO` bloquean operaciones nuevas;
-- calificacion por **clase**, no por asignatura directa;
+- calificación por **clase**, no por asignatura directa;
 - roles: `ADMIN` y `SECRETARIA`.
 
 ---
@@ -60,7 +60,7 @@ Diseñar e implementar el frontend desktop JavaFX con:
 
 1. arquitectura **MVVM**;
 2. estado observable para refresco reactivo de vistas;
-3. documentación Markdown numerada para UX/UI, arquitectura, sesión, errores, componentes, reportes y auditoria;
+3. documentación Markdown numerada para UX/UI, arquitectura, sesión, errores, componentes, reportes y auditoría;
 4. coherencia fuerte con dominio y contratos API.
 
 ---
@@ -102,7 +102,7 @@ La API y el dominio ya definen:
 - estados;
 - contratos (`ApiResponse`, `PageResponse`, errores y `requestId`);
 - reportes asíncronos;
-- auditoria.
+- auditoría.
 
 El frontend agrega valor en:
 - consistencia UX/UI;
@@ -116,20 +116,20 @@ El frontend agrega valor en:
 ## 5) MVVM aterrizado a JavaFX
 
 ### 5.1 Componentes y responsabilidades
-- **View (FXML + Controller)**  
-  Orquesta UI, bindings y eventos. No hace HTTP ni crea `*Api`.
+- **View (FXML + Controller)** 
+ Orquesta UI, bindings y eventos. No hace HTTP ni crea `*Api`.
 
-- **ViewModel**  
-  Expone estado observable con `Property`, `ObservableList` y `Bindings`.
+- **ViewModel** 
+ Expone estado observable con `Property`, `ObservableList` y `Bindings`.
 
-- **Application Services**  
-  Encapsulan acceso al backend y se resuelven desde `ApplicationServices`.
+- **Application Services** 
+ Encapsulan acceso al backend y se resuelven desde `ApplicationServices`.
 
-- **Presenter / Mapper**  
-  Formatean texto o estados visuales cuando el controller ya no deberia hacerlo.
+- **Presenter / Mapper** 
+ Formatean texto o estados visuales cuando el controller ya no deberia hacerlo.
 
-- **SessionState**  
-  Mantiene token, usuario, rol y estado de autenticación.
+- **SessionState** 
+ Mantiene token, usuario, rol y estado de autenticación.
 
 ### 5.2 Estado reactivo
 - `StringProperty`
@@ -147,7 +147,7 @@ Regla:
 ## 6) Etapas de diseño e implementacion
 
 ### Etapa 0 - Aterrizaje del dominio y contratos
-- negocio: entender entidades, reglas y limites;
+- negocio: entender entidades, reglas y límites;
 - frontend: fijar vocabulario y pantallas;
 - API: asumir contratos reales.
 
@@ -158,13 +158,13 @@ Regla:
 - menu por rol.
 
 ### Etapa 2 - Design system + assets + CSS
-- tipografia;
+- tipografía;
 - colores;
-- iconografia;
+- iconografía;
 - consistencia visual.
 
 ### Etapa 3 - Patrones reutilizables
-- `TableView` estilizada con filtros y paginacion;
+- `TableView` estilizada con filtros y paginación;
 - `DrawerCoordinator`;
 - `UiFeedbackService`;
 - `UiCommand` / `UiCommands`;
@@ -175,7 +175,7 @@ Regla:
 - listado;
 - create/edit;
 - cambio de estado;
-- asignacion de seccion vigente.
+- asignacion de sección vigente.
 
 ### Etapa 5 - Calificaciones
 - filtros por estudiante/clase/parcial;
@@ -188,7 +188,7 @@ Regla:
 - descarga binaria;
 - reintento solo ADMIN.
 
-### Etapa 7 - Auditoria
+### Etapa 7 - Auditoría
 - tabla con filtros fuertes;
 - requestId visible;
 - reporte administrativo.
@@ -226,7 +226,7 @@ Regla:
 
 ## 8) Notas de coherencia importantes
 - "Franja horaria" se representa como `diaSemana + horaInicio + horaFin`.
-- La calificacion es por **clase**, no por asignatura directa.
+- La calificación es por **clase**, no por asignatura directa.
 - Los roles cambian acciones, no solo pantallas.
 - `403` = sin permisos; `401` = sesión invalida o expirada.
 - `requestId` debe verse en detalle técnico.

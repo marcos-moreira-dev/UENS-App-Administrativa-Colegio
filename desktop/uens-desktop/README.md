@@ -2,7 +2,7 @@
 
 Cliente desktop JavaFX del sistema UENS.
 
-Este modulo contiene la aplicacion de escritorio y el flujo de empaquetado para distribuirla en Windows.
+Este módulo contiene la aplicación de escritorio y el flujo de empaquetado para distribuirla en Windows.
 
 ## Comandos base (desarrollo)
 
@@ -11,15 +11,15 @@ Este modulo contiene la aplicacion de escritorio y el flujo de empaquetado para 
 ..\..\mvnw.cmd -pl desktop/uens-desktop test
 ```
 
-## Distribucion Windows (MSI / app-image)
+## Distribución Windows (MSI / app-image)
 
-El script de distribucion esta en:
+El script de distribución esta en:
 
 - `tools/scripts/dist/build-installer.ps1`
 
 Este script automatiza:
 
-1. `clean package` del modulo desktop
+1. `clean package` del módulo desktop
 2. copia de dependencias runtime al input de `jpackage`
 3. generacion de paquete `msi` o `app-image`
 4. uso del icono oficial del proyecto
@@ -60,7 +60,7 @@ Si ambos archivos existen, el script los aplica al wizard MSI sin flags extra.
 - `banner.bmp`: `493x58` (franja superior del wizard)
 - `dialog.bmp`: `493x312` (panel lateral/fondo del wizard)
 
-Recomendaciones practicas:
+Recomendaciones prácticas:
 
 - Genera con IA en resolucion 4x y luego reduce para mejor nitidez.
 - Usa formato BMP 24-bit sin compresion.
@@ -87,25 +87,25 @@ Puedes desinstalar desde:
 
 No necesitas escribir un desinstalador manual para este caso.
 
-## Diferencia practica: MSI vs app-image
+## Diferencia práctica: MSI vs app-image
 
 - `msi`:
-  - instala en el sistema
-  - registra acceso en menu/inicio segun flags
-  - incluye flujo de desinstalacion del sistema
+ - instala en el sistema
+ - registra acceso en menu/inicio segun flags
+ - incluye flujo de desinstalacion del sistema
 - `app-image`:
-  - carpeta portable
-  - no registra instalacion formal en Windows Installer
-  - no aparece como app instalada para desinstalar
+ - carpeta portable
+ - no registra instalacion formal en Windows Installer
+ - no aparece como app instalada para desinstalar
 
-## Troubleshooting rapido
+## Troubleshooting rápido
 
 - Error: `No se encontro jpackage`
-  - Verifica que estas usando JDK 21+ y no solo JRE.
+ - Verifica que estas usando JDK 21+ y no solo JRE.
 
 - Error: `Can not find WiX tools`
-  - Instala WiX v3.x o valida que `candle.exe` y `light.exe` existan.
-  - Si estan instalados, usa el script actualizado (incluye autodeteccion).
+ - Instala WiX v3.x o valida que `candle.exe` y `light.exe` existan.
+ - Si están instalados, usa el script actualizado (incluye autodeteccion).
 
 - Error de politica de ejecucion de PowerShell
-  - Ejecuta con `powershell -ExecutionPolicy Bypass -File ...`.
+ - Ejecuta con `powershell -ExecutionPolicy Bypass -File ...`.

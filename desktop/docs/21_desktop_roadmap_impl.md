@@ -87,14 +87,14 @@ El wrapper ya existe en repo:
 Ya materializado y validado:
 - `desktop/uens-desktop/pom.xml`
 - `src/main/java` con base en `app`, `nav`, `session`, `common`, `api`, `ui`
-- módulos operativos de auth, shell, dashboard, estudiantes, representantes, docentes, secciones, asignaturas, clases, calificaciones, reportes y auditoria
-- `src/main/resources` con CSS/FXML operativos, `app.properties`, `logback.xml`, i18n base, fonts runtime, iconografia y assets
+- módulos operativos de auth, shell, dashboard, estudiantes, representantes, docentes, secciones, asignaturas, clases, calificaciones, reportes y auditoría
+- `src/main/resources` con CSS/FXML operativos, `app.properties`, `logback.xml`, i18n base, fonts runtime, iconografía y assets
 - `src/test/java` con pruebas reales de `ApiClient`, polling, ViewModels y utilidades nuevas
 
 Validación ejecutada:
 - `mvn -pl desktop/uens-desktop test`
 
-Limites actuales:
+Límites actuales:
 - faltan más pruebas de controllers y flujos integrados;
 - la migracion i18n sigue parcial;
 - algunos módulos CRUD secundarios todavia pueden recibir presenter/mapper si siguen creciendo.
@@ -114,7 +114,7 @@ Incluye:
 - `AppContext`
 - `AppShell.fxml`
 
-### M1 - Infra comun
+### M1 - Infra común
 Estado:
 - **Completado**
 
@@ -167,7 +167,7 @@ Estado:
 Estado:
 - **Completado**
 
-### M10 - Auditoria
+### M10 - Auditoría
 Estado:
 - **Completado**
 
@@ -177,7 +177,7 @@ Estado:
 
 ### M12 - Logging y diagnostico
 Estado:
-- **Completado en version operativa**
+- **Completado en versión operativa**
 
 ### M13 - Hardening final
 Estado:
@@ -202,14 +202,14 @@ Contenido base:
 
 ## 6) Política de logs
 - `logs/` en desarrollo
-- exportacion de informe frontend bajo demanda
+- exportación de informe frontend bajo demanda
 - soporte a dialogo "Guardar como" en Desktop del usuario
 
 ---
 
 ## 7) Regla de uso de este roadmap
 - Este documento manda sobre la implementacion técnica del desktop.
-- Si el repo real difiere de la documentación, primero se corrige la documentación o se justifica la excepcion.
-- No se debe avanzar a más codigo estructural sin que este roadmap siga siendo compatible con el estado real del repo.
+- Si el repo real difiere de la documentación, primero se corrige la documentación o se justifica la excepción.
+- No se debe avanzar a más código estructural sin que este roadmap siga siendo compatible con el estado real del repo.
 
 

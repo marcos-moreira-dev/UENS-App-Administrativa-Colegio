@@ -1,8 +1,8 @@
-﻿# Ejemplos de paginacion y filtros
+﻿# Ejemplos de paginación y filtros
 
-## Parametros comunes
+## Parámetros comunes
 - `page`: índice base 0.
-- `size`: tamano de pagina.
+- `size`: tamano de página.
 - `sort`: repetible, formato `campo,direccion`.
 - `q`: texto libre (cuando el endpoint lo soporta).
 

@@ -1,12 +1,12 @@
 ﻿# 25_backend_v_1_seguridad_practica_backend
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: seguridad backend para trabajo realista
 - Relacionado con:
-  - `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
+ - `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
 
 ---
 
@@ -122,7 +122,7 @@ Por eso es correcta tu direccion actual:
 
 ## 8. Seguridad operativa
 
-Ademas del codigo, debes cuidar:
+Ademas del código, debes cuidar:
 
 1. actualizaciones de dependencias
 2. acceso SSH o acceso al proveedor
@@ -151,7 +151,7 @@ Tu proyecto ya hace varias cosas bien:
 - ownership
 - headers
 - requestId
-- auditoria
+- auditoría
 
 Lo siguiente razonable seria:
 

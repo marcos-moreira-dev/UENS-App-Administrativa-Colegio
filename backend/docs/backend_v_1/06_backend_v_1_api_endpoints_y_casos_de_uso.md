@@ -210,15 +210,15 @@ Este documento asume la arquitectura de `04`:
 
 ### Request DTO (ejemplo conceptual)
 - `LoginRequestDto`
-  - `username`
-  - `password`
+ - `username`
+ - `password`
 
 ### Response DTO (ejemplo conceptual)
 - `LoginResponseDto`
-  - `token`
-  - `tokenType` (`Bearer`)
-  - `expiresInSeconds` (opcional)
-  - `usuario` (resumen)
+ - `token`
+ - `tokenType` (`Bearer`)
+ - `expiresInSeconds` (opcional)
+ - `usuario` (resumen)
 
 ### Respuesta exitosa
 - `200 OK`
@@ -324,9 +324,9 @@ Crear estudiante.
 
 ### Request DTO (ejemplo)
 - `EstudianteCreateRequestDto`
-  - campos personales básicos
-  - datos necesarios para V1
-  - **sin meter objetos de dominio completos**
+ - campos personales básicos
+ - datos necesarios para V1
+ - **sin meter objetos de dominio completos**
 
 ### Respuesta exitosa
 - `201 Created`
@@ -373,8 +373,8 @@ Cambiar estado del estudiante de forma explícita (activar/inactivar, etc.).
 
 ### Request DTO sugerido
 - `EstudianteCambiarEstadoRequestDto`
-  - `estadoObjetivo`
-  - `motivo` (opcional)
+ - `estadoObjetivo`
+ - `motivo` (opcional)
 
 ### Respuesta
 - `200 OK`
@@ -419,14 +419,14 @@ Este endpoint representa muy bien un caso multi-entidad (estudiante + sección +
 
 ### Servicio de aplicación
 - `EstudianteSeccionApplicationService.asignarSeccionVigente(...)`
-  o
+ o
 - `EstudianteApplicationService.asignarSeccionVigente(...)`
 
 ### Request DTO sugerido
 - `AsignarSeccionVigenteRequestDto`
-  - `seccionId`
-  - `motivo` (opcional)
-  - `fechaVigencia` (opcional según alcance V1)
+ - `seccionId`
+ - `motivo` (opcional)
+ - `fechaVigencia` (opcional según alcance V1)
 
 ### Respuesta
 - `200 OK`
@@ -543,7 +543,7 @@ Listar estudiantes pertenecientes a una sección (útil para tablas UI y navegac
 
 ### Servicio
 - `SeccionConsultaApplicationService.listarEstudiantesDeSeccion(...)`
-  o dentro de `SeccionApplicationService`
+ o dentro de `SeccionApplicationService`
 
 ### Query params
 - `page`, `size`, `sort`, `q` (búsqueda en estudiantes de la sección)
@@ -599,11 +599,11 @@ Registrar calificación.
 
 ### Request DTO sugerido
 - `CalificacionCreateRequestDto`
-  - `estudianteId`
-  - `materiaId` / `claseId` (según modelo final)
-  - `numeroParcial`
-  - `valor`
-  - `observacion` (opcional)
+ - `estudianteId`
+ - `materiaId` / `claseId` (según modelo final)
+ - `numeroParcial`
+ - `valor`
+ - `observacion` (opcional)
 
 ### Respuesta
 - `201 Created`
@@ -688,9 +688,9 @@ Consultar alertas operativas simples (ej. secciones sin cupo, reportes con error
 ## 10.3. `GET /api/v1/consultas/docentes-por-seccion`
 
 ### Caso de uso
-Consultar que docentes tienen clases activas asociadas a una seccion concreta.
+Consultar que docentes tienen clases activas asociadas a una sección concreta.
 
-### Servicio de aplicacion
+### Servicio de aplicación
 - `ConsultaAcademicaQueryService.obtenerDocentesPorSeccion(seccionId)`
 
 ### Query params
@@ -702,7 +702,7 @@ Consultar que docentes tienen clases activas asociadas a una seccion concreta.
 
 ### Errores comunes
 - `VR-02-PARAMETRO_INVALIDO` (`400`) si `seccionId` es invalido
-- `API-04-RECURSO_NO_ENCONTRADO` (`404`) si la seccion no existe
+- `API-04-RECURSO_NO_ENCONTRADO` (`404`) si la sección no existe
 - `401/403` si el usuario no esta autenticado o no tiene rol permitido
 
 ## 10.4. `GET /api/v1/consultas/secciones-por-docente`
@@ -710,7 +710,7 @@ Consultar que docentes tienen clases activas asociadas a una seccion concreta.
 ### Caso de uso
 Consultar que secciones tienen clases activas asignadas a un docente concreto.
 
-### Servicio de aplicacion
+### Servicio de aplicación
 - `ConsultaAcademicaQueryService.obtenerSeccionesPorDocente(docenteId)`
 
 ### Query params
@@ -737,7 +737,7 @@ Cubrir la gobernanza operativa de cuentas administrativas sin mezclar CRUD de us
 - `PUT /api/v1/usuarios/{usuarioId}`
 - `PATCH /api/v1/usuarios/{usuarioId}/estado`
 
-### Servicios de aplicacion
+### Servicios de aplicación
 - `UsuarioQueryService`
 - `UsuarioCommandService`
 
@@ -771,9 +771,9 @@ Registrar una solicitud de generación de reporte en cola simple (DB queue).
 
 ### Request DTO sugerido
 - `ReporteSolicitudCreateRequestDto`
-  - `tipoReporte`
-  - `parametros` (objeto o estructura tipada según alcance)
-  - `modoEntrega` (opcional; si aplica)
+ - `tipoReporte`
+ - `parametros` (objeto o estructura tipada según alcance)
+ - `modoEntrega` (opcional; si aplica)
 
 ### Respuesta exitosa
 - `201 Created`
@@ -1248,13 +1248,13 @@ Para cada endpoint en código revisar:
 ## 24. Relación con documentos siguientes
 
 - **`08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`**
-  aterriza `page/size/sort/q`, filtros por endpoint y whitelist de ordenamiento.
+ aterriza `page/size/sort/q`, filtros por endpoint y whitelist de ordenamiento.
 
 - **`09_backend_v1_seguridad_documentacion_y_despliegue_minimo.md`**
-  define protección de endpoints, JWT, Swagger/OpenAPI y despliegue mínimo con Docker/env vars.
+ define protección de endpoints, JWT, Swagger/OpenAPI y despliegue mínimo con Docker/env vars.
 
 - **`10_backend_v1_reporte_solicitudes_cola_simple_db_queue.md`**
-  profundiza el flujo del módulo de reportes (estados, transiciones, persistencia y procesamiento simple).
+ profundiza el flujo del módulo de reportes (estados, transiciones, persistencia y procesamiento simple).
 
 ---
 

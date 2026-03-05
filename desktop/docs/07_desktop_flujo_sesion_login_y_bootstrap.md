@@ -45,8 +45,8 @@ Fuente:
 ## 3) Modelo mental (negocio → frontend)
 - Solo usuarios **ACTIVO** pueden operar.
 - El rol (`ADMIN` o `SECRETARIA`) determina:
-  - módulos visibles,
-  - acciones disponibles.
+ - módulos visibles,
+ - acciones disponibles.
 
 Por eso el frontend debe:
 - resolver rol al iniciar,
@@ -102,19 +102,19 @@ Al iniciar la app:
 
 ### 5.2 Secuencia recomendada
 1. **BootstrapApp**
-   - carga fonts (`03_...`)
-   - carga CSS base (`17_...`)
-   - inicializa `SessionState` y `Navigator`
+ - carga fonts (`03_...`)
+ - carga CSS base (`17_...`)
+ - inicializa `SessionState` y `Navigator`
 
 2. **Restore token (opcional)**
-   - leer token de storage (si se decidió persistir)
+ - leer token de storage (si se decidió persistir)
 
 3. **Validate token**
-   - llamar `GET /api/v1/auth/me`
+ - llamar `GET /api/v1/auth/me`
 
 4. Resultado:
-   - **200**: sesión válida → construir menú por rol → navegar `DASHBOARD`
-   - **401**: token inválido/expirado → limpiar → navegar `LOGIN`
+ - **200**: sesión válida → construir menú por rol → navegar `DASHBOARD`
+ - **401**: token inválido/expirado → limpiar → navegar `LOGIN`
 
 Regla:
 - El bootstrap nunca deja la app en estado ambiguo.
@@ -135,13 +135,13 @@ Campos:
 2. UI entra en loading.
 3. `POST /api/v1/auth/login`.
 4. Si éxito:
-   - guardar token
-   - llamar `auth/me` (recomendado) para confirmar rol/estado
-   - construir menú por rol
-   - navegar `DASHBOARD`
+ - guardar token
+ - llamar `auth/me` (recomendado) para confirmar rol/estado
+ - construir menú por rol
+ - navegar `DASHBOARD`
 5. Si error:
-   - mostrar `message`
-   - mantener campos (no limpiar todo)
+ - mostrar `message`
+ - mantener campos (no limpiar todo)
 
 Nota:
 - Aunque el login devuelva `usuario`, `auth/me` sigue siendo útil como “fuente de verdad” y para bootstraps futuros.
@@ -187,8 +187,8 @@ Por defecto (recomendado):
 
 Opcional (“Recordarme”):
 - persistir token en disco con:
-  - expiración,
-  - y al menos ofuscación/cifrado básico.
+ - expiración,
+ - y al menos ofuscación/cifrado básico.
 
 Regla:
 - nunca guardar password.
@@ -199,12 +199,12 @@ Regla:
 - Mostrar usuario/rol en Topbar.
 - Botón “Cerrar sesión” siempre visible.
 - En logout:
-  - limpiar sesión
-  - volver a Login
+ - limpiar sesión
+ - volver a Login
 
 - Si falla `auth/me` por 500:
-  - mostrar mensaje técnico
-  - permitir reintentar
+ - mostrar mensaje técnico
+ - permitir reintentar
 
 ---
 
@@ -229,21 +229,21 @@ Regla:
 Para mantener consistencia con el runtime actual:
 
 - Contratos de auth usados por el desktop:
-  - `POST /api/v1/auth/login`
-  - `GET /api/v1/auth/me`
-  - `POST /api/v1/auth/logout` como endpoint opcional o best-effort si el backend lo implementa
+ - `POST /api/v1/auth/login`
+ - `GET /api/v1/auth/me`
+ - `POST /api/v1/auth/logout` como endpoint opcional o best-effort si el backend lo implementa
 
 - Flujo de cierre no normal:
-  - si la persona usuaria usa el botón `X` del sistema con sesión activa,
-  - la app muestra un diálogo de confirmación,
-  - si confirma, intenta `auth/logout`,
-  - y aunque el backend falle, limpia token y usuario antes de salir.
+ - si la persona usuaria usa el botón `X` del sistema con sesión activa,
+ - la app muestra un diálogo de confirmación,
+ - si confirma, intenta `auth/logout`,
+ - y aunque el backend falle, limpia token y usuario antes de salir.
 
 - Regla dura:
-  - el cierre por ventana no debe dejar la sesión viva en memoria.
+ - el cierre por ventana no debe dejar la sesión viva en memoria.
 
 - Atajo operativo:
-  - `F11` alterna pantalla completa en el mismo `Stage`.
+ - `F11` alterna pantalla completa en el mismo `Stage`.
 
 ---
 

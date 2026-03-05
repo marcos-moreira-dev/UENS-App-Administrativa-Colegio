@@ -136,9 +136,9 @@ Ubicación sugerida:
 ### 5.3 `DrawerTemplate.fxml`
 - overlay oscuro opcional
 - panel lateral con:
-  - header (título + cerrar)
-  - content (scroll)
-  - footer (acciones)
+ - header (título + cerrar)
+ - content (scroll)
+ - footer (acciones)
 
 ### 5.4 `DetailPanelTemplate.fxml`
 - solo lectura (labels), pensado para “Ver”

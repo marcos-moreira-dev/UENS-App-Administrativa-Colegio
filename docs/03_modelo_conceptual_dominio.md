@@ -93,7 +93,7 @@ Representa al adulto responsable del estudiante para fines de contacto y gestió
 
 ### 2.3 Sección
 
-Representa una agrupación académica operativa de estudiantes para un periodo lectivo, definida por grado y paralelo.
+Representa una agrupación académica operativa de estudiantes para un período lectivo, definida por grado y paralelo.
 
 **Atributos conceptuales:**
 
@@ -233,7 +233,7 @@ A continuación se describen las relaciones del modelo conceptual final de fase 
 
 ### 3.2 Sección — **Agrupa** — Estudiante
 
-**Significado:** una sección agrupa estudiantes para la operación académica del periodo.
+**Significado:** una sección agrupa estudiantes para la operación académica del período.
 
 **Cardinalidades:**
 
@@ -381,7 +381,7 @@ Ambas relaciones pueden coexistir en la fase 1 sin contradicción si se interpre
 Para mantener simplicidad en la fase 1, este modelo conceptual **no** representa explícitamente:
 
 * historial de cambios de sección del estudiante,
-* periodos de evaluación más allá de 2 parciales,
+* períodos de evaluación más allá de 2 parciales,
 * permisos granulares por usuario,
 * asistencia,
 * pagos,

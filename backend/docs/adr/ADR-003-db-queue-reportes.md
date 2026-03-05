@@ -16,11 +16,11 @@ Se implementa una cola simple en BD (`reporte_solicitud_queue`) con worker progr
 
 ## Consecuencias
 - Positivas:
-  - Respuesta rápida al usuario al crear solicitud.
-  - Resistencia a reinicios del proceso.
+ - Respuesta rápida al usuario al crear solicitud.
+ - Resistencia a reinicios del proceso.
 - Negativas:
-  - Mayor complejidad operacional.
-  - Necesidad de monitorear stuck jobs.
+ - Mayor complejidad operacional.
+ - Necesidad de monitorear stuck jobs.
 
 ## Notas de implementacion
 - Se usa claim por lote para reducir colisiones.

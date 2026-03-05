@@ -1,13 +1,13 @@
 ﻿# 37_backend_v_1_landing_page_ux_ui_y_pagos_en_linea
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: producto web, UX/UI, conversión y pagos online desde la programación
 - Relacionado con:
-  - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
-  - `32_backend_v_1_freelance_backend_y_trabajo_autonomo.md`
-  - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
-  - `36_backend_v_1_integracion_ia_modelos_locales_y_en_linea.md`
+ - `27_backend_v_1_integraciones_externas_y_storage_providers.md`
+ - `32_backend_v_1_freelance_backend_y_trabajo_autonomo.md`
+ - `34_backend_v_1_siguiente_paso_devops_iaas_paas_vps.md`
+ - `36_backend_v_1_integracion_ia_modelos_locales_y_en_linea.md`
 
 ---
 
@@ -43,7 +43,7 @@ Conversion puede significar:
 - comprar
 - iniciar una prueba
 
-Si la pagina no empuja a una accion clara, es solo presencia web.
+Si la página no empuja a una acción clara, es solo presencia web.
 
 ---
 
@@ -59,7 +59,7 @@ Tiene sentido cuando quieres:
 
 No siempre necesitas una landing compleja.
 
-Muchas veces basta una pagina clara, rápida y confiable.
+Muchas veces basta una página clara, rápida y confiable.
 
 ---
 
@@ -70,7 +70,7 @@ Una landing moderna y funcional suele tener este orden:
 1. navbar simple
 2. hero section
 3. problema o dolor
-4. solucion o beneficios
+4. solución o beneficios
 5. prueba social
 6. caracteristicas clave
 7. pricing o CTA principal
@@ -78,9 +78,9 @@ Una landing moderna y funcional suele tener este orden:
 9. CTA final
 10. footer legal
 
-No es obligatorio usar todas las secciones, pero esa estructura existe por una razon:
+No es obligatorio usar todas las secciones, pero esa estructura existe por una razón:
 
-lleva al usuario desde la atencion hasta la accion.
+lleva al usuario desde la atención hasta la acción.
 
 ---
 
@@ -114,14 +114,14 @@ Puedes pensar el hero asi:
 
 Ejemplo de estructura:
 
-"Gestiona [problema] para [segmento] sin [friccion principal]."
+"Gestiona [problema] para [segmento] sin [fricción principal]."
 
 ### 5.3 Errores comunes del hero
 
 1. demasiado texto
 2. mensaje ambiguo
 3. CTA debil
-4. imagen decorativa sin relacion
+4. imagen decorativa sin relación
 5. no explicar para quien es
 
 ---
@@ -132,7 +132,7 @@ Ejemplo de estructura:
 
 La persona debe entender qué hacer sin pensar demasiado.
 
-### Jerarquia visual
+### Jerarquía visual
 
 Lo importante se ve primero:
 
@@ -176,7 +176,7 @@ Debes entender:
 1. grid y alineacion
 2. espacio en blanco
 3. escala tipografica
-4. jerarquia de color
+4. jerarquía de color
 5. componentes consistentes
 6. responsive real
 
@@ -202,12 +202,12 @@ Con:
 
 ### Bloques de contenido
 
-Cada bloque debe tener una sola funcion:
+Cada bloque debe tener una sola función:
 
 - explicar
 - convencer
 - resolver objeciones
-- cerrar la accion
+- cerrar la acción
 
 ### Footer
 
@@ -244,7 +244,7 @@ Bueno para:
 
 ### 9.3 Landing separada del producto
 
-Muy comun.
+Muy común.
 
 Ejemplo:
 
@@ -274,12 +274,12 @@ Esto ayuda a separar:
 
 Debes cuidar:
 
-- titulo de pagina
+- titulo de página
 - metadescripcion
 - encabezados ordenados
 - texto entendible
 - carga rápida
-- version movil correcta
+- versión movil correcta
 
 ### 10.2 Analítica mínima
 
@@ -486,7 +486,7 @@ Ejemplos conceptuales:
 - adapter proveedor global
 - adapter proveedor regional
 
-### 16.3 Servicio de aplicacion
+### 16.3 Servicio de aplicación
 
 Orquesta:
 
@@ -603,7 +603,7 @@ Dependen del país, pero desde programación debes al menos saber:
 
 - si el precio incluye impuestos o no
 - qué comprobante generas
-- si necesitas numero de factura o recibo
+- si necesitas número de factura o recibo
 
 ---
 
@@ -693,11 +693,11 @@ El mejor proveedor para ti es el que encaja con:
 
 ---
 
-## 25. Lo que debes saber como programador
+## 25. Lo que debes saber cómo programador
 
 Si algún día haces una landing con pagos, deberías poder:
 
-1. estructurar la pagina con foco en conversion
+1. estructurar la página con foco en conversion
 2. distinguir UX de decoración
 3. modelar órdenes y pagos como estados separados
 4. integrar un PSP con webhooks e idempotencia

@@ -55,14 +55,14 @@ Formatos de salida:
 
 ## 3) Permisos por rol
 - `ADMIN`, `SECRETARIA`:
-  - crear solicitud de reporte genérico
-  - listar solicitudes
-  - ver detalle
-  - ver estado/resultado
-  - descargar archivo
+ - crear solicitud de reporte genérico
+ - listar solicitudes
+ - ver detalle
+ - ver estado/resultado
+ - descargar archivo
 
 - Solo `ADMIN`:
-  - reintentar solicitud fallida
+ - reintentar solicitud fallida
 
 Regla UI:
 - Botón “Reintentar” oculto a SECRETARIA.
@@ -101,10 +101,10 @@ B) **Historial de solicitudes** (tabla)
 ### 5.2 Drawer de detalle (opcional)
 **ReporteSolicitudDrawer**
 - muestra:
-  - metadata
-  - filtros usados
-  - estado actual
-  - resultado (si existe)
+ - metadata
+ - filtros usados
+ - estado actual
+ - resultado (si existe)
 
 ---
 
@@ -200,16 +200,16 @@ El backend procesa en background.
 
 ### 9.2 Estrategia recomendada
 - Cuando el usuario crea una solicitud:
-  - mostrar de inmediato la fila en historial
-  - iniciar seguimiento automático del estado por un tiempo
+ - mostrar de inmediato la fila en historial
+ - iniciar seguimiento automático del estado por un tiempo
 
 - Intervalos sugeridos:
-  - cada 2–4 segundos mientras esté `PENDIENTE/EN_PROCESO`
-  - detener al llegar a `COMPLETADA/ERROR`
+ - cada 2–4 segundos mientras esté `PENDIENTE/EN_PROCESO`
+ - detener al llegar a `COMPLETADA/ERROR`
 
 - Controles UX:
-  - indicador “actualizando…”
-  - botón “Refrescar ahora”
+ - indicador “actualizando…”
+ - botón “Refrescar ahora”
 
 Regla:
 - no hacer polling infinito si el usuario sale de la pantalla.
@@ -220,9 +220,9 @@ Regla:
 ### 10.1 Reglas
 - Solo habilitar descarga si estado `COMPLETADA`.
 - Al descargar:
-  - mostrar loading
-  - guardar bytes a disco
-  - usar `Content-Disposition` para nombre si existe
+ - mostrar loading
+ - guardar bytes a disco
+ - usar `Content-Disposition` para nombre si existe
 
 ### 10.2 Naming de archivo (fallback)
 Si no hay nombre:

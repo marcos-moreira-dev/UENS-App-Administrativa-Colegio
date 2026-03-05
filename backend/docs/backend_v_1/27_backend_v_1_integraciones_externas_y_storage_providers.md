@@ -1,12 +1,12 @@
 ﻿# 27_backend_v_1_integraciones_externas_y_storage_providers
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: integraciones con terceros y storage realista
 - Relacionado con:
-  - `21_backend_v_1_sesion_renovable_y_repositorio_documental_local.md`
-  - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
-  - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
+ - `21_backend_v_1_sesion_renovable_y_repositorio_documental_local.md`
+ - `26_backend_v_1_performance_escalabilidad_y_cuello_de_botella.md`
+ - `35_backend_v_1_mensajeria_eventos_colas_rabbitmq_kafka_cqrs_y_cdn.md`
 
 ---
 

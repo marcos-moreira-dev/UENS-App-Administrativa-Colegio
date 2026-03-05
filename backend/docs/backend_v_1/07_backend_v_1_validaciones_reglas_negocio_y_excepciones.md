@@ -99,8 +99,8 @@ Se formaliza la taxonomía usada en `05`:
 
 Al corte técnico del `2026-03-04`, esta política ya se refleja en los módulos CRUD principales:
 
-- `ValidationException` para paginacion, filtros, formatos y rangos simples.
-- `BusinessRuleException` para duplicados, cupos, estados no permitidos y coherencia academica.
+- `ValidationException` para paginación, filtros, formatos y rangos simples.
+- `BusinessRuleException` para duplicados, cupos, estados no permitidos y coherencia académica.
 - `ResourceNotFoundException` para `404` consistentes del modelo.
 - `InfrastructureException` para fallos técnicos del procesamiento de reportes/archivos.
 
@@ -275,11 +275,11 @@ No todas las VR salen de anotaciones.
 
 ### Dos fuentes comunes
 1. **Bean Validation (`@Valid`)**
-   - genera errores por campo
+ - genera errores por campo
 2. **Errores de parseo/tipo**
-   - JSON mal formado
-   - enum inválido
-   - path variable inválida
+ - JSON mal formado
+ - enum inválido
+ - path variable inválida
 
 Ambas deben mapearse al mismo contrato `ApiErrorResponse` con categoría `VR-*`.
 
@@ -393,12 +393,12 @@ Evitar setters públicos para campos que afecten reglas o transiciones.
 
 ### Preferir
 - métodos con intención:
-  - `activar()`
-  - `inactivar()`
-  - `marcarPendiente()`
-  - `marcarEnProceso()`
-  - `marcarCompletada(...)`
-  - `marcarError(...)`
+ - `activar()`
+ - `inactivar()`
+ - `marcarPendiente()`
+ - `marcarEnProceso()`
+ - `marcarCompletada(...)`
+ - `marcarError(...)`
 
 ---
 

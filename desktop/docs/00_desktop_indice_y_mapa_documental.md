@@ -18,14 +18,14 @@ Este archivo es el índice y mapa documental del desktop. Sirve para:
 ## 2) Estructura de carpetas actual y objetivo
 
 - `desktop/`
-  - `assets/` -> iconos PNG de trabajo y `logo.png`
-  - `docs/` -> documentación del desktop
-  - `uens-desktop/`
-    - `pom.xml`
-    - `src/main/java`
-    - `src/main/resources`
-    - `src/test/java`
-    - `tools/scripts/dev`
+ - `assets/` -> iconos PNG de trabajo y `logo.png`
+ - `docs/` -> documentación del desktop
+ - `uens-desktop/`
+ - `pom.xml`
+ - `src/main/java`
+ - `src/main/resources`
+ - `src/test/java`
+ - `tools/scripts/dev`
 
 Convencion recomendada para FXML:
 - `fxml/shell/AppShell.fxml`
@@ -47,7 +47,7 @@ Convencion recomendada para FXML:
 - `backend/docs/api/API_ENDPOINTS.md`
 - `backend/docs/backend_v_1/19_backend_v_1_contexto_integracion_y_diseno_frontend.md`
 
-### 3.3 Seguridad, reportes y auditoria
+### 3.3 Seguridad, reportes y auditoría
 - `backend/docs/backend_v_1/09_backend_v_1_seguridad_documentacion_y_despliegue_minimo.md`
 - `backend/docs/backend_v_1/10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
 - `backend/docs/backend_v_1/17_backend_v_1_auditoria_operativa_y_reporte_admin.md`
@@ -153,7 +153,7 @@ Docs:
 - reportes asíncronos
 
 ### Etapa 7
-- auditoria
+- auditoría
 
 ---
 

@@ -127,9 +127,9 @@ Reglas:
 Para separar “assets de diseño” de “recursos de runtime”, se recomienda:
 
 - `desktop/src/main/resources/images/`
-  - `icons/` (png)
-  - `brand/` (logo, variantes)
-  - `illustrations/` (si se agregan)
+ - `icons/` (png)
+ - `brand/` (logo, variantes)
+ - `illustrations/` (si se agregan)
 
 Y mantener `desktop/assets/` como carpeta de trabajo/entrada.
 
@@ -145,9 +145,9 @@ Regla práctica:
 
 ### 8.2 Regla de proyecto
 - Todo asset debe tener:
-  - origen
-  - licencia
-  - fecha
+ - origen
+ - licencia
+ - fecha
 
 Lugar recomendado:
 - `desktop/assets/ASSETS_SOURCES.md`

@@ -4,12 +4,12 @@
 - **UI:** JavaFX TableView + FXML + CSS
 - **Arquitectura:** MVVM + Navigator
 - **Objetivo:** definir un **patrón de tabla reusable** para listados administrativos (CRUDs), con:
-  - búsqueda (`q`),
-  - filtros,
-  - ordenamiento,
-  - paginación,
-  - estados (loading/empty/error),
-  - y acciones por rol.
+ - búsqueda (`q`),
+ - filtros,
+ - ordenamiento,
+ - paginación,
+ - estados (loading/empty/error),
+ - y acciones por rol.
 
 ---
 
@@ -59,29 +59,29 @@ Fuentes:
 Estructura canónica:
 
 1. **Header**
-   - Título (H1)
-   - Descripción corta opcional
-   - CTA principal (ej. “Crear…”) si el rol lo permite
+ - Título (H1)
+ - Descripción corta opcional
+ - CTA principal (ej. “Crear…”) si el rol lo permite
 
 2. **FilterBar** (barra de filtros)
-   - Search `q` (texto)
-   - Filtros rápidos (ComboBox) según módulo
-   - Botón “Limpiar”
-   - Botón “Refrescar” (opcional)
+ - Search `q` (texto)
+ - Filtros rápidos (ComboBox) según módulo
+ - Botón “Limpiar”
+ - Botón “Refrescar” (opcional)
 
 3. **TableView**
-   - Columnas
-   - Columna “Acciones” al final
+ - Columnas
+ - Columna “Acciones” al final
 
 4. **Footer / PaginationBar**
-   - page/size
-   - total
-   - navegación (prev/next)
+ - page/size
+ - total
+ - navegación (prev/next)
 
 5. **Estados**
-   - Loading overlay
-   - Empty state
-   - Error banner + reintento
+ - Loading overlay
+ - Empty state
+ - Error banner + reintento
 
 ---
 
@@ -96,21 +96,21 @@ Cada pantalla de listado debe tener:
 - `ObservableList<RowVm> items`
 
 - `ObjectProperty<QueryState> queryState`
-  - `String q`
-  - `Map<String, Object> filters`
-  - `SortState sort`
-  - `PaginationState pagination`
+ - `String q`
+ - `Map<String, Object> filters`
+ - `SortState sort`
+ - `PaginationState pagination`
 
 - `ObjectProperty<PageMeta> pageMeta`
-  - `totalElements, totalPages, numberOfElements, first, last, sortString`
+ - `totalElements, totalPages, numberOfElements, first, last, sortString`
 
 - Acciones:
-  - `loadPage()`
-  - `applyFilters()`
-  - `clearFilters()`
-  - `changePage(page)`
-  - `changeSize(size)`
-  - `changeSort(column, direction)`
+ - `loadPage()`
+ - `applyFilters()`
+ - `clearFilters()`
+ - `changePage(page)`
+ - `changeSize(size)`
+ - `changeSort(column, direction)`
 
 ### 4.2 View (FXML Controller)
 - bindea controles ↔ propiedades del ViewModel
@@ -140,8 +140,8 @@ Para no duplicar lógica, se define un estado de consulta estándar:
 
 ### 5.3 Query Object cuando los filtros crecen
 Si un listado ya combina:
-- paginacion
-- busqueda libre
+- paginación
+- búsqueda libre
 - tres o más filtros
 
 entonces el estado de consulta no debe viajar como una firma larga en `service.listar(...)`.
@@ -251,12 +251,12 @@ Contenido recomendado:
 
 ### 9.3 Error
 - Banner con:
-  - `message`
-  - botón “Reintentar”
-  - link “Detalle técnico” (muestra `errorCode` + `requestId`)
+ - `message`
+ - botón “Reintentar”
+ - link “Detalle técnico” (muestra `errorCode` + `requestId`)
 
 Regla:
-- En listados, el error se muestra como banner, no como diálogo (salvo error crítico global).
+- En listados, el error se muestra cómo banner, no como diálogo (salvo error crítico global).
 
 ---
 
@@ -272,7 +272,7 @@ Regla:
 
 ### 10.3 Guardias
 - Ocultar acciones no permitidas por rol.
-- Aun así, manejar 403 si ocurre.
+- Aún así, manejar 403 si ocurre.
 
 ---
 
@@ -292,13 +292,13 @@ Regla:
 Estructura sugerida:
 
 - Root: `VBox`
-  - Header (HBox)
-  - FilterBar (HBox/VBox)
-  - TableHost (StackPane)
-    - TableView
-    - LoadingOverlay
-  - PaginationBar (HBox)
-  - Banner (si error)
+ - Header (HBox)
+ - FilterBar (HBox/VBox)
+ - TableHost (StackPane)
+ - TableView
+ - LoadingOverlay
+ - PaginationBar (HBox)
+ - Banner (si error)
 
 Regla:
 - el template se reutiliza por módulo.

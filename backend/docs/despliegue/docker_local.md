@@ -35,10 +35,10 @@ docker compose down
 ```
 
 ## Problemas comunes
-- Error de conexion DB desde API local:
-  - revisar `DB_PORT=5433` en `.env`.
+- Error de conexión DB desde API local:
+ - revisar `DB_PORT=5433` en `.env`.
 - Puerto ocupado:
-  - cambiar `APP_PORT` en `.env`.
+ - cambiar `APP_PORT` en `.env`.
 - Error al generar archivo de reporte:
-  - verificar permisos de escritura en `APP_REPORT_OUTPUT_DIR`.
+ - verificar permisos de escritura en `APP_REPORT_OUTPUT_DIR`.
 

@@ -1,7 +1,7 @@
 ﻿# 25_desktop_patrones_diseno_ejemplos_antes_despues
 
 - **Proyecto:** UENS Desktop (JavaFX)
-- **Objetivo:** mostrar con ejemplos cercanos al repo por que la arquitectura actual es mejor que la version previa con más lógica dispersa.
+- **Objetivo:** mostrar con ejemplos cercanos al repo por que la arquitectura actual es mejor que la versión previa con más lógica dispersa.
 
 ---
 
@@ -13,14 +13,14 @@ Su meta es comparar:
 1. problema inicial;
 2. forma anterior de codificarlo;
 3. forma actual recomendada;
-4. beneficio practico para UENS Desktop.
+4. beneficio práctico para UENS Desktop.
 
 ---
 
 ## 2) Caso 1: Query Object
 
 ### Problema
-Los listados administrativos crecian con demasiados parametros.
+Los listados administrativos crecian con demasiados parámetros.
 
 ### Antes
 ```java
@@ -48,7 +48,7 @@ service.listar(query);
 - mejor crecimiento de filtros;
 - mejor material docente.
 
-### Donde verlo
+### Dónde verlo
 - `modules/clases/application/ClasesListQuery.java`
 - `modules/reportes/application/ReportesListQuery.java`
 - `modules/auditoria/application/AuditoriaEventosQuery.java`
@@ -85,7 +85,7 @@ detailViewModel.estadoProperty().set(presentation.estado());
 - formato visible reusable;
 - más facil de entender para estudiantes.
 
-### Donde verlo
+### Dónde verlo
 - `modules/reportes/presenter/ReportesPresenter.java`
 - `modules/auditoria/presenter/AuditoriaPresenter.java`
 
@@ -116,7 +116,7 @@ FxExecutors.submitIo(
 - intencion más clara;
 - menos errores de hilo.
 
-### Donde verlo
+### Dónde verlo
 - `ui/fx/FxExecutors.java`
 - controllers de `Reportes`, `Auditoria`, `Estudiantes`, `Clases`, `Calificaciones`
 
@@ -125,7 +125,7 @@ FxExecutors.submitIo(
 ## 5) Caso 4: Command
 
 ### Problema
-Los handlers FXML crecian demasiado y cada accion quedaba mezclada con validación, loading y respuesta visual.
+Los handlers FXML crecian demasiado y cada acción quedaba mezclada con validación, loading y respuesta visual.
 
 ### Antes
 ```java
@@ -143,10 +143,10 @@ submitFormCommand.execute();
 
 ### Beneficio
 - acciones nombradas y reutilizables;
-- menos codigo operativo en el handler;
+- menos código operativo en el handler;
 - mejor lectura del flujo.
 
-### Donde verlo
+### Dónde verlo
 - `ui/command/UiCommand.java`
 - `ui/command/UiCommands.java`
 - `modules/reportes/view/ReportesController.java`
@@ -179,7 +179,7 @@ drawerCoordinator.showOnly(formContent);
 - menos riesgo de inconsistencias;
 - apertura y cierre más uniformes.
 
-### Donde verlo
+### Dónde verlo
 - `ui/drawer/DrawerCoordinator.java`
 - `modules/reportes/view/ReportesController.java`
 - `modules/auditoria/view/AuditoriaController.java`
@@ -215,10 +215,10 @@ boolean confirmed = appContext.feedback().confirm(
 
 ### Beneficio
 - dialogs consistentes;
-- menos codigo visual repetido;
+- menos código visual repetido;
 - mejor mantenimiento de UX.
 
-### Donde verlo
+### Dónde verlo
 - `ui/feedback/UiFeedbackService.java`
 - `app/AppWindowSupport.java`
 - `modules/docentes/view/DocentesController.java`
@@ -226,7 +226,7 @@ boolean confirmed = appContext.feedback().confirm(
 
 ---
 
-## 8) Caso 7: tipografia desacoplada
+## 8) Caso 7: tipografía desacoplada
 
 ### Problema
 La UI podia terminar atada a nombres de fuente hardcodeados o a familias no cargadas de verdad desde `resources`.
@@ -244,9 +244,9 @@ Se usa `TypographyManager` para cargar las fuentes reales del proyecto y `ThemeM
 ### Beneficio
 - consistencia visual;
 - posibilidad de cambiar perfil sin reescribir toda la UI;
-- mejor control pedagogico de tipografia y theming.
+- mejor control pedagogico de tipografía y theming.
 
-### Donde verlo
+### Dónde verlo
 - `ui/theme/TypographyManager.java`
 - `ui/theme/TypographyProfile.java`
 - `ui/theme/ThemeManager.java`
@@ -256,8 +256,8 @@ Se usa `TypographyManager` para cargar las fuentes reales del proyecto y `ThemeM
 ## 9) Criterio docente para elegir el patron correcto
 
 ### Usa Query Object si:
-- el listado tiene busqueda;
-- hay paginacion;
+- el listado tiene búsqueda;
+- hay paginación;
 - hay tres o más filtros.
 
 ### Usa Presenter si:
@@ -266,9 +266,9 @@ Se usa `TypographyManager` para cargar las fuentes reales del proyecto y `ThemeM
 - el mismo formato aparece en varias vistas.
 
 ### Usa Command si:
-- la accion tiene varios pasos;
+- la acción tiene varios pasos;
 - el handler FXML ya no cabe limpiamente;
-- la misma accion necesita estructura repetible.
+- la misma acción necesita estructura repetible.
 
 ### Usa Drawer Coordinator si:
 - la vista tiene más de un modo interno;

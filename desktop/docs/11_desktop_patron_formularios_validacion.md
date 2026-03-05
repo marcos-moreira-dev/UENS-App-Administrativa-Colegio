@@ -25,8 +25,8 @@ Por eso el formulario debe:
 ## 2) Principios de formularios (serios)
 1. **No perder datos del usuario:** si falla, el formulario conserva el input.
 2. **Validación en 2 capas:**
-   - UI (obvia, inmediata),
-   - backend (regla real, definitiva).
+ - UI (obvia, inmediata),
+ - backend (regla real, definitiva).
 3. **Errores cerca de donde importan:** field errors junto al campo.
 4. **Feedback claro:** mensajes cortos, concretos.
 5. **Acciones seguras:** confirmación cuando haya impacto (ej. inactivar).
@@ -37,15 +37,15 @@ Por eso el formulario debe:
 ## 3) Plantilla FXML (FormDialogTemplate)
 ### 3.1 Estructura sugerida
 - Root: `BorderPane` o `VBox`
-  - Header:
-    - título (Crear/Editar)
-    - subtítulo (opcional)
-  - Body:
-    - GridPane (campos)
-    - Banner de error (opcional)
-  - Footer:
-    - Botón Cancelar
-    - Botón Guardar (primary)
+ - Header:
+ - título (Crear/Editar)
+ - subtítulo (opcional)
+ - Body:
+ - GridPane (campos)
+ - Banner de error (opcional)
+ - Footer:
+ - Botón Cancelar
+ - Botón Guardar (primary)
 
 ### 3.2 Layout de campos
 - Formularios simples: 1 columna.
@@ -66,8 +66,8 @@ Regla:
 - `BooleanProperty canSubmit` (Binding derivado)
 
 - `FormMode mode`:
-  - CREATE
-  - EDIT
+ - CREATE
+ - EDIT
 
 ### 4.2 Modelo de formulario (FormState)
 Se recomienda un `FormState` con propiedades JavaFX por campo:
@@ -163,16 +163,16 @@ Regla UX:
 ### 8.1 Create
 - Campos vacíos.
 - Al éxito:
-  - cerrar dialog/drawer,
-  - refrescar listado,
-  - toast “Creado correctamente”.
+ - cerrar dialog/drawer,
+ - refrescar listado,
+ - toast “Creado correctamente”.
 
 ### 8.2 Edit
 - Pre-cargar datos.
 - Al éxito:
-  - cerrar,
-  - refrescar,
-  - toast “Actualizado correctamente”.
+ - cerrar,
+ - refrescar,
+ - toast “Actualizado correctamente”.
 
 Regla:
 - En edit, el ID no se edita (si se muestra, mostrarlo como metadata).
@@ -256,9 +256,9 @@ Cuando un formulario referencia otras entidades:
 
 - Preferir selector con búsqueda (`q`) si hay muchos registros.
 - Mostrar “resumen” del seleccionado:
-  - Representante: nombres + teléfono
-  - Sección: grado/paralelo/año
-  - Clase: asignatura + sección + horario + docente
+ - Representante: nombres + teléfono
+ - Sección: grado/paralelo/año
+ - Clase: asignatura + sección + horario + docente
 
 Regla:
 - No obligar al usuario a memorizar IDs.

@@ -288,7 +288,7 @@ El sistema solo debe permitir registrar calificaciones cuando el estudiante y la
 
 ### VR-09. Oferta académica mínima por sección (regla operativa)
 
-El sistema debe permitir validar (o al menos advertir) cuando una sección operativa tenga menos de **5 clases** definidas en su oferta académica del periodo.
+El sistema debe permitir validar (o al menos advertir) cuando una sección operativa tenga menos de **5 clases** definidas en su oferta académica del período.
 
 ### VR-10. Asignación vigente única de estudiante a sección (fase 1)
 

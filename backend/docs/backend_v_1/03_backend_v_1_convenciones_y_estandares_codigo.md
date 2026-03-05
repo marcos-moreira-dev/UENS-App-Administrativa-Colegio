@@ -645,7 +645,7 @@ Convención estandarizada:
 - `page`
 - `size`
 - `sort`
-- `q`  ← búsqueda simple textual
+- `q` ← búsqueda simple textual
 
 ### Ejemplo
 ```http
@@ -1468,19 +1468,19 @@ Antes de dar un módulo/método por bueno, revisar:
 ## 29. Relación con documentos siguientes
 
 - **`05_backend_v1_diseno_api_contrato_respuestas_y_errores.md`**
-  define la forma final de `ApiResponse`, `ApiErrorResponse` y mapeo de errores.
+ define la forma final de `ApiResponse`, `ApiErrorResponse` y mapeo de errores.
 
 - **`06_backend_v1_api_endpoints_y_casos_de_uso.md`**
-  aplicará estas convenciones de nombres a rutas, controllers y DTOs por endpoint.
+ aplicará estas convenciones de nombres a rutas, controllers y DTOs por endpoint.
 
 - **`07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`**
-  formaliza la trazabilidad RN/VR/AUTH/API/SYS y la política de excepciones.
+ formaliza la trazabilidad RN/VR/AUTH/API/SYS y la política de excepciones.
 
 - **`08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`**
-  aterriza defaults/límites y reglas de `page/size/sort/q`.
+ aterriza defaults/límites y reglas de `page/size/sort/q`.
 
 - **`09_backend_v1_seguridad_documentacion_y_despliegue_minimo.md`**
-  formaliza detalles de seguridad y configuración que aquí se mencionan como estilo.
+ formaliza detalles de seguridad y configuración que aquí se mencionan como estilo.
 
 ---
 

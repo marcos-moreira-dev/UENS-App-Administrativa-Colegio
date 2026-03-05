@@ -144,9 +144,9 @@ No necesitas detalles técnicos; solo campos de negocio importantes.
 
 **Formato sugerido:**
 - **Concepto:**
-  - datos mínimos:
-  - estado (si aplica):
-  - relación con otros conceptos (si ya se conoce):
+ - datos mínimos:
+ - estado (si aplica):
+ - relación con otros conceptos (si ya se conoce):
 
 ---
 
@@ -229,7 +229,7 @@ Esto evita sobrecargar el análisis.
 - Existe un límite máximo (cupo/stock/capacidad) por entidad.
 - Ciertos datos son obligatorios para registrar un elemento.
 - Se debe advertir posible duplicado ante coincidencias clave.
-- Solo ciertos estados/periodos están habilitados para operar.
+- Solo ciertos estados/períodos están habilitados para operar.
 
 ---
 
@@ -279,11 +279,11 @@ Anota simplificaciones temporales del análisis. Esto es buena práctica.
 4. **Listar procesos principales** (verbo + objeto).
 5. **Anotar reglas de negocio evidentes**.
 6. Recién después pasar a:
-   - `01-levantamiento-informacion-negocio.md`
-   - `02-levantamiento-requerimientos.md`
-   - `03-modelo-conceptual-dominio.md`
-   - `04-reglas-negocio-y-supuestos.md`
-   - `05-glosario-alcance-y-limites.md`
+ - `01-levantamiento-informacion-negocio.md`
+ - `02-levantamiento-requerimientos.md`
+ - `03-modelo-conceptual-dominio.md`
+ - `04-reglas-negocio-y-supuestos.md`
+ - `05-glosario-alcance-y-limites.md`
 
 ### 12.2 Buenas prácticas (muy útiles)
 - **Separar negocio de técnica** en esta etapa.

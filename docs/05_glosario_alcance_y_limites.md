@@ -100,10 +100,10 @@ Representa una **oferta concreta** de una asignatura dentro de una sección.
 
 * Vincula operativamente:
 
-  * una **Sección**,
-  * una **Asignatura**,
-  * una **franja horaria**,
-  * y un **estado**.
+ * una **Sección**,
+ * una **Asignatura**,
+ * una **franja horaria**,
+ * y un **estado**.
 * Puede tener docente asignado (según planificación operativa).
 * Se usa como referencia principal para el registro de calificaciones.
 
@@ -275,7 +275,7 @@ Para evitar ambigüedades, se adoptan los siguientes criterios de redacción y s
 * Reportes académicos avanzados (boletines formales, promedios complejos, historial extendido)
 * Notificaciones automáticas
 * Integraciones con sistemas externos
-* Gestión académica avanzada de periodos más allá de los 2 parciales definidos
+* Gestión académica avanzada de períodos más allá de los 2 parciales definidos
 
 ---
 
@@ -284,7 +284,7 @@ Para evitar ambigüedades, se adoptan los siguientes criterios de redacción y s
 Para mantener simple el análisis (objetivo de práctica), en esta etapa:
 
 1. **No** se modela historial de asignaciones estudiante–sección.
-2. **No** se modela una estructura avanzada de periodos o quimestres.
+2. **No** se modela una estructura avanzada de períodos o quimestres.
 3. **No** se modela una matriz de permisos por módulo/acción.
 4. **No** se modelan relaciones de auditoría completas (solo referencias mínimas en requerimientos).
 5. **No** se fuerza modelado complejo de reglas escolares; se prioriza coherencia operativa básica.

@@ -36,7 +36,7 @@ Si el valor es invalido, el sistema vuelve a `es`.
 
 ---
 
-## 3) Estado real del codigo
+## 3) Estado real del código
 
 ### 3.1 Infraestructura ya existente
 - `common.i18n.I18n`
@@ -83,7 +83,7 @@ Ejemplos correctos:
 - `Información`
 
 Nota de implementacion:
-- en codigo Java se aceptan escapes Unicode;
+- en código Java se aceptan escapes Unicode;
 - en FXML pueden usarse entidades XML si hace falta evitar problemas de encoding;
 - lo importante es que **la UI renderizada** muestre el espanol correctamente.
 
@@ -97,12 +97,12 @@ Cuando aplique, la UI debe usar estas etiquetas:
 - Estudiante
 - Representante legal
 - Docente
-- Seccion
+- Sección
 - Asignatura
 - Clase
-- Calificacion
+- Calificación
 - Reporte
-- Auditoria
+- Auditoría
 - Sesión
 
 Regla:
@@ -122,7 +122,7 @@ Usar `ResourceBundle` para:
 - labels repetidos;
 - mensajes globales de sesión o shell.
 
-### 6.2 Texto directo permitido, con limites
+### 6.2 Texto directo permitido, con límites
 Durante la migracion se acepta texto directo en:
 - controllers;
 - FXML;
@@ -188,6 +188,6 @@ La verdad actual del proyecto es:
 - si existe decision cerrada de soporte solo para `es` y `en`;
 - no toda la UI esta traducida ni externalizada;
 - si debemos mantener el espanol visible correctamente escrito desde ya;
-- si conviene seguir migrando texto transversal al bundle en cada iteracion importante.
+- si conviene seguir migrando texto transversal al bundle en cada iteración importante.
 
 

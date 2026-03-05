@@ -31,10 +31,10 @@ Su propósito es evitar que cada controller responda “a su manera” y asegura
 
 Al corte técnico del `2026-03-04`, el backend mantiene este contrato sin cambios de esquema sobre `V2_3FN.sql`, pero con una mejora interna importante:
 
-- la capa `application` usa excepciones tipadas en la mayoria de módulos CRUD y reportes,
+- la capa `application` usa excepciones tipadas en la mayoría de módulos CRUD y reportes,
 - `ResponseStatusException` queda como compatibilidad de framework/borde,
 - `requestId` viaja tanto en `ApiErrorResponse` como en el patron base de logs,
-- y la paginacion HTTP-facing se resuelve desde `common/pagination`.
+- y la paginación HTTP-facing se resuelve desde `common/pagination`.
 
 ## 2.1. Contrato estable y uniforme
 
@@ -727,7 +727,7 @@ Caso típico:
 
 Dependiendo de Spring Security, algunos errores ocurren antes de llegar al controller.
 
-✅ Aun así, se recomienda configurar entry points/handlers de seguridad para que respondan con el **mismo contrato `ApiErrorResponse`**.
+✅ Aún así, se recomienda configurar entry points/handlers de seguridad para que respondan con el **mismo contrato `ApiErrorResponse`**.
 
 > Esto se aterriza más en `09`.
 
@@ -1043,19 +1043,19 @@ La lógica del cliente debe apoyarse más en:
 ## 23. Relación con documentos siguientes
 
 - **`06_backend_v1_api_endpoints_y_casos_de_uso.md`**
-  aplicará este contrato a cada endpoint y definirá respuestas por caso de uso.
+ aplicará este contrato a cada endpoint y definirá respuestas por caso de uso.
 
 - **`07_backend_v1_validaciones_reglas_negocio_y_excepciones.md`**
-  formalizará catálogo y trazabilidad de errores (`VR/RN/AUTH/API/SYS`) y excepciones custom.
+ formalizará catálogo y trazabilidad de errores (`VR/RN/AUTH/API/SYS`) y excepciones custom.
 
 - **`08_backend_v1_paginacion_filtros_ordenamiento_y_consultas.md`**
-  aterrizará `PageResponseDto` en listados reales con `page/size/sort/q`.
+ aterrizará `PageResponseDto` en listados reales con `page/size/sort/q`.
 
 - **`09_backend_v1_seguridad_documentacion_y_despliegue_minimo.md`**
-  alineará respuestas de seguridad (`401/403`) y Swagger/OpenAPI con este contrato.
+ alineará respuestas de seguridad (`401/403`) y Swagger/OpenAPI con este contrato.
 
 - **`10_backend_v1_reporte_solicitudes_cola_simple_db_queue.md`**
-  reutilizará este contrato para solicitudes de reporte, estados y placeholders.
+ reutilizará este contrato para solicitudes de reporte, estados y placeholders.
 
 ---
 

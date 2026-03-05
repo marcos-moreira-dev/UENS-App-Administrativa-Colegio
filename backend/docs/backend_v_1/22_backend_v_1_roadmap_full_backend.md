@@ -1,13 +1,13 @@
 ﻿# 22_backend_v_1_roadmap_full_backend
 
-- Version: 1.0
+- Versión: 1.0
 - Estado: Vigente
 - Ámbito: crecimiento profesional desde backend didáctico hacia backend fuerte
 - Relacionado con:
-  - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
-  - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
-  - `25_backend_v_1_seguridad_practica_backend.md`
-  - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
+ - `23_backend_v_1_mantenimiento_operacion_incidentes.md`
+ - `24_backend_v_1_observabilidad_logs_metricas_alertas.md`
+ - `25_backend_v_1_seguridad_practica_backend.md`
+ - `28_backend_v_1_despliegue_realista_dev_stage_prod.md`
 
 ---
 
@@ -191,7 +191,7 @@ No deberías saltar directo a:
 - Kubernetes
 - Kafka por moda
 - CQRS completo por estética
-- cloud complejo si aun no dominas operación simple
+- cloud complejo si aún no dominas operación simple
 
 Eso no te hace más senior.
 Solo te da más puntos de fallo.
@@ -204,7 +204,7 @@ Sabrás que estás creciendo cuando puedas:
 
 1. mirar un error y ubicar si es dominio, validación o infraestructura
 2. modificar una tabla sin destruir integraciones existentes
-3. desplegar una version nueva con menos miedo
+3. desplegar una versión nueva con menos miedo
 4. explicar por qué elegiste una arquitectura y no otra
 5. mantener un sistema por meses, no solo crearlo
 

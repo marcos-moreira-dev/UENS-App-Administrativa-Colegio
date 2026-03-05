@@ -3,10 +3,10 @@
 - **Proyecto:** UENS Desktop (JavaFX)
 - **Arquitectura:** MVVM + Navigator
 - **Objetivo:** definir una estrategia **consistente y profesional** de manejo de errores, usando:
-  - HTTP status,
-  - `errorCode`,
-  - `message`,
-  - `requestId`.
+ - HTTP status,
+ - `errorCode`,
+ - `message`,
+ - `requestId`.
 
 ---
 
@@ -16,10 +16,10 @@ En un sistema administrativo serio, los errores no son “un toast rojo y ya”.
 Este documento define:
 
 1. **Qué tipo de feedback** usar según el error:
-   - toast,
-   - banner,
-   - diálogo,
-   - error inline por campo.
+ - toast,
+ - banner,
+ - diálogo,
+ - error inline por campo.
 2. **Cómo interpretar** errores por HTTP status.
 3. **Cómo usar `errorCode`** para reglas UI sin inventar lógica.
 4. **Cómo exponer `requestId`** de forma útil (soporte/depuración) sin saturar al usuario.
@@ -108,8 +108,8 @@ Usar para:
 
 Regla:
 - el campo debe mostrar:
-  - borde/estado error,
-  - texto corto del error.
+ - borde/estado error,
+ - texto corto del error.
 
 ---
 
@@ -196,8 +196,8 @@ Regla:
 ### 6.1 Reglas prácticas
 - UI muestra el `message` del backend como fuente de verdad.
 - UI puede agregar contexto:
-  - “Acción no permitida para tu rol.”
-  - “Revisa los campos marcados.”
+ - “Acción no permitida para tu rol.”
+ - “Revisa los campos marcados.”
 
 ### 6.2 Mapeos sugeridos (ejemplos)
 - `AUTH-*` → categoría AUTH
@@ -223,10 +223,10 @@ Regla:
 
 Patrones recomendados:
 - En diálogos de error: “Ver detalle” expande y muestra:
-  - requestId
-  - errorCode
-  - path
-  - timestamp
+ - requestId
+ - errorCode
+ - path
+ - timestamp
 
 - En banners: un pequeño link “Detalle técnico”.
 
@@ -263,16 +263,16 @@ Regla:
 
 ### 9.2 ViewModel
 - decide el canal de feedback:
-  - setea `errorBannerMessage`,
-  - setea `fieldErrors`,
-  - dispara toast.
+ - setea `errorBannerMessage`,
+ - setea `fieldErrors`,
+ - dispara toast.
 
 ### 9.3 View (Controller)
 - renderiza:
-  - banner,
-  - toasts,
-  - diálogo,
-  - errores inline.
+ - banner,
+ - toasts,
+ - diálogo,
+ - errores inline.
 
 Regla:
 - el Controller no decide política; la aplica.
