@@ -1,0 +1,30 @@
+# ---------------------------------------------
+# Workspace-level ignore rules
+# ---------------------------------------------
+# Este archivo evita subir artefactos que no forman parte del codigo fuente:
+# - basura del sistema operativo
+# - configuraciones locales del IDE
+# - archivos generados por compilacion
+# - variables de entorno locales
+#
+# Regla mental:
+# "Si el archivo se puede regenerar o contiene datos de una maquina puntual,
+# no debe versionarse en el repositorio."
+
+# --- OS metadata ---
+.DS_Store
+Thumbs.db
+
+# --- IDE/editor state ---
+.idea/
+*.iml
+.vscode/
+
+# --- Java/Maven build outputs ---
+target/
+*.class
+*.log
+
+# --- Local environment files ---
+.env
+*.local

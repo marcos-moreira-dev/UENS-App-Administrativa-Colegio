@@ -1,0 +1,68 @@
+.app-shell {
+  -fx-background-color: transparent;
+}
+
+.topbar {
+  -fx-background-color: linear-gradient(to bottom, #5a6b79, #31414f);
+  -fx-border-color: #4c5a66;
+  -fx-border-width: 0 0 1 0;
+  -fx-alignment: center-left;
+}
+
+.sidebar {
+  -fx-background-color: linear-gradient(to bottom, #4a5661, #435464 38%, #8b959d);
+  -fx-border-color: #5e6b77;
+  -fx-border-width: 0 1 0 0;
+  -fx-pref-width: 226;
+}
+
+.sidebar-content {
+  -fx-fill-width: true;
+}
+
+.sidebar-scroll {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+  -fx-border-color: transparent;
+}
+
+.sidebar-scroll > .viewport {
+  -fx-background-color: transparent;
+}
+
+.sidebar-scroll .scroll-bar:vertical {
+  -fx-background-color: transparent;
+}
+
+.sidebar-nav-list {
+  -fx-padding: 0 0 4 0;
+}
+
+.content-host {
+  -fx-padding: 22;
+}
+
+.app-title {
+  -fx-font-size: 19px;
+  -fx-font-weight: bold;
+  -fx-text-fill: rgba(255, 255, 255, 0.98);
+}
+
+.session-label {
+  -fx-text-fill: rgb(255, 255, 255);
+}
+
+.sidebar-artwork-box {
+  -fx-alignment: center;
+  -fx-min-height: 200;
+  -fx-pref-height: 200;
+  -fx-max-height: 200;
+  -fx-padding: 6 0 16 0;
+  -fx-border-color: rgba(255, 255, 255, 0.10) transparent transparent transparent;
+  -fx-background-color: linear-gradient(to top, rgba(18, 31, 43, 0.14), rgba(18, 31, 43, 0.00));
+}
+
+.sidebar-artwork-view {
+  -fx-translate-y: 6;
+}

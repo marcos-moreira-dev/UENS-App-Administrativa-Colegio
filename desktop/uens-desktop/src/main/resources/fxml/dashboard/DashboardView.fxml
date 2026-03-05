@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.marcosmoreiradev.uensdesktop.modules.dashboard.view.DashboardController"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            styleClass="dashboard-scroll">
+  <content>
+    <VBox spacing="18"
+          styleClass="screen-card dashboard-screen">
+      <padding>
+        <Insets top="28" right="28" bottom="28" left="28" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="dashboard-header-row">
+          <children>
+            <VBox spacing="6" HBox.hgrow="ALWAYS">
+              <children>
+                <Label text="%dashboard.title" styleClass="screen-title" />
+                <Label fx:id="welcomeLabel" text="Bienvenido" styleClass="dashboard-welcome" />
+                <Label fx:id="statusLabel" text="Consultando resumen..." styleClass="dashboard-status" wrapText="true" />
+              </children>
+            </VBox>
+            <Label text="Pulso en vivo" styleClass="dashboard-chip dashboard-chip-live" />
+          </children>
+        </HBox>
+
+        <HBox spacing="18" alignment="TOP_LEFT">
+          <children>
+            <VBox spacing="16" styleClass="dashboard-hero-card" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Radar acad&#233;mico" styleClass="dashboard-hero-eyebrow" />
+                <Label fx:id="heroMetricValueLabel" text="-" styleClass="dashboard-hero-value" />
+                <Label fx:id="heroMetricTitleLabel" text="Estudiantes por secci&#243;n" styleClass="dashboard-hero-title" />
+                <Label fx:id="heroMetricDescriptionLabel"
+                       text="Cargando panorama operativo..."
+                       wrapText="true"
+                       styleClass="dashboard-hero-copy" />
+                <HBox spacing="12">
+                  <children>
+                    <VBox spacing="6" styleClass="dashboard-mini-stat" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                      <children>
+                        <Label fx:id="ratioEstudiantesSeccionLabel" text="-" styleClass="dashboard-mini-value" />
+                        <Label text="Estudiantes / secci&#243;n" styleClass="dashboard-mini-caption" />
+                      </children>
+                    </VBox>
+                    <VBox spacing="6" styleClass="dashboard-mini-stat" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                      <children>
+                        <Label fx:id="ratioAsignaturasSeccionLabel" text="-" styleClass="dashboard-mini-value" />
+                        <Label text="Asignaturas / secci&#243;n" styleClass="dashboard-mini-caption" />
+                      </children>
+                    </VBox>
+                    <VBox spacing="6" styleClass="dashboard-mini-stat" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                      <children>
+                        <Label fx:id="ratioClasesAsignaturaLabel" text="-" styleClass="dashboard-mini-value" />
+                        <Label text="Clases / asignatura" styleClass="dashboard-mini-caption" />
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+
+            <VBox spacing="14" prefWidth="336" minWidth="336" styleClass="dashboard-composition-card">
+              <children>
+                <Label text="Mix operativo" styleClass="section-heading" />
+                <Label text="Distribuci&#243;n visible de la base acad&#233;mica y la estructura que la sostiene." wrapText="true" styleClass="muted-label screen-subtitle" />
+                <PieChart fx:id="entityMixChart"
+                          prefHeight="220"
+                          legendVisible="false"
+                          labelsVisible="false"
+                          styleClass="dashboard-pie-chart" />
+                <VBox spacing="8">
+                  <children>
+                    <HBox spacing="10" styleClass="dashboard-legend-row">
+                      <children>
+                        <Region styleClass="dashboard-legend-swatch dashboard-swatch-estudiantes" />
+                        <Label text="Estudiantes" styleClass="dashboard-legend-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="mixEstudiantesLabel" text="-" styleClass="dashboard-legend-value" />
+                      </children>
+                    </HBox>
+                    <HBox spacing="10" styleClass="dashboard-legend-row">
+                      <children>
+                        <Region styleClass="dashboard-legend-swatch dashboard-swatch-docentes" />
+                        <Label text="Docentes" styleClass="dashboard-legend-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="mixDocentesLabel" text="-" styleClass="dashboard-legend-value" />
+                      </children>
+                    </HBox>
+                    <HBox spacing="10" styleClass="dashboard-legend-row">
+                      <children>
+                        <Region styleClass="dashboard-legend-swatch dashboard-swatch-secciones" />
+                        <Label text="Secciones" styleClass="dashboard-legend-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="mixSeccionesLabel" text="-" styleClass="dashboard-legend-value" />
+                      </children>
+                    </HBox>
+                    <HBox spacing="10" styleClass="dashboard-legend-row">
+                      <children>
+                        <Region styleClass="dashboard-legend-swatch dashboard-swatch-asignaturas" />
+                        <Label text="Asignaturas" styleClass="dashboard-legend-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="mixAsignaturasLabel" text="-" styleClass="dashboard-legend-value" />
+                      </children>
+                    </HBox>
+                    <HBox spacing="10" styleClass="dashboard-legend-row">
+                      <children>
+                        <Region styleClass="dashboard-legend-swatch dashboard-swatch-clases" />
+                        <Label text="Clases" styleClass="dashboard-legend-label" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="mixClasesLabel" text="-" styleClass="dashboard-legend-value" />
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <HBox spacing="16">
+          <children>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-students" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Estudiantes" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalEstudiantesLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Base estudiantil registrada en la operaci&#243;n diaria." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-docentes" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Docentes" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalDocentesLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Capacidad docente visible para cubrir aulas y horarios." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-secciones" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Secciones" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalSeccionesLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Grupos activos donde se reparte la carga acad&#233;mica." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <HBox spacing="16">
+          <children>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-asignaturas" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Asignaturas" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalAsignaturasLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Cat&#225;logo curricular disponible para organizar el a&#241;o lectivo." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-clases" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Clases" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalClasesLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Oferta concreta que aterriza asignaturas, horarios y docentes." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-kpi-card dashboard-kpi-card-calificaciones" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Calificaciones" styleClass="dashboard-kpi-label" />
+                <Label fx:id="totalCalificacionesLabel" text="-" styleClass="dashboard-kpi-value" />
+                <Label text="Huella evaluativa acumulada para seguimiento acad&#233;mico." wrapText="true" styleClass="dashboard-kpi-caption" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+
+        <HBox spacing="16">
+          <children>
+            <VBox spacing="8" styleClass="dashboard-insight-card" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Seguimiento evaluativo" styleClass="dashboard-insight-title" />
+                <Label fx:id="insightCalificacionesEstudianteLabel" text="-" styleClass="dashboard-insight-value" />
+                <Label text="Promedio de registros de notas por estudiante para medir tracci&#243;n acad&#233;mica." wrapText="true" styleClass="dashboard-insight-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-insight-card" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Cobertura docente" styleClass="dashboard-insight-title" />
+                <Label fx:id="insightDocentesSeccionLabel" text="-" styleClass="dashboard-insight-value" />
+                <Label text="Relaci&#243;n de docentes por secci&#243;n para leer capacidad de atenci&#243;n." wrapText="true" styleClass="dashboard-insight-caption" />
+              </children>
+            </VBox>
+            <VBox spacing="8" styleClass="dashboard-insight-card" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+              <children>
+                <Label text="Carga por docente" styleClass="dashboard-insight-title" />
+                <Label fx:id="insightClasesDocenteLabel" text="-" styleClass="dashboard-insight-value" />
+                <Label text="Promedio de clases asignadas por docente para visualizar intensidad operativa." wrapText="true" styleClass="dashboard-insight-caption" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </content>
+</ScrollPane>

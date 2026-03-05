@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.marcosmoreiradev.uensdesktop.modules.reportes.view.ReportesController">
+  <children>
+    <VBox spacing="10" styleClass="screen-card estudiantes-screen">
+      <padding>
+        <Insets top="24" right="24" bottom="24" left="24" />
+      </padding>
+      <children>
+        <VBox spacing="4">
+          <children>
+            <Label text="Reportes" styleClass="screen-title" />
+            <Label text="Solicitudes as&#237;ncronas, seguimiento de estado y descarga de archivos." styleClass="muted-label screen-subtitle" />
+          </children>
+        </VBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="12">
+          <children>
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+              <children>
+                <Label text="Generar reporte" styleClass="section-heading" />
+                <Label text="Define el archivo que el backend debe preparar y dejar listo para descarga." styleClass="muted-label" wrapText="true" />
+              </children>
+            </VBox>
+            <Button fx:id="requestInfoButton"
+                    text=""
+                    onAction="#onToggleRequestInfo"
+                    styleClass="report-request-info-button" />
+            <Button fx:id="crearReporteButton" text="Solicitar reporte" onAction="#onCrearReporte" styleClass="primary-button" />
+          </children>
+        </HBox>
+
+        <VBox spacing="10" styleClass="metric-card report-request-card">
+          <children>
+            <Label fx:id="formBannerLabel" text="" visible="false" managed="false" wrapText="true" styleClass="banner-label" />
+            <VBox spacing="0" alignment="TOP_CENTER" styleClass="report-request-body">
+              <children>
+                <VBox spacing="10" maxWidth="1.7976931348623157E308" fillWidth="true" styleClass="report-request-form-shell">
+                  <children>
+                    <GridPane hgap="16" vgap="16" maxWidth="1.7976931348623157E308" styleClass="report-request-grid-pane">
+                      <columnConstraints>
+                        <ColumnConstraints percentWidth="42" hgrow="ALWAYS" fillWidth="true" />
+                        <ColumnConstraints percentWidth="29" hgrow="ALWAYS" fillWidth="true" />
+                        <ColumnConstraints percentWidth="29" hgrow="ALWAYS" fillWidth="true" />
+                      </columnConstraints>
+                      <children>
+                        <VBox spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="0"
+                              GridPane.rowIndex="0"
+                              GridPane.columnSpan="2"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Tipo de reporte" styleClass="field-label" />
+                            <ComboBox fx:id="tipoReporteCombo" promptText="Selecciona el tipo" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                        <VBox spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="2"
+                              GridPane.rowIndex="0"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Formato" styleClass="field-label" />
+                            <ComboBox fx:id="formatoSalidaCombo" promptText="Selecciona el formato" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                        <VBox spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="0"
+                              GridPane.rowIndex="1"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Secci&#243;n" styleClass="field-label" />
+                            <ComboBox fx:id="seccionCombo" promptText="Selecciona una secci&#243;n" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                        <VBox spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="1"
+                              GridPane.rowIndex="1"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Fecha desde" styleClass="field-label" />
+                            <DatePicker fx:id="fechaDesdePicker" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                        <VBox spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="2"
+                              GridPane.rowIndex="1"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Fecha hasta" styleClass="field-label" />
+                            <DatePicker fx:id="fechaHastaPicker" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                        <VBox fx:id="numeroParcialFieldBox"
+                              spacing="6"
+                              maxWidth="1.7976931348623157E308"
+                              visible="false"
+                              managed="false"
+                              styleClass="drawer-inline-group report-request-field-card"
+                              GridPane.columnIndex="0"
+                              GridPane.rowIndex="2"
+                              GridPane.columnSpan="3"
+                              GridPane.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Parcial" styleClass="field-label" />
+                            <ComboBox fx:id="numeroParcialCombo" promptText="1 o 2" maxWidth="1.7976931348623157E308" />
+                          </children>
+                        </VBox>
+                      </children>
+                    </GridPane>
+                  </children>
+                </VBox>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+
+        <VBox spacing="1">
+          <children>
+            <Label text="Consultar historial de reportes" styleClass="section-heading" />
+            <Label text="Revisa solicitudes previas, su estado operativo, reintentos y descargas disponibles." styleClass="muted-label" wrapText="true" />
+          </children>
+        </VBox>
+
+        <GridPane hgap="10" vgap="10" styleClass="toolbar-row">
+          <columnConstraints>
+            <ColumnConstraints percentWidth="14" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="42" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="24" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="20" hgrow="NEVER" fillWidth="true" />
+          </columnConstraints>
+          <children>
+            <TextField fx:id="queryField"
+                       promptText="Buscar por id o tipo de reporte"
+                       maxWidth="1.7976931348623157E308"
+                       GridPane.columnIndex="0" />
+            <ComboBox fx:id="tipoReporteFilterCombo"
+                      promptText="Todos los tipos"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="1" />
+            <ComboBox fx:id="estadoFilterCombo"
+                      promptText="Todos los estados"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="2" />
+            <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="3">
+              <children>
+                <Button fx:id="buscarButton" text="Buscar" onAction="#onBuscar" styleClass="primary-button" />
+                <Button fx:id="limpiarButton" text="Limpiar" onAction="#onLimpiar" />
+              </children>
+            </HBox>
+          </children>
+        </GridPane>
+
+        <HBox spacing="16" alignment="CENTER_LEFT" styleClass="table-meta-row">
+          <children>
+            <Label fx:id="statusLabel" text="Consultando historial de reportes..." />
+            <Label fx:id="totalLabel" text="0 solicitudes" styleClass="muted-label" />
+            <Label fx:id="pageLabel" text="P&#225;gina 1 de 1" styleClass="muted-label" />
+            <Label fx:id="pollingLabel" text="" styleClass="muted-label" />
+          </children>
+        </HBox>
+
+        <TableView fx:id="reportesTable" prefHeight="540" styleClass="table-view">
+          <columns>
+            <TableColumn fx:id="solicitudIdColumn" prefWidth="80" text="ID" />
+            <TableColumn fx:id="tipoReporteColumn" prefWidth="220" text="Tipo" />
+            <TableColumn fx:id="estadoColumn" prefWidth="140" text="Estado" />
+            <TableColumn fx:id="fechaSolicitudColumn" prefWidth="150" text="Fecha solicitud" />
+            <TableColumn fx:id="fechaActualizacionColumn" prefWidth="160" text="&#218;ltima actualizaci&#243;n" />
+            <TableColumn fx:id="intentosColumn" prefWidth="90" text="Intentos" />
+            <TableColumn fx:id="accionesColumn" prefWidth="390" text="Acciones" />
+          </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pager-row">
+          <children>
+            <Button fx:id="anteriorButton" text="Anterior" onAction="#onPaginaAnterior" />
+            <Button fx:id="siguienteButton" text="Siguiente" onAction="#onPaginaSiguiente" styleClass="primary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+
+    <VBox fx:id="drawerPane" visible="false" managed="false" maxWidth="460" alignment="TOP_LEFT" styleClass="drawer-panel" StackPane.alignment="CENTER_RIGHT">
+      <padding>
+        <Insets top="18" right="18" bottom="18" left="18" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="drawer-header">
+          <children>
+            <Label fx:id="drawerTitleLabel" text="Detalle de la solicitud" styleClass="drawer-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Cerrar" onAction="#onCerrarDrawer" styleClass="secondary-button drawer-close-button" />
+          </children>
+        </HBox>
+        <Label fx:id="drawerBannerLabel"
+               text=""
+               visible="false"
+               managed="false"
+               wrapText="true"
+               maxWidth="1.7976931348623157E308"
+               styleClass="banner-label" />
+        <StackPane VBox.vgrow="ALWAYS">
+          <children>
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="drawer-scroll">
+              <content>
+                <VBox spacing="14" styleClass="drawer-scroll-content">
+                  <children>
+                    <VBox spacing="12" styleClass="drawer-section-card">
+                      <children>
+                        <Label text="Resumen" styleClass="section-heading" />
+                        <Label text="Estado actual, intentos y trazas para decidir si conviene descargar o reintentar."
+                               wrapText="true"
+                               styleClass="drawer-subtitle" />
+                        <HBox spacing="10"><children><Label text="Solicitud:" styleClass="detail-key" /><Label fx:id="detailSolicitudIdLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Tipo:" styleClass="detail-key" /><Label fx:id="detailTipoReporteLabel" text="-" wrapText="true" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Estado:" styleClass="detail-key" /><Label fx:id="detailEstadoLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Intentos:" styleClass="detail-key" /><Label fx:id="detailIntentosLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Fecha solicitud:" styleClass="detail-key" /><Label fx:id="detailFechaSolicitudLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Actualizaci&#243;n:" styleClass="detail-key" /><Label fx:id="detailFechaActualizacionLabel" text="-" /></children></HBox>
+                      </children>
+                    </VBox>
+                    <VBox spacing="6" styleClass="drawer-section-card">
+                      <children>
+                        <Label text="Par&#225;metros JSON" styleClass="detail-key" />
+                        <TextArea fx:id="detailParametrosArea" prefRowCount="5" wrapText="true" editable="false" />
+                      </children>
+                    </VBox>
+                    <VBox spacing="6" styleClass="drawer-section-card">
+                      <children>
+                        <Label text="Resultado JSON" styleClass="detail-key" />
+                        <TextArea fx:id="detailResultadoArea" prefRowCount="6" wrapText="true" editable="false" />
+                      </children>
+                    </VBox>
+                    <VBox spacing="6" styleClass="drawer-section-card">
+                      <children>
+                        <Label text="Error detalle" styleClass="detail-key" />
+                        <TextArea fx:id="detailErrorArea" prefRowCount="4" wrapText="true" editable="false" />
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </content>
+            </ScrollPane>
+            <ImageView fitWidth="236"
+                       preserveRatio="true"
+                       mouseTransparent="true"
+                       styleClass="view-artwork-view drawer-watermark"
+                       StackPane.alignment="BOTTOM_RIGHT" />
+          </children>
+        </StackPane>
+        <Label fx:id="downloadPathLabel"
+               text=""
+               visible="false"
+               managed="false"
+               wrapText="true"
+               maxWidth="1.7976931348623157E308"
+               styleClass="drawer-path-label" />
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="drawer-footer">
+          <children>
+            <Button fx:id="refrescarDetalleButton" text="Refrescar" onAction="#onRefrescarDetalle" styleClass="secondary-button" />
+            <Button fx:id="descargarDetalleButton" text="Descargar" onAction="#onDescargarDetalle" styleClass="primary-button" />
+            <Button fx:id="reintentarDetalleButton" text="Reintentar" onAction="#onReintentarDetalle" visible="false" managed="false" styleClass="secondary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

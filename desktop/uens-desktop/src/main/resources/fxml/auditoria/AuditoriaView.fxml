@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.marcosmoreiradev.uensdesktop.modules.auditoria.view.AuditoriaController">
+  <children>
+    <VBox spacing="12" styleClass="screen-card estudiantes-screen">
+      <padding>
+        <Insets top="24" right="24" bottom="24" left="24" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+          <children>
+            <VBox spacing="4">
+              <children>
+                <Label text="Auditor&#237;a operativa" styleClass="screen-title" />
+                <Label text="Trazabilidad de acciones del sistema. Acceso exclusivo para administraci&#243;n." styleClass="muted-label screen-subtitle" />
+              </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="solicitarReporteButton" text="Solicitar reporte" onAction="#onSolicitarReporte" styleClass="primary-button" />
+          </children>
+        </HBox>
+
+        <VBox spacing="12" styleClass="drawer-section-card audit-filter-card">
+          <children>
+            <VBox spacing="4">
+              <children>
+                <Label text="Filtros de trazabilidad" styleClass="section-heading" />
+                <Label text="Recorta el historial por m&#243;dulo, acci&#243;n, resultado, actor y ventana temporal para aislar el bloque operativo que deseas revisar."
+                       wrapText="true"
+                       styleClass="drawer-subtitle" />
+              </children>
+            </VBox>
+
+            <GridPane hgap="16" vgap="14" styleClass="audit-filter-grid">
+              <columnConstraints>
+                <ColumnConstraints percentWidth="30" hgrow="ALWAYS" fillWidth="true" />
+                <ColumnConstraints percentWidth="24" hgrow="ALWAYS" fillWidth="true" />
+                <ColumnConstraints percentWidth="22" hgrow="ALWAYS" fillWidth="true" />
+                <ColumnConstraints percentWidth="24" hgrow="ALWAYS" fillWidth="true" />
+              </columnConstraints>
+              <children>
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <children>
+                    <Label text="B&#250;squeda operativa" styleClass="field-label" />
+                    <TextField fx:id="queryField" promptText="RequestId, entidad o actor" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <Label text="M&#243;dulo auditado" styleClass="field-label" />
+                    <ComboBox fx:id="moduloFilterCombo" promptText="Todos los m&#243;dulos" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                  <children>
+                    <Label text="Resultado" styleClass="field-label" />
+                    <ComboBox fx:id="resultadoFilterCombo" promptText="Todos los resultados" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                  <children>
+                    <Label text="Actor del sistema" styleClass="field-label" />
+                    <TextField fx:id="actorLoginFilterField" promptText="Login del actor" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+
+                <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2">
+                  <children>
+                    <Label text="Acci&#243;n registrada" styleClass="field-label" />
+                    <TextField fx:id="accionFilterField" promptText="Operaci&#243;n o verbo t&#233;cnico" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <children>
+                    <Label text="Fecha desde" styleClass="field-label" />
+                    <DatePicker fx:id="fechaDesdeFilterPicker" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+                <VBox spacing="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <children>
+                    <Label text="Fecha hasta" styleClass="field-label" />
+                    <DatePicker fx:id="fechaHastaFilterPicker" maxWidth="1.7976931348623157E308" />
+                  </children>
+                </VBox>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.columnSpan="2">
+                  <children>
+                    <Button fx:id="buscarButton" text="Aplicar" onAction="#onBuscar" styleClass="primary-button" />
+                    <Button fx:id="limpiarButton" text="Limpiar" onAction="#onLimpiar" />
+                  </children>
+                </HBox>
+              </children>
+            </GridPane>
+          </children>
+        </VBox>
+
+        <HBox spacing="16" alignment="CENTER_LEFT" styleClass="table-meta-row">
+          <children>
+            <Label fx:id="statusLabel" text="Consultando eventos de auditor&#237;a..." />
+            <Label fx:id="totalLabel" text="0 eventos" styleClass="muted-label" />
+            <Label fx:id="pageLabel" text="P&#225;gina 1 de 1" styleClass="muted-label" />
+          </children>
+        </HBox>
+
+        <TableView fx:id="auditoriaTable" prefHeight="520" styleClass="table-view">
+          <columns>
+            <TableColumn fx:id="fechaColumn" prefWidth="145" text="Fecha" />
+            <TableColumn fx:id="moduloColumn" prefWidth="110" text="M&#243;dulo" />
+            <TableColumn fx:id="accionColumn" prefWidth="180" text="Acci&#243;n" />
+            <TableColumn fx:id="resultadoColumn" prefWidth="120" text="Resultado" />
+            <TableColumn fx:id="entidadColumn" prefWidth="120" text="Entidad" />
+            <TableColumn fx:id="entidadIdColumn" prefWidth="90" text="EntidadId" />
+            <TableColumn fx:id="actorLoginColumn" prefWidth="110" text="Actor" />
+            <TableColumn fx:id="actorRolColumn" prefWidth="95" text="Rol" />
+            <TableColumn fx:id="requestIdColumn" prefWidth="170" text="RequestId" />
+            <TableColumn fx:id="accionesColumn" prefWidth="90" text="Acciones" />
+          </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pager-row">
+          <children>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="auditInfoButton"
+                    text=""
+                    onAction="#onToggleAuditoriaInfo"
+                    styleClass="report-request-info-button" />
+            <Button fx:id="anteriorButton" text="Anterior" onAction="#onPaginaAnterior" />
+            <Button fx:id="siguienteButton" text="Siguiente" onAction="#onPaginaSiguiente" styleClass="primary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+
+    <VBox fx:id="drawerPane" visible="false" managed="false" maxWidth="440" alignment="TOP_LEFT" styleClass="drawer-panel" StackPane.alignment="CENTER_RIGHT">
+      <padding>
+        <Insets top="18" right="18" bottom="18" left="18" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="drawer-header">
+          <children>
+            <Label fx:id="drawerTitleLabel" text="Detalle del evento" styleClass="drawer-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Cerrar" onAction="#onCerrarDrawer" styleClass="secondary-button drawer-close-button" />
+          </children>
+        </HBox>
+        <Label fx:id="drawerBannerLabel" text="" wrapText="true" styleClass="banner-label" />
+        <StackPane VBox.vgrow="ALWAYS">
+          <children>
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="drawer-scroll">
+              <content>
+                <VBox spacing="16" styleClass="drawer-scroll-content">
+                  <children>
+                    <VBox fx:id="detailPane" spacing="12" visible="false" managed="false" styleClass="drawer-section-card">
+                      <children>
+                        <Label text="Detalle t&#233;cnico" styleClass="section-heading" />
+                        <HBox spacing="10"><children><Label text="M&#243;dulo:" styleClass="detail-key" /><Label fx:id="detailModuloLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Acci&#243;n:" styleClass="detail-key" /><Label fx:id="detailAccionLabel" text="-" wrapText="true" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Resultado:" styleClass="detail-key" /><Label fx:id="detailResultadoLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Entidad:" styleClass="detail-key" /><Label fx:id="detailEntidadLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="EntidadId:" styleClass="detail-key" /><Label fx:id="detailEntidadIdLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Actor:" styleClass="detail-key" /><Label fx:id="detailActorLabel" text="-" wrapText="true" /></children></HBox>
+                        <VBox spacing="6">
+                          <children>
+                            <Label text="RequestId" styleClass="detail-key" />
+                            <HBox spacing="8">
+                              <children>
+                                <TextField fx:id="detailRequestIdField" editable="false" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="copyRequestIdButton" text="Copiar" onAction="#onCopyRequestId" />
+                              </children>
+                            </HBox>
+                          </children>
+                        </VBox>
+                        <HBox spacing="10"><children><Label text="IP origen:" styleClass="detail-key" /><Label fx:id="detailIpLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Fecha:" styleClass="detail-key" /><Label fx:id="detailFechaLabel" text="-" /></children></HBox>
+                      </children>
+                    </VBox>
+
+                    <VBox fx:id="reportePane" spacing="12" visible="false" managed="false" styleClass="drawer-section-card drawer-form-card">
+                      <children>
+                        <Label text="Solicitud de reporte de auditor&#237;a" styleClass="section-heading" />
+                        <Label text="Configura el recorte del historial para exportar solo el bloque operativo que necesitas revisar."
+                               wrapText="true"
+                               styleClass="drawer-subtitle" />
+                        <VBox spacing="6"><children><Label text="Formato" styleClass="field-label" /><ComboBox fx:id="reporteFormatoCombo" promptText="Selecciona formato" /></children></VBox>
+                        <HBox spacing="12" styleClass="drawer-inline-group">
+                          <children>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS"><children><Label text="Fecha desde" styleClass="field-label" /><DatePicker fx:id="reporteFechaDesdePicker" /></children></VBox>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS"><children><Label text="Fecha hasta" styleClass="field-label" /><DatePicker fx:id="reporteFechaHastaPicker" /></children></VBox>
+                          </children>
+                        </HBox>
+                        <VBox spacing="6"><children><Label text="M&#243;dulo" styleClass="field-label" /><ComboBox fx:id="reporteModuloCombo" promptText="Opcional" editable="true" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Acci&#243;n" styleClass="field-label" /><TextField fx:id="reporteAccionField" promptText="Opcional" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Resultado" styleClass="field-label" /><ComboBox fx:id="reporteResultadoCombo" promptText="Opcional" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Actor login" styleClass="field-label" /><TextField fx:id="reporteActorLoginField" promptText="Opcional" /></children></VBox>
+                        <HBox styleClass="drawer-checkbox-row">
+                          <children>
+                            <CheckBox fx:id="incluirDetalleCheck" text="Incluir detalle extendido en la exportaci&#243;n" selected="true" />
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </content>
+            </ScrollPane>
+            <ImageView fitWidth="236"
+                       preserveRatio="true"
+                       mouseTransparent="true"
+                       styleClass="view-artwork-view drawer-watermark"
+                       StackPane.alignment="BOTTOM_RIGHT" />
+          </children>
+        </StackPane>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="drawer-footer">
+          <children>
+            <Button fx:id="guardarReporteButton" text="Crear solicitud" onAction="#onGuardarReporte" styleClass="primary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

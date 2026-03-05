@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.marcosmoreiradev.uensdesktop.modules.clases.view.ClasesController">
+  <children>
+    <VBox spacing="12" styleClass="screen-card estudiantes-screen">
+      <padding>
+        <Insets top="24" right="24" bottom="24" left="24" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+          <children>
+            <VBox spacing="4">
+              <children>
+                <Label text="Clases" styleClass="screen-title" />
+                <Label text="Programaci&#243;n acad&#233;mica por secci&#243;n, asignatura, docente y horario." styleClass="muted-label screen-subtitle" />
+              </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="crearClaseButton" text="Crear clase" onAction="#onCrearClase" styleClass="primary-button" />
+          </children>
+        </HBox>
+        <GridPane hgap="10" vgap="10" styleClass="toolbar-row">
+          <columnConstraints>
+            <ColumnConstraints percentWidth="11" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="18" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="22" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="18" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="13" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="18" hgrow="NEVER" fillWidth="true" />
+          </columnConstraints>
+          <children>
+            <ComboBox fx:id="estadoFilter"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="0" />
+            <ComboBox fx:id="seccionFilterCombo"
+                      promptText="Todas las secciones"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="1" />
+            <ComboBox fx:id="asignaturaFilterCombo"
+                      promptText="Todas las asignaturas"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="2" />
+            <ComboBox fx:id="docenteFilterCombo"
+                      promptText="Todos los docentes"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="3" />
+            <ComboBox fx:id="diaSemanaFilterCombo"
+                      promptText="Todos los d&#237;as"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="4" />
+            <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="5">
+              <children>
+                <Button fx:id="buscarButton" text="Buscar" onAction="#onBuscar" styleClass="primary-button" />
+                <Button fx:id="limpiarButton" text="Limpiar" onAction="#onLimpiar" />
+              </children>
+            </HBox>
+          </children>
+        </GridPane>
+        <HBox spacing="16" alignment="CENTER_LEFT" styleClass="table-meta-row">
+          <children>
+            <Label fx:id="statusLabel" text="Consultando clases..." />
+            <Label fx:id="totalLabel" text="0 registros" styleClass="muted-label" />
+            <Label fx:id="pageLabel" text="P&#225;gina 1 de 1" styleClass="muted-label" />
+          </children>
+        </HBox>
+        <TableView fx:id="clasesTable" prefHeight="520" styleClass="table-view">
+          <columns>
+            <TableColumn fx:id="idColumn" prefWidth="70" text="ID" />
+            <TableColumn fx:id="seccionColumn" prefWidth="170" text="Secci&#243;n" />
+            <TableColumn fx:id="asignaturaColumn" prefWidth="220" text="Asignatura" />
+            <TableColumn fx:id="docenteColumn" prefWidth="180" text="Docente" />
+            <TableColumn fx:id="diaSemanaColumn" prefWidth="110" text="D&#237;a" />
+            <TableColumn fx:id="horarioColumn" prefWidth="130" text="Horario" />
+            <TableColumn fx:id="estadoColumn" prefWidth="110" text="Estado" />
+            <TableColumn fx:id="accionesColumn" prefWidth="210" text="Acciones" />
+          </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pager-row">
+          <children>
+            <Button fx:id="anteriorButton" text="Anterior" onAction="#onPaginaAnterior" />
+            <Button fx:id="siguienteButton" text="Siguiente" onAction="#onPaginaSiguiente" styleClass="primary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+
+    <VBox fx:id="drawerPane" visible="false" managed="false" maxWidth="430" alignment="TOP_LEFT" styleClass="drawer-panel" StackPane.alignment="CENTER_RIGHT">
+      <padding>
+        <Insets top="18" right="18" bottom="18" left="18" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="drawer-header">
+          <children>
+            <Label fx:id="drawerTitleLabel" text="Detalle de la clase" styleClass="drawer-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Cerrar" onAction="#onCerrarDrawer" />
+          </children>
+        </HBox>
+        <Label fx:id="drawerBannerLabel" text="" wrapText="true" styleClass="banner-label" />
+        <StackPane VBox.vgrow="ALWAYS">
+          <children>
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="drawer-scroll">
+              <content>
+                <VBox spacing="16">
+                  <children>
+                    <VBox fx:id="detailContent" spacing="12" visible="false" managed="false">
+                      <children>
+                        <Label text="Resumen" styleClass="section-heading" />
+                        <HBox spacing="10"><children><Label text="Secci&#243;n:" styleClass="detail-key" /><Label fx:id="detailSeccionLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Asignatura:" styleClass="detail-key" /><Label fx:id="detailAsignaturaLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Docente:" styleClass="detail-key" /><Label fx:id="detailDocenteLabel" text="-" wrapText="true" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="D&#237;a:" styleClass="detail-key" /><Label fx:id="detailDiaSemanaLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Horario:" styleClass="detail-key" /><Label fx:id="detailHorarioLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Estado:" styleClass="detail-key" /><Label fx:id="detailEstadoLabel" text="-" styleClass="badge-like" /></children></HBox>
+                      </children>
+                    </VBox>
+                    <VBox fx:id="formContent" spacing="12" visible="false" managed="false">
+                      <children>
+                        <Label text="Datos de la clase" styleClass="section-heading" />
+                        <VBox spacing="6"><children><Label text="Secci&#243;n" styleClass="field-label" /><ComboBox fx:id="formSeccionCombo" promptText="Selecciona una secci&#243;n" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Asignatura" styleClass="field-label" /><ComboBox fx:id="formAsignaturaCombo" promptText="Selecciona una asignatura" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Docente" styleClass="field-label" /><ComboBox fx:id="formDocenteCombo" promptText="Opcional" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="D&#237;a de la semana" styleClass="field-label" /><ComboBox fx:id="formDiaSemanaCombo" promptText="Selecciona un d&#237;a" /></children></VBox>
+                        <HBox spacing="12">
+                          <children>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS"><children><Label text="Hora inicio" styleClass="field-label" /><TextField fx:id="formHoraInicioField" promptText="08:00" /></children></VBox>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS"><children><Label text="Hora fin" styleClass="field-label" /><TextField fx:id="formHoraFinField" promptText="08:45" /></children></VBox>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </content>
+            </ScrollPane>
+            <ImageView fitWidth="236"
+                       preserveRatio="true"
+                       mouseTransparent="true"
+                       styleClass="view-artwork-view drawer-watermark"
+                       StackPane.alignment="BOTTOM_RIGHT" />
+          </children>
+        </StackPane>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+          <children>
+            <Button fx:id="detailEditarButton" text="Editar" onAction="#onEditarDesdeDetalle" visible="false" managed="false" />
+            <Button fx:id="detailEstadoButton" text="Inactivar" onAction="#onCambiarEstadoActual" visible="false" managed="false" />
+            <Button fx:id="guardarButton" text="Guardar" onAction="#onGuardarFormulario" styleClass="primary-button" visible="false" managed="false" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

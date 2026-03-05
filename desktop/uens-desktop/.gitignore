@@ -1,0 +1,8 @@
+# ---------------------------------------------
+# Ignore rules specific to desktop module
+# ---------------------------------------------
+# Este modulo genera artefactos de build y logs locales.
+# Se ignoran para mantener limpio el control de versiones.
+
+/target/
+/logs/

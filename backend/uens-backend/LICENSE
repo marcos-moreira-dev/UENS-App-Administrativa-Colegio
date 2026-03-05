@@ -1,0 +1,13 @@
+﻿
+This subproject is part of the UENS workspace and is licensed under the
+GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later).
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+The root licensing notice for the workspace is located at:
+
+- `../../LICENSE`
+
+If this backend is redistributed separately, the distributor must preserve
+copyright notices, preserve the AGPL-3.0-or-later terms, and include the
+full applicable license text or an equivalent legally valid notice.

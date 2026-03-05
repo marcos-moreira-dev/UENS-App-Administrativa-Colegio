@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  UENS Monorepo - Maven parent aggregator
+  ============================================================
+  Rol de este pom:
+  - NO produce un JAR ejecutable.
+  - Agrega modulos hijos para construir/testing en bloque.
+  - Centraliza propiedades compartidas del workspace.
+
+  Comandos utiles desde la raiz:
+  - mvnw.cmd test
+  - mvnw.cmd -pl backend/uens-backend -am test
+  - mvnw.cmd -pl desktop/uens-desktop -am package
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.marcosmoreiradev</groupId>
+  <artifactId>uens-monorepo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <!-- packaging pom = agregador de modulos -->
+  <packaging>pom</packaging>
+
+  <name>uens-monorepo</name>
+  <description>Monorepo agregador para backend y desktop de UENS.</description>
+
+  <!--
+    Modulos hijos que se construyen cuando ejecutas Maven en la raiz.
+    El orden aqui define la resolucion de dependencias internas.
+  -->
+  <modules>
+    <module>backend/uens-backend</module>
+    <module>desktop/uens-desktop</module>
+  </modules>
+
+  <!--
+    Propiedades compartidas.
+    maven.compiler.release lo consume, por ejemplo, desktop/uens-desktop.
+  -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+  </properties>
+</project>

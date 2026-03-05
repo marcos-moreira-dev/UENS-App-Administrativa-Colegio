@@ -1,0 +1,86 @@
+# ============================================================
+# UENS Backend - Docker Compose (desarrollo local)
+# ============================================================
+# Objetivo:
+# - levantar una DB PostgreSQL lista para desarrollo
+# - opcionalmente levantar la API en contenedor (profile "full")
+#
+# Flujo recomendado del proyecto:
+# 1) usar solo "db" en Docker
+# 2) correr la API con Maven local (mejor debugging)
+#
+# Flujo alternativo:
+# - profile "full" para correr DB + API ambos en contenedores
+
+name: uens
+
+services:
+  # ----------------------------------------------------------
+  # PostgreSQL
+  # ----------------------------------------------------------
+  db:
+    # Si no tienes la etiqueta 18 disponible, usa 17 o 16.
+    image: postgres:18
+    container_name: uens_db
+    restart: unless-stopped
+
+    # Variables internas que usa la imagen oficial de PostgreSQL
+    # para crear DB/usuario al primer arranque del volumen.
+    environment:
+      POSTGRES_DB: ${DB_NAME:-SchoolManagerNinitosSonadores}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+
+    ports:
+      # host:container
+      # - 5433 en host evita chocar con PostgreSQL local en 5432
+      # - 5432 interno es fijo en la imagen postgres
+      - "5433:5432"
+
+    volumes:
+      # Volumen persistente para no perder datos al reiniciar contenedor.
+      - uens_pgdata:/var/lib/postgresql/data
+
+    healthcheck:
+      # Espera activa para que otros servicios dependan de DB "lista".
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  # ----------------------------------------------------------
+  # API Spring Boot (opcional, solo profile full)
+  # ----------------------------------------------------------
+  api:
+    profiles: ["full"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: uens_api
+    restart: unless-stopped
+
+    # No arranca hasta que la DB reporte estado healthy.
+    depends_on:
+      db:
+        condition: service_healthy
+
+    environment:
+      # Dentro de Docker, la API accede a DB por nombre de servicio "db".
+      SPRING_PROFILES_ACTIVE: dev
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-SchoolManagerNinitosSonadores}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+
+      # Valores de ejemplo para JWT en desarrollo local.
+      JWT_SECRET: ${JWT_SECRET:-change-me-local-dev-secret-at-least-32-chars}
+      JWT_ISSUER: ${JWT_ISSUER:-uens-local}
+      JWT_EXPIRATION_SECONDS: ${JWT_EXPIRATION_SECONDS:-3600}
+
+    ports:
+      - "${APP_PORT:-8080}:8080"
+
+volumes:
+  # Declaracion del volumen nombrado usado por el servicio db.
+  uens_pgdata:

@@ -1,0 +1,25 @@
+# ---------------------------------------------
+# Ignore rules specific to backend/uens-backend
+# ---------------------------------------------
+# Este .gitignore convive con el de la raiz.
+# El de la raiz cubre el workspace completo; este archivo refuerza reglas
+# particulares del modulo backend para no filtrar:
+# - build output
+# - logs locales
+# - secretos locales (.env)
+
+# Maven output (generado, no fuente)
+/target/
+
+# Logs runtime del backend (pueden contener datos sensibles)
+/logs/
+*.log
+
+# Entorno local y secretos
+/.env
+/.env.*
+!/.env.example
+
+# Archivos temporales de editor/sistema
+*.tmp
+*.swp

@@ -1,0 +1,54 @@
+.dialog-pane {
+  -fx-padding: 12;
+}
+
+.dialog-pane.info-message-box {
+  -fx-background-color: linear-gradient(to bottom, #fbfdff, #edf4fb);
+  -fx-border-color: #b5cde2;
+}
+
+.dialog-pane.info-message-box:header *.header-panel {
+  -fx-background-color: linear-gradient(to right, #edf5fc, #dceaf6);
+  -fx-padding: 16;
+}
+
+.dialog-pane.info-message-box:header *.header-panel *.label {
+  -fx-text-fill: #184f84;
+  -fx-font-weight: 800;
+}
+
+.dialog-pane.info-message-box > .content.label {
+  -fx-text-fill: #2d4865;
+  -fx-font-size: 13px;
+  -fx-padding: 12 4 8 4;
+}
+
+.dialog-pane.session-exit-message-box {
+  -fx-background-color: linear-gradient(to bottom, #fffdfa, #f4f7fb);
+  -fx-border-color: #b7cde2;
+}
+
+.dialog-pane.session-exit-message-box:header *.header-panel {
+  -fx-background-color: linear-gradient(to right, #eef6ff, #dce9f7);
+  -fx-padding: 16;
+}
+
+.dialog-pane.session-exit-message-box:header *.header-panel *.label {
+  -fx-text-fill: #173f6b;
+  -fx-font-weight: 800;
+}
+
+.dialog-pane.session-exit-message-box > .content.label {
+  -fx-text-fill: #30485f;
+  -fx-font-size: 13px;
+  -fx-padding: 12 4 8 4;
+}
+
+.drawer-background-layer {
+  -fx-background-color: transparent;
+}
+
+.drawer-backdrop {
+  -fx-background-color: rgba(6, 12, 20, 0.60);
+  -fx-background-insets: 0;
+}

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.marcosmoreiradev.uensdesktop.modules.calificaciones.view.CalificacionesController">
+  <children>
+    <VBox spacing="12" styleClass="screen-card estudiantes-screen">
+      <padding>
+        <Insets top="24" right="24" bottom="24" left="24" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+          <children>
+            <VBox spacing="4">
+              <children>
+                <Label text="Calificaciones" styleClass="screen-title" />
+                <Label text="Registro y consulta de notas por estudiante, clase y parcial." styleClass="muted-label screen-subtitle" />
+              </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="crearCalificacionButton" text="Registrar calificaci&#243;n" onAction="#onCrearCalificacion" styleClass="primary-button" />
+          </children>
+        </HBox>
+        <GridPane hgap="10" vgap="10" styleClass="toolbar-row">
+          <columnConstraints>
+            <ColumnConstraints percentWidth="20" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="36" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="24" hgrow="ALWAYS" fillWidth="true" />
+            <ColumnConstraints percentWidth="22" hgrow="NEVER" fillWidth="true" />
+          </columnConstraints>
+          <children>
+            <ComboBox fx:id="estudianteFilterCombo"
+                      promptText="Todos los estudiantes"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="0" />
+            <ComboBox fx:id="claseFilterCombo"
+                      promptText="Todas las clases"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="1" />
+            <ComboBox fx:id="parcialFilterCombo"
+                      promptText="Todos los parciales"
+                      maxWidth="1.7976931348623157E308"
+                      GridPane.columnIndex="2" />
+            <HBox spacing="10" alignment="CENTER_LEFT" GridPane.columnIndex="3">
+              <children>
+                <Button fx:id="buscarButton" text="Buscar" onAction="#onBuscar" styleClass="primary-button" />
+                <Button fx:id="limpiarButton" text="Limpiar" onAction="#onLimpiar" />
+              </children>
+            </HBox>
+          </children>
+        </GridPane>
+        <HBox spacing="16" alignment="CENTER_LEFT" styleClass="table-meta-row">
+          <children>
+            <Label fx:id="statusLabel" text="Consultando calificaciones..." />
+            <Label fx:id="totalLabel" text="0 registros" styleClass="muted-label" />
+            <Label fx:id="pageLabel" text="P&#225;gina 1 de 1" styleClass="muted-label" />
+          </children>
+        </HBox>
+        <TableView fx:id="calificacionesTable" prefHeight="520" styleClass="table-view">
+          <columns>
+            <TableColumn fx:id="idColumn" prefWidth="70" text="ID" />
+            <TableColumn fx:id="estudianteColumn" prefWidth="220" text="Estudiante" />
+            <TableColumn fx:id="claseColumn" prefWidth="280" text="Clase" />
+            <TableColumn fx:id="parcialColumn" prefWidth="90" text="Parcial" />
+            <TableColumn fx:id="notaColumn" prefWidth="90" text="Nota" />
+            <TableColumn fx:id="fechaColumn" prefWidth="120" text="Fecha" />
+            <TableColumn fx:id="accionesColumn" prefWidth="160" text="Acciones" />
+          </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="pager-row">
+          <children>
+            <Button fx:id="anteriorButton" text="Anterior" onAction="#onPaginaAnterior" />
+            <Button fx:id="siguienteButton" text="Siguiente" onAction="#onPaginaSiguiente" styleClass="primary-button" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+
+    <VBox fx:id="drawerPane" visible="false" managed="false" maxWidth="430" alignment="TOP_LEFT" styleClass="drawer-panel" StackPane.alignment="CENTER_RIGHT">
+      <padding>
+        <Insets top="18" right="18" bottom="18" left="18" />
+      </padding>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="drawer-header">
+          <children>
+            <Label fx:id="drawerTitleLabel" text="Detalle de la calificaci&#243;n" styleClass="drawer-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Cerrar" onAction="#onCerrarDrawer" />
+          </children>
+        </HBox>
+        <Label fx:id="drawerBannerLabel" text="" wrapText="true" styleClass="banner-label" />
+        <StackPane VBox.vgrow="ALWAYS">
+          <children>
+            <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="drawer-scroll">
+              <content>
+                <VBox spacing="16">
+                  <children>
+                    <VBox fx:id="detailContent" spacing="12" visible="false" managed="false">
+                      <children>
+                        <Label text="Resumen" styleClass="section-heading" />
+                        <HBox spacing="10"><children><Label text="Estudiante:" styleClass="detail-key" /><Label fx:id="detailEstudianteLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Clase:" styleClass="detail-key" /><Label fx:id="detailClaseLabel" text="-" wrapText="true" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Parcial:" styleClass="detail-key" /><Label fx:id="detailParcialLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Nota:" styleClass="detail-key" /><Label fx:id="detailNotaLabel" text="-" /></children></HBox>
+                        <HBox spacing="10"><children><Label text="Fecha registro:" styleClass="detail-key" /><Label fx:id="detailFechaRegistroLabel" text="-" /></children></HBox>
+                        <VBox spacing="6"><children><Label text="Observaci&#243;n" styleClass="detail-key" /><Label fx:id="detailObservacionLabel" text="-" wrapText="true" /></children></VBox>
+                      </children>
+                    </VBox>
+                    <VBox fx:id="formContent" spacing="12" visible="false" managed="false">
+                      <children>
+                        <Label text="Datos de la calificaci&#243;n" styleClass="section-heading" />
+                        <VBox spacing="6"><children><Label text="Estudiante" styleClass="field-label" /><ComboBox fx:id="formEstudianteCombo" promptText="Selecciona un estudiante" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Clase" styleClass="field-label" /><ComboBox fx:id="formClaseCombo" promptText="Selecciona una clase" /></children></VBox>
+                        <HBox spacing="12">
+                          <children>
+                            <VBox spacing="6"><children><Label text="Parcial" styleClass="field-label" /><Spinner fx:id="formParcialSpinner" editable="false" prefWidth="96" /></children></VBox>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS"><children><Label text="Nota" styleClass="field-label" /><TextField fx:id="formNotaField" promptText="Ej: 8.75" /></children></VBox>
+                          </children>
+                        </HBox>
+                        <VBox spacing="6"><children><Label text="Fecha registro" styleClass="field-label" /><DatePicker fx:id="formFechaRegistroPicker" /></children></VBox>
+                        <VBox spacing="6"><children><Label text="Observaci&#243;n" styleClass="field-label" /><TextArea fx:id="formObservacionArea" promptText="Observaci&#243;n opcional" prefRowCount="5" wrapText="true" /></children></VBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </content>
+            </ScrollPane>
+            <ImageView fitWidth="236"
+                       preserveRatio="true"
+                       mouseTransparent="true"
+                       styleClass="view-artwork-view drawer-watermark"
+                       StackPane.alignment="BOTTOM_RIGHT" />
+          </children>
+        </StackPane>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+          <children>
+            <Button fx:id="detailEditarButton" text="Editar" onAction="#onEditarDesdeDetalle" visible="false" managed="false" />
+            <Button fx:id="guardarButton" text="Guardar" onAction="#onGuardarFormulario" styleClass="primary-button" visible="false" managed="false" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</StackPane>

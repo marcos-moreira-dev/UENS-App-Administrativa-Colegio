@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="rootPane"
+           xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.marcosmoreiradev.uensdesktop.modules.shell.view.AppShellController">
+  <children>
+    <BorderPane fx:id="shellContainer" styleClass="app-shell">
+      <top>
+        <HBox spacing="12" styleClass="topbar">
+          <padding>
+            <Insets top="12" right="16" bottom="12" left="16" />
+          </padding>
+          <children>
+            <ImageView fx:id="brandLogoView" fitHeight="42" preserveRatio="true" styleClass="brand-logo" />
+            <Label text="%app.title" styleClass="app-title" />
+            <Label fx:id="sessionStatusLabel" text="Sesión: Invitado" styleClass="session-label session-pill" />
+          </children>
+        </HBox>
+      </top>
+      <left>
+        <StackPane styleClass="sidebar">
+          <children>
+            <ImageView fx:id="sidebarArtworkView"
+                       fitWidth="236"
+                       preserveRatio="true"
+                       mouseTransparent="true"
+                       StackPane.alignment="BOTTOM_CENTER"
+                       styleClass="sidebar-artwork-view panel-illustration" />
+            <VBox spacing="10" styleClass="sidebar-content">
+              <padding>
+                <Insets top="16" right="12" bottom="12" left="12" />
+              </padding>
+              <children>
+                <VBox spacing="3">
+                  <children>
+                    <Label text="Navegación" styleClass="sidebar-title" />
+                    <Label text="Módulos operativos del sistema" wrapText="true" styleClass="sidebar-subtitle" />
+                  </children>
+                </VBox>
+                <Button fx:id="logoutNavButton" text="Cerrar sesión" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onLogoutNav" styleClass="sidebar-button sidebar-logout-button" />
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS" styleClass="sidebar-scroll">
+                  <content>
+                    <VBox spacing="10" styleClass="sidebar-nav-list">
+                      <children>
+                        <Button fx:id="dashboardButton" text="Dashboard" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToDashboard" styleClass="sidebar-button" />
+                        <Button fx:id="estudiantesButton" text="Estudiantes" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToEstudiantes" styleClass="sidebar-button" />
+                        <Button fx:id="representantesButton" text="Representantes" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToRepresentantes" styleClass="sidebar-button" />
+                        <Button fx:id="docentesButton" text="Docentes" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToDocentes" styleClass="sidebar-button" />
+                        <Button fx:id="seccionesButton" text="Secciones" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToSecciones" styleClass="sidebar-button" />
+                        <Button fx:id="asignaturasButton" text="Asignaturas" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToAsignaturas" styleClass="sidebar-button" />
+                        <Button fx:id="clasesButton" text="Clases" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToClases" styleClass="sidebar-button" />
+                        <Button fx:id="calificacionesButton" text="Calificaciones" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToCalificaciones" styleClass="sidebar-button" />
+                        <Button fx:id="reportesButton" text="Reportes" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToReportes" styleClass="sidebar-button" />
+                        <Button fx:id="auditoriaButton" text="Auditoría" visible="false" managed="false" maxWidth="1.7976931348623157E308" onAction="#onGoToAuditoria" styleClass="sidebar-button" />
+                      </children>
+                    </VBox>
+                  </content>
+                </ScrollPane>
+                <Label fx:id="logShortcutHintLabel"
+                       text="Ctrl + Shift + L para generar informe de logs"
+                       wrapText="true"
+                       styleClass="sidebar-shortcut-hint" />
+              </children>
+            </VBox>
+          </children>
+        </StackPane>
+      </left>
+      <center>
+        <BorderPane fx:id="contentHost" styleClass="content-host" />
+      </center>
+    </BorderPane>
+
+    <Region fx:id="shellBackdropOverlay"
+            visible="false"
+            managed="false"
+            mouseTransparent="true"
+            opacity="0.0"
+            styleClass="shell-backdrop-overlay" />
+
+    <StackPane fx:id="shellDrawerHost"
+               visible="false"
+               managed="false"
+               mouseTransparent="true"
+               pickOnBounds="false" />
+
+    <VBox fx:id="toastHost" visible="false" managed="false" alignment="CENTER_LEFT" spacing="4" styleClass="toast-host toast-info" StackPane.alignment="BOTTOM_RIGHT">
+      <padding>
+        <Insets top="0" right="24" bottom="24" left="24" />
+      </padding>
+      <children>
+        <Label fx:id="toastLabel" text="" wrapText="true" styleClass="toast-label" />
+      </children>
+    </VBox>
+  </children>
+</StackPane>
