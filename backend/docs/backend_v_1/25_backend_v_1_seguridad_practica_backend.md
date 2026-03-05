@@ -23,7 +23,7 @@ No significa solo "poner JWT".
 1. autenticación
 2. autorización
 3. validación de entrada
-4. proteccion de archivos
+4. protección de archivos
 5. secretos y configuración
 6. base de datos y backups
 7. despliegue

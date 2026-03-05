@@ -1,8 +1,8 @@
 ﻿# 22_desktop_arbol_archivos_completo_sugerido
 
-> **Objetivo:** describir el arbol objetivo del módulo desktop dentro del monorepo.
+> **Objetivo:** describir el árbol objetivo del módulo desktop dentro del monorepo.
 >
-> **Regla de lectura:** este documento no es un snapshot exacto del repo; es un objetivo de estructura. La implementacion debe avanzar por milestones.
+> **Regla de lectura:** este documento no es un snapshot exacto del repo; es un objetivo de estructura. La implementación debe avanzar por milestones.
 
 ---
 
@@ -16,11 +16,11 @@ Ya existe en el repo:
 - recursos base
 - pruebas automatizadas base para cliente API, polling y ViewModels
 
-Todavia no esta expandido todo el arbol objetivo. Eso se implementa por milestones.
+Todavía no esta expandido todo el árbol objetivo. Eso se implementa por milestones.
 
 ---
 
-## A) Arbol del repositorio (raiz)
+## A) Árbol del repositorio (raiz)
 
 ```text
 Sistema UE Niñitos Soñadores/
@@ -50,7 +50,7 @@ Sistema UE Niñitos Soñadores/
 
 ---
 
-## B) Arbol objetivo del módulo desktop
+## B) Árbol objetivo del módulo desktop
 
 ### B.1 Java
 
@@ -100,11 +100,11 @@ desktop/uens-desktop/src/test/java/
 
 ---
 
-## C) Regla de implementacion
-- El arbol sirve para fijar nombres y ubicaciones.
-- No conviene generar cientos de archivos vacios solo para "cumplir" el arbol.
+## C) Regla de implementación
+- El árbol sirve para fijar nombres y ubicaciones.
+- No conviene generar cientos de archivos vacios solo para "cumplir" el árbol.
 - Se crean primero las piezas necesarias para el milestone actual.
-- Si una parte del arbol todavia no tiene comportamiento ni contrato claro, debe esperar.
+- Si una parte del árbol todavía no tiene comportamiento ni contrato claro, debe esperar.
 
 ---
 

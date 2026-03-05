@@ -27,7 +27,7 @@ Es poder operar por ambientes sin miedo a romper todo.
 
 ### stage
 
-- parecido a produccion
+- parecido a producción
 - para validar despliegues y pruebas de integración
 
 ### prod

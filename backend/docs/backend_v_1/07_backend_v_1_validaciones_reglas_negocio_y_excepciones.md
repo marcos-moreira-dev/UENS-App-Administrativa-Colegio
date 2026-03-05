@@ -95,7 +95,7 @@ Se formaliza la taxonomía usada en `05`:
 - `API-*` → uso incorrecto de API / recurso / contrato HTTP
 - `SYS-*` → errores internos / infraestructura / inesperados
 
-### Estado aplicado en la implementacion actual
+### Estado aplicado en la implementación actual
 
 Al corte técnico del `2026-03-04`, esta política ya se refleja en los módulos CRUD principales:
 

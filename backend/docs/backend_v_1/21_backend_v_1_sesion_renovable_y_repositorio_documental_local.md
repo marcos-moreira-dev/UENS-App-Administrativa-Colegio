@@ -17,9 +17,9 @@
 Este documento explica dos evoluciones importantes del sistema:
 
 1. Sesión renovable con `refreshToken` para evitar cierres abruptos en desktop.
-2. Repositorio documental desacoplado para reportes, comenzando con una simulacion local en filesystem.
+2. Repositorio documental desacoplado para reportes, comenzando con una simulación local en filesystem.
 
-Tambien deja clara la lectura arquitectónica correcta:
+También deja clara la lectura arquitectónica correcta:
 - esto sigue siendo un monolito modular
 - no es un microservicio
 - pero ya usa patrones comunes del mundo corporativo
@@ -165,7 +165,7 @@ Límites reales:
 - si el proceso reinicia, se pierden refresh tokens
 - si algun día levantas multiples instancias, cada una tendria su memoria separada
 
-Ruta natural de evolucion:
+Ruta natural de evolución:
 - Redis
 - tabla dedicada en PostgreSQL
 
@@ -179,7 +179,7 @@ Antes, la capa application sabia demasiado de rutas y archivos fisicos.
 
 Eso es debil porque:
 - acopla negocio a filesystem
-- dificulta migracion a otro proveedor
+- dificulta migración a otro proveedor
 - mezcla reglas de negocio con preocupaciones de almacenamiento
 
 ### 7.2 Solución aplicada
@@ -195,7 +195,7 @@ Con operaciones de alto nivel:
 La aplicación ya no piensa en "carpeta exacta y ruta completa".
 Piensa en "documento almacenado" y "clave documental".
 
-### 7.3 Implementacion local actual
+### 7.3 Implementación local actual
 
 Adapter activo:
 - `LocalFilesystemDocumentStorageAdapter`
@@ -209,7 +209,7 @@ Comportamiento:
 
 ---
 
-## 8. Por que esta simulacion local si es valida
+## 8. Por que esta simulación local si es valida
 
 Para un proyecto didáctico, filesystem local desacoplado es una decision muy buena porque:
 
@@ -218,7 +218,7 @@ Para un proyecto didáctico, filesystem local desacoplado es una decision muy bu
 3. no depende de nube ni credenciales de terceros
 4. deja lista la abstraccion para cambiar de proveedor después
 
-Si quieres una simulacion más cercana a mercado sin salirte del desarrollo local, la evolucion natural es MinIO en Docker.
+Si quieres una simulación más cercana a mercado sin salirte del desarrollo local, la evolución natural es MinIO en Docker.
 
 ---
 
@@ -278,7 +278,7 @@ Lo implementado ahora ya se parece a una base corporativa razonable:
 - ownership y seguridad en descargas
 - cliente desktop con auto refresh encapsulado
 
-Traduccion práctica:
+Traducción práctica:
 - mejor experiencia de sesión
 - mejor desacople de infraestructura
 - base realista para crecer sin romper lo ya construido

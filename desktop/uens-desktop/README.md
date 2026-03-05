@@ -21,7 +21,7 @@ Este script automatiza:
 
 1. `clean package` del módulo desktop
 2. copia de dependencias runtime al input de `jpackage`
-3. generacion de paquete `msi` o `app-image`
+3. generación de paquete `msi` o `app-image`
 4. uso del icono oficial del proyecto
 
 ## Prerrequisitos

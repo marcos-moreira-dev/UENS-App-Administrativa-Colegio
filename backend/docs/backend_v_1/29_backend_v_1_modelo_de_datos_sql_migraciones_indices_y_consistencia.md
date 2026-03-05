@@ -2,7 +2,7 @@
 
 - Versión: 1.0
 - Estado: Vigente
-- Ámbito: disciplina de datos y evolucion de esquema
+- Ámbito: disciplina de datos y evolución de esquema
 - Relacionado con:
  - `V2_3FN.sql`
  - `18_backend_v_1_acid_transacciones_consistencia_backend.md`
@@ -41,9 +41,9 @@ Siempre piensa:
 3. que datos antiguos existen
 4. si el frontend depende del contrato actual
 
-### La BD tambien valida
+### La BD también valida
 
-No dejes toda la proteccion al backend.
+No dejes toda la protección al backend.
 Usa:
 
 - `NOT NULL`

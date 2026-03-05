@@ -161,7 +161,7 @@ Cuando una regla de aplicación necesita algo técnico que podria cambiar, convi
 
 Ejemplo claro para esta V1:
 - `UsuarioPasswordService` en `application/port`
-- implementacion `BcryptUsuarioPasswordService` en infraestructura
+- implementación `BcryptUsuarioPasswordService` en infraestructura
 
 Beneficio:
 - `auth` y `usuario` no quedan acoplados a `PasswordEncoder`
@@ -210,7 +210,7 @@ Encaja bien en:
 - reglas variables por canal externo, si algun día aparecen
 
 Regla práctica:
-- si hoy solo existe una variante real, no fuerces Strategy todavia
+- si hoy solo existe una variante real, no fuerces Strategy todavía
 - si ya hay dos o más variantes estables, Strategy empieza a pagar sola
 
 ---

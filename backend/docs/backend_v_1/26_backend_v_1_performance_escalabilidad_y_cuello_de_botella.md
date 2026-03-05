@@ -71,7 +71,7 @@ No lo uses para tapar mala modelacion o mala consulta.
 
 ---
 
-## 6. Asincronia
+## 6. Asincronía
 
 Mover algo a asíncrono ayuda cuando:
 
@@ -115,7 +115,7 @@ Podrias pensar en colas más serias o mensajería cuando:
 - aparecen integraciones externas lentas
 - necesitas desacoplar procesamiento pesado
 
-Eso todavia no obliga a microservicios.
+Eso todavía no obliga a microservicios.
 
 ---
 

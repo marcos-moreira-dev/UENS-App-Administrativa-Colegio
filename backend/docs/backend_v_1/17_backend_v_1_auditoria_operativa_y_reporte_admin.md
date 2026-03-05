@@ -96,7 +96,7 @@ Integraciones en `reporte`:
 
 ---
 
-## 6. SQL y modelo fisico
+## 6. SQL y modelo físico
 
 ## 6.1 DDL principal
 

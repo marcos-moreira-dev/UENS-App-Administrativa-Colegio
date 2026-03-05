@@ -98,7 +98,7 @@ Con eso puedes seguir una falla punta a punta.
 ## 7. Alertas minimas
 
 No alertes por todo.
-Alertar demasiado tambien rompe la operación.
+Alertar demasiado también rompe la operación.
 
 Empieza con:
 

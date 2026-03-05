@@ -56,11 +56,11 @@ Fuente: `backend/docs/api/API_ENDPOINTS.md`
 ### 3.1 Listado de eventos
 - `GET /api/v1/auditoria/eventos` (ADMIN)
 - filtros: `q,módulo,accion,resultado,actorLogin,fechaDesde,fechaHasta,page,size,sort`
-- El backend tambien refuerza esta restriccion en la capa application, no solo en la UI.
+- El backend también refuerza esta restriccion en la capa application, no solo en la UI.
 
 ### 3.2 Solicitar reporte de auditoría (async)
 - `POST /api/v1/auditoria/reportes/solicitudes` (ADMIN)
-- El backend tambien refuerza esta restriccion en la capa application.
+- El backend también refuerza esta restriccion en la capa application.
 
 Esto crea una solicitud de reporte en la cola de reportes.
 

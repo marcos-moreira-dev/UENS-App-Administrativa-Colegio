@@ -106,7 +106,7 @@ Debe responder en pocos segundos:
 
 ### 5.2 Formula útil para el copy
 
-Puedes pensar el hero asi:
+Puedes pensar el hero así:
 
 - qué haces
 - para quién
@@ -541,10 +541,10 @@ Tu sistema no deberia tocar datos crudos de tarjeta si puedes evitarlo.
 Lo normal es:
 
 - usar checkout hospedado o componentes seguros
-- dejar tokenizacion al proveedor
+- dejar tokenización al proveedor
 - mantener el alcance PCI lo más bajo posible
 
-Tambien debes cuidar:
+También debes cuidar:
 
 1. no confiar en redirects de exito del frontend
 2. no loguear datos sensibles
@@ -710,7 +710,7 @@ Eso ya te pone mucho más cerca de un flujo profesional.
 
 ## 26. Cierre
 
-Landing, UX/UI y pagos parecen temas distintos, pero en realidad se conectan asi:
+Landing, UX/UI y pagos parecen temas distintos, pero en realidad se conectan así:
 
 - la landing atrae
 - la UX convence

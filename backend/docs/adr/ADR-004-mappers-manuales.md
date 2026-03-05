@@ -17,7 +17,7 @@ Se usan mappers manuales por módulo (`*DtoMapper`) en capa `application`.
 - Negativas:
  - Más código boilerplate.
 
-## Notas de implementacion
+## Notas de implementación
 - No exponer entidades JPA en controllers.
 - Mantener los mappers pequenos y deterministas.
 - Incluir tests cuando el mapeo tenga lógica condicional.

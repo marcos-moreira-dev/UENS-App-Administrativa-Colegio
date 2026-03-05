@@ -1,7 +1,7 @@
 ﻿# 21_desktop_roadmap_impl
 
 - **Proyecto:** UENS Desktop (JavaFX)
-- **Objetivo:** roadmap de implementacion por milestones, con estado real del repo y decisiones técnicas cerradas.
+- **Objetivo:** roadmap de implementación por milestones, con estado real del repo y decisiones técnicas cerradas.
 - **Arquitectura:** MVVM + Navigator + ApplicationServices + componentes reutilizables
 - **JDK:** Eclipse Temurin 21
 
@@ -26,7 +26,7 @@ El proyecto debe apoyarse en `~/.m2/toolchains.xml` para asegurar compilacion co
 
 ### 0.5 Logging
 - API: **SLF4J**
-- implementacion: **Logback**
+- implementación: **Logback**
 
 ### 0.6 Configuración
 - `app.properties` con base URL y timeout
@@ -96,8 +96,8 @@ Validación ejecutada:
 
 Límites actuales:
 - faltan más pruebas de controllers y flujos integrados;
-- la migracion i18n sigue parcial;
-- algunos módulos CRUD secundarios todavia pueden recibir presenter/mapper si siguen creciendo.
+- la migración i18n sigue parcial;
+- algunos módulos CRUD secundarios todavía pueden recibir presenter/mapper si siguen creciendo.
 
 ---
 
@@ -208,7 +208,7 @@ Contenido base:
 ---
 
 ## 7) Regla de uso de este roadmap
-- Este documento manda sobre la implementacion técnica del desktop.
+- Este documento manda sobre la implementación técnica del desktop.
 - Si el repo real difiere de la documentación, primero se corrige la documentación o se justifica la excepción.
 - No se debe avanzar a más código estructural sin que este roadmap siga siendo compatible con el estado real del repo.
 

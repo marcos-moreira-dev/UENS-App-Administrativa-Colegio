@@ -6,7 +6,7 @@ Dejar una base operativa de trazabilidad entre:
 
 - documentos funcionales (`docs/01..05`)
 - diseño técnico backend (`backend/docs/backend_v_1/00..15`)
-- implementacion actual (`backend/uens-backend/src/main/java`)
+- implementación actual (`backend/uens-backend/src/main/java`)
 
 Fecha de corte de esta base: `2026-03-04`.
 
@@ -30,7 +30,7 @@ Fecha de corte de esta base: `2026-03-04`.
 - `modules/usuario` ya cubre RF-36/37/38 sin mezclar CRUD administrativo con `auth`.
 - `modules/consultaacademica` ya cubre RF-21/RF-22 con endpoints explicitos de lectura agregada.
 - La compatibilidad de `ResponseStatusException` sigue viva en el borde (`GlobalExceptionHandler`), pero ya no debe ser la ruta normal desde `application`.
-- El handler global todavia conserva parte de mapeo por texto libre para escenarios heredados o de framework.
+- El handler global todavía conserva parte de mapeo por texto libre para escenarios heredados o de framework.
 - Faltan tests especificos del handler global para blindar la taxonomia `VR/RN/API/SYS`.
 
 ---
@@ -93,7 +93,7 @@ Escala de estado:
 
 ### Decision general
 
-No recomiendo redisenar todo el arbol. El backend ya esta bien encaminado en `modules/*`.
+No recomiendo redisenar todo el árbol. El backend ya esta bien encaminado en `modules/*`.
 Recomiendo cerrar brechas puntuales con paquetes nuevos y normalización de trazabilidad.
 
 ### Paquetes aplicados y siguientes candidatos
@@ -163,7 +163,7 @@ En cada cambio funcional:
 2. Seguir reduciendo mapeo por texto libre heredado en el borde.
 3. Mantener `common/pagination` como única via para listados HTTP-facing nuevos.
 4. Revisar VR pendientes (VR-03, VR-09) y cerrar definicion funcional.
-5. Mantener documentados `usuario`, `consultaacademica` y logging operativo en cada evolucion.
+5. Mantener documentados `usuario`, `consultaacademica` y logging operativo en cada evolución.
 
 Con estos cinco pasos, la trazabilidad backend pasa de "parcial y fragil" a "operativa y mantenible".
 

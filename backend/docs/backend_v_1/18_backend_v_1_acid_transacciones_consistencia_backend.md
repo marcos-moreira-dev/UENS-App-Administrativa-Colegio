@@ -1,7 +1,7 @@
 ﻿# 18_backend_v_1_acid_transacciones_consistencia_backend
 
 - Versión: 1.0
-- Estado: Aterrizado sobre implementacion real
+- Estado: Aterrizado sobre implementación real
 - Ámbito: Backend V1 + PostgreSQL
 - Fecha de corte: 2026-02-27
 
@@ -75,7 +75,7 @@ La aplicación aporta:
 
 1. validaciones funcionales antes de persistir
 2. manejo de worker de reportes con claim concurrente
-3. compensacion cuando interviene filesystem
+3. compensación cuando interviene filesystem
 4. trazabilidad de auditoría desacoplada
 
 ---
@@ -142,11 +142,11 @@ Cuando PostgreSQL confirma una transacción:
 
 ## 5. Problemas ACID reales que si existian
 
-## 5.1 Archivo de reporte en disco sin compensacion
+## 5.1 Archivo de reporte en disco sin compensación
 
 Problema anterior:
 
-1. el worker generaba archivo fisico
+1. el worker generaba archivo físico
 2. luego intentaba persistir resultado en BD
 3. si fallaba la persistencia, podia quedar archivo huerfano
 
@@ -189,7 +189,7 @@ Resultado:
 - mejor durabilidad de auditoría
 - menor acoplamiento transaccional
 
-## 6.2 Compensacion de archivos de reporte
+## 6.2 Compensación de archivos de reporte
 
 Archivos:
 
@@ -203,8 +203,8 @@ Cambio:
 Justificacion:
 
 1. el filesystem no participa en la transacción SQL
-2. sin compensacion, quedan residuos no trazados
-3. la compensacion reduce inconsistencia observable
+2. sin compensación, quedan residuos no trazados
+3. la compensación reduce inconsistencia observable
 
 Resultado:
 
@@ -233,7 +233,7 @@ Justificacion:
 
 ## 8.1 Filesystem y base de datos no forman una sola transacción real
 
-La compensacion mejora mucho el problema, pero no convierte disco + SQL en una transacción única.
+La compensación mejora mucho el problema, pero no convierte disco + SQL en una transacción única.
 
 Interpretacion correcta:
 
@@ -266,7 +266,7 @@ La política adoptada es:
 1. ACID fuerte dentro de PostgreSQL
 2. transacciones Spring en servicios de escritura
 3. aislamiento reforzado donde realmente hay concurrencia (`DB queue`)
-4. compensacion donde sale del motor transaccional (filesystem)
+4. compensación donde sale del motor transaccional (filesystem)
 5. auditoría en transacción aparte por valor pedagogico y operativo
 
 Es una solución profesional y realista para este contexto.
@@ -280,9 +280,9 @@ Es una solución profesional y realista para este contexto.
 - `modules/auditoria/application/AuditoriaEventService`
  - auditoría con `REQUIRES_NEW`
 - `modules/reporte/application/ReporteSolicitudWorkerService`
- - compensacion y persistencia del resultado
+ - compensación y persistencia del resultado
 - `modules/reporte/application/ReporteFileGenerationService`
- - eliminacion silenciosa del archivo durante compensacion
+ - eliminacion silenciosa del archivo durante compensación
 
 ---
 
@@ -290,11 +290,11 @@ Es una solución profesional y realista para este contexto.
 
 Frase corta útil:
 
-> El backend usa ACID de PostgreSQL para las operaciones críticas, transacciones Spring para delimitar casos de uso, aislamiento explicito en la cola de reportes y compensacion cuando interviene el filesystem.
+> El backend usa ACID de PostgreSQL para las operaciones críticas, transacciones Spring para delimitar casos de uso, aislamiento explicito en la cola de reportes y compensación cuando interviene el filesystem.
 
 Frase más técnica:
 
-> En UENS, ACID se garantiza de forma fuerte dentro de la base de datos y de forma pragmatica en integraciones no transaccionales, especialmente en reportes, donde se aplico compensacion de archivos y auditoría desacoplada con `REQUIRES_NEW`.
+> En UENS, ACID se garantiza de forma fuerte dentro de la base de datos y de forma pragmatica en integraciones no transaccionales, especialmente en reportes, donde se aplico compensación de archivos y auditoría desacoplada con `REQUIRES_NEW`.
 
 ---
 

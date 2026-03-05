@@ -75,7 +75,7 @@ Pendiente estructural:
 - [x] Existe infraestructura i18n operativa.
 - [ ] Todo texto global ya vive en bundle.
 - [ ] Toda la UI visible ya fue normalizada con acentos correctos.
-- [x] La documentación refleja que la migracion i18n sigue parcial.
+- [x] La documentación refleja que la migración i18n sigue parcial.
 
 ---
 
@@ -97,7 +97,7 @@ Pendiente estructural:
 ### 7.4 Calificaciones
 - [x] Filtros por estudiante, clase y parcial.
 - [x] Nota validada.
-- [x] Parcial se maneja como control numerico acotado.
+- [x] Parcial se maneja como control numérico acotado.
 
 ### 7.5 Reportes
 - [x] Solicitud asíncrona.
@@ -119,7 +119,7 @@ Pendiente estructural:
 - [x] ViewModels críticos
 - [x] utilidades transversales con lógica relevante
 
-Pendiente todavia:
+Pendiente todavía:
 - [ ] controllers con flujos integrados;
 - [ ] pruebas de interacción UI más cercanas a runtime.
 

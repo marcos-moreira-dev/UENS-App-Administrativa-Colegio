@@ -22,7 +22,7 @@ Se usa autenticación JWT stateless:
 - Negativas:
  - Revocacion inmediata no nativa (se resuelve con expiraciones cortas o blacklist futura).
 
-## Notas de implementacion
+## Notas de implementación
 - Roles soportados definidos en `SecurityRoles`.
 - Errores de token mapeados a códigos `AUTH-*`.
 - Endpoints publicos definidos en `SecurityConfig`.

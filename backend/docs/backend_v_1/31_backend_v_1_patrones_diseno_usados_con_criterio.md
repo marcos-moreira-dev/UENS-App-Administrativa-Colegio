@@ -29,7 +29,7 @@ Muy útil para storage, auth stores, integraciones.
 
 ### Adapter
 
-Implementacion concreta de un puerto o contrato.
+Implementación concreta de un puerto o contrato.
 
 ### Facade
 

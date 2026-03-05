@@ -1,7 +1,7 @@
 ﻿# 15_backend_v_1_reportes_generacion_archivos_excel_pdf_word
 
 - Versión: 1.0
-- Estado: Aprobado para implementacion
+- Estado: Aprobado para implementación
 - Ámbito: Backend V1 (módulo `reporte`)
 
 ---
@@ -18,7 +18,7 @@ Esta decision se apoya en:
 
 - `10_backend_v_1_reporte_solicitudes_cola_simple_db_queue.md`
 - `13_backend_v_1_dtos_mappers_matriz_permisos_filtros_y_mapeo_jpa.md`
-- implementacion actual del módulo `reporte` en `src/main/java/.../modules/reporte`
+- implementación actual del módulo `reporte` en `src/main/java/.../modules/reporte`
 
 ---
 
@@ -34,7 +34,7 @@ Ya existen:
  - `LISTADO_ESTUDIANTES_POR_SECCION`
  - `CALIFICACIONES_POR_SECCION_Y_PARCIAL`
  - `AUDITORIA_ADMIN_OPERACIONES`
-- Strategy de presentacion documental por tipo de reporte (`ReporteDocumentModelAssembler`)
+- Strategy de presentación documental por tipo de reporte (`ReporteDocumentModelAssembler`)
 - Strategy de exportación por formato (`ReporteFileExporter`)
 - Endpoints:
  - `POST /api/v1/reportes/solicitudes`
@@ -68,7 +68,7 @@ Siguientes recomendados:
 1. Controller valida request y crea solicitud (`PENDIENTE`).
 2. Worker hace claim, pasa a `EN_PROCESO`.
 3. `ReporteDataProcessor` genera `resultadoPayload` estructurado.
-4. Capa de exportación genera archivo fisico (`xlsx`, `pdf`, `docx`).
+4. Capa de exportación genera archivo físico (`xlsx`, `pdf`, `docx`).
 5. Solicitud pasa a `COMPLETADA` con metadata de salida.
 6. Cliente consulta estado y luego descarga.
 
@@ -169,7 +169,7 @@ Recomendación V1: iniciar con `PDFBox` si quieres control programatico y sin pi
 
 ---
 
-## 10. Orden de implementacion recomendado
+## 10. Orden de implementación recomendado
 
 1. Mantener sincronizados processors, assemblers y exportadores cuando se agregue un nuevo tipo de reporte.
 2. Blindar el `GlobalExceptionHandler` y el worker con pruebas sobre errores de exportación.

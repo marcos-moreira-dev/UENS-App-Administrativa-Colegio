@@ -243,7 +243,7 @@ Regla práctica:
 4. `application service` ejecuta reglas y orquesta repositorios.
 5. `infrastructure repository` lee/escribe en PostgreSQL.
 6. `mapper` arma DTO de respuesta.
-7. Se retorna `ApiResponse` estandar.
+7. Se retorna `ApiResponse` estándar.
 
 ## Módulo de reportes async (cola + archivos)
 

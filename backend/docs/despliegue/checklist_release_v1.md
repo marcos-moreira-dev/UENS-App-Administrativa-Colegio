@@ -32,7 +32,7 @@
 
 ## Documentación
 - [ ] README actualizado.
-- [ ] ADRs sincronizados con implementacion.
+- [ ] ADRs sincronizados con implementación.
 - [ ] Variables de entorno actualizadas.
 - [ ] `backend/docs/backend_v_1/15_backend_v_1_reportes_generacion_archivos_excel_pdf_word.md` sincronizado.
 

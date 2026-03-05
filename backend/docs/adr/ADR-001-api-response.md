@@ -1,4 +1,4 @@
-﻿# ADR-001: Contrato estandar de respuesta API
+﻿# ADR-001: Contrato estándar de respuesta API
 
 ## Estado
 Aceptado
@@ -21,8 +21,8 @@ Se adopta un contrato único para respuestas exitosas y errores:
 - Negativas:
  - Cambio en contrato impacta a todos los consumidores.
 
-## Notas de implementacion
+## Notas de implementación
 - El armado de respuestas debe hacerse con `ResponseFactory`.
-- La traduccion de excepciones se centraliza en `GlobalExceptionHandler`.
+- La traducción de excepciones se centraliza en `GlobalExceptionHandler`.
 - Se evita devolver entidades JPA directo en controller.
 

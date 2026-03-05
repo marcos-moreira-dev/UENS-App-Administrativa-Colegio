@@ -551,7 +551,7 @@ Recomendación:
 
 1. normaliza parseo
 2. no mezcles formatos locales en la capa HTTP
-3. convierte en la capa de presentacion
+3. convierte en la capa de presentación
 
 ---
 

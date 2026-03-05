@@ -45,7 +45,7 @@ Una abstraccion solo vale si puede ser aprovechada por más de un módulo o más
 El sistema debe poder crecer sin reescritura agresiva, pero sin meter complejidad prematura.
 
 ### 2.6 Valor docente
-Este proyecto tambien es educativo. Por eso se favorecen soluciones que:
+Este proyecto también es educativo. Por eso se favorecen soluciones que:
 - se puedan explicar bien;
 - muestren responsabilidades limpias;
 - conecten teoria con código real.
@@ -55,7 +55,7 @@ Este proyecto tambien es educativo. Por eso se favorecen soluciones que:
 ## 3) Criterios para estructura de capas
 
 ### 3.1 La vista no hace HTTP
-**Motivo:** mezcla presentacion con infraestructura y rompe el rol del controller.
+**Motivo:** mezcla presentación con infraestructura y rompe el rol del controller.
 
 ### 3.2 El ViewModel expone estado observable
 **Motivo:** la vista debe reaccionar a propiedades, no a sincronizacion manual caotica.
@@ -145,7 +145,7 @@ No se negocia.
 ### 7.2 Todo I/O va en background
 Requests HTTP, exportaciones, descargas, polling.
 
-### 7.3 La asincronia debe ser legible
+### 7.3 La asincronía debe ser legible
 Por eso se usa `FxExecutors` y no lógica repetida de hilos en cada controller.
 
 ---
@@ -156,7 +156,7 @@ Por eso se usa `FxExecutors` y no lógica repetida de hilos en cada controller.
 Por eso se usa `Navigator`.
 
 ### 8.2 El rol debe afectar visibilidad y acceso
-No basta con esconder botones; tambien debe existir control de flujo.
+No basta con esconder botones; también debe existir control de flujo.
 
 ### 8.3 El cierre de ventana debe respetar auditoría
 Por eso la salida con `X` intenta logout y deja trazabilidad.

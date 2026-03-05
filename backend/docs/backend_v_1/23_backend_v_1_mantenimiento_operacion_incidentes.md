@@ -37,7 +37,7 @@ Pasa mucho tiempo en:
 ### 3.1 Soporte
 
 - tickets de usuarios
-- errores en produccion
+- errores en producción
 - permisos mal configurados
 - problemas de datos
 
@@ -48,7 +48,7 @@ Pasa mucho tiempo en:
 - revisar jobs o colas
 - revisar almacenamiento de archivos
 
-### 3.3 Evolucion controlada
+### 3.3 Evolución controlada
 
 - cambios pequenos
 - hardening
@@ -185,7 +185,7 @@ Usarlo cuando:
 
 ## 9. Lo que nunca deberias hacer
 
-- tocar produccion sin evidencia
+- tocar producción sin evidencia
 - corregir solo en frontend un bug que es de backend
 - borrar datos para "arreglar rápido" sin respaldo
 - hacer refactor grande dentro de un hotfix

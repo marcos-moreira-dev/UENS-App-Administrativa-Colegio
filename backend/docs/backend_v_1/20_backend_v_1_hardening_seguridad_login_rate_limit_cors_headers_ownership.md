@@ -3,7 +3,7 @@
 ## 1) Objetivo
 Este documento cierra el endurecimiento básico del backend UENS en cuatro frentes:
 
-1. proteccion del login contra abuso
+1. protección del login contra abuso
 2. CORS y headers HTTP defensivos
 3. ownership estricto sobre reportes y defensa adicional sobre auditoría
 4. trazabilidad operativa útil para mantenimiento real
@@ -50,7 +50,7 @@ Beneficio:
 - menos dependencias de framework en application
 - más facil de testear
 
-### 3.2 Policy Service: proteccion de login
+### 3.2 Policy Service: protección de login
 Archivo: `src/main/java/com/marcosmoreiradev/uensbackend/modules/auth/application/support/LoginProtectionService.java`
 
 Rol:
@@ -86,7 +86,7 @@ Beneficio:
 
 ---
 
-## 4) Proteccion de login
+## 4) Protección de login
 
 ## 4.1 Que problema resuelve
 Un backend real no debe aceptar intentos ilimitados de autenticación porque eso permite:
@@ -132,7 +132,7 @@ Protege contra:
 
 ---
 
-## 4.3 Implementacion concreta
+## 4.3 Implementación concreta
 
 ### Flujo actual
 1. `AuthController` recibe `POST /api/v1/auth/login`.
@@ -166,7 +166,7 @@ Significado:
 
 | Propiedad | Rol |
 | --- | --- |
-| `enabled` | activa o apaga toda la proteccion |
+| `enabled` | activa o apaga toda la protección |
 | `max-failed-attempts` | umbral de fallos por identidad |
 | `failure-window-seconds` | ventana donde se cuentan esos fallos |
 | `lock-duration-seconds` | tiempo de bloqueo temporal |
@@ -204,7 +204,7 @@ Notas:
 ---
 
 ## 4.6 Limitaciones conocidas
-La implementacion es **in-memory**.
+La implementación es **in-memory**.
 
 Eso significa:
 - funciona bien en una sola instancia
@@ -228,7 +228,7 @@ Por eso conviene dejarlo configurado ahora en el backend, aunque el cliente prin
 
 ---
 
-## 5.2 Implementacion concreta
+## 5.2 Implementación concreta
 Se usa una fabrica dedicada:
 
 - `security/config/ApiCorsConfigurationSourceFactory.java`
@@ -339,7 +339,7 @@ No afecta la API principal:
 
 ---
 
-## 7.2 Implementacion concreta
+## 7.2 Implementación concreta
 Archivo principal:
 - `modules/reporte/application/ReporteSolicitudQueryService.java`
 
@@ -368,13 +368,13 @@ Eso es una medida común para recursos con ownership.
 ## 7.4 Descarga de archivo y ownership
 La descarga binaria no es una excepción.
 
-Antes de tocar el archivo fisico:
+Antes de tocar el archivo físico:
 1. se valida ownership
 2. se valida estado `COMPLETADA`
 3. se valida ruta dentro del directorio permitido
 4. se sanea nombre de archivo y MIME type
 
-Asi se cubren dos capas:
+Así se cubren dos capas:
 - autorización
 - integridad de salida
 
@@ -403,9 +403,9 @@ La política correcta es:
 ---
 
 ## 8.3 Defensa adicional
-La proteccion no queda solo en `@PreAuthorize`.
+La protección no queda solo en `@PreAuthorize`.
 
-Tambien se refuerza en application:
+También se refuerza en application:
 - `modules/auditoria/application/AuditoriaQueryService.java`
 - `modules/auditoria/application/AuditoriaReporteService.java`
 
@@ -457,7 +457,7 @@ Flujo recomendado:
 
 En el caso concreto de login:
 - revisar si fue `AUTH-01`, `AUTH-06` o `AUTH-07`
-- distinguir rápido entre credenciales malas y proteccion antiabuso
+- distinguir rápido entre credenciales malas y protección antiabuso
 
 ---
 
@@ -524,7 +524,7 @@ La UI de auditoría debe seguir siendo solo ADMIN.
 4. agregar política de password más fuerte y rotacion de credenciales administrativas
 5. agregar limpieza programada de archivos de reporte expirados
 
-### Cosas que no hacen falta todavia
+### Cosas que no hacen falta todavía
 - analítica avanzada
 - motores de riesgo complejos
 - IAM corporativo

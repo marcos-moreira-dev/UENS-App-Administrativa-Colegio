@@ -152,7 +152,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 **Por que se usa:**
 - los listados con filtros dejaron de depender de firmas largas;
 - hace visible el contrato de consulta;
-- favorece evolucion futura de filtros.
+- favorece evolución futura de filtros.
 
 **Criterio que cumple:** A, B, C, D.
 
@@ -165,7 +165,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 
 **Por que se usa:**
 - saca formato visible del controller;
-- deja la lógica de presentacion en una pieza semántica;
+- deja la lógica de presentación en una pieza semántica;
 - reduce ruido de badges, fechas y textos visibles.
 
 **Criterio que cumple:** A, B, C.
@@ -231,7 +231,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 ### 4.1 Presenter / Mapper en CRUD secundarios
 **Recomendación:** seguir sacando formato visual de controllers de `Docentes`, `Secciones`, `Asignaturas` y similares.
 
-**Por que todavia vale la pena:** esos controllers aún concentran demasiado texto visible y decisiones de presentacion.
+**Por que todavía vale la pena:** esos controllers aún concentran demasiado texto visible y decisiones de presentación.
 
 ### 4.2 Command en acciones de tabla más complejas
 **Recomendación:** extender `Command` a flujos como reintentos, cambios de estado, refrescos fuertes y acciones compuestas.
@@ -241,7 +241,7 @@ Si para entenderlo se necesita demasiada infraestructura extra, no conviene en e
 
 ---
 
-## 5) Patrones que no conviene meter todavia
+## 5) Patrones que no conviene meter todavía
 
 ### 5.1 Event Bus global
 **No conviene** porque vuelve opaco el flujo y dificulta el aprendizaje del sistema.
@@ -285,7 +285,7 @@ Hoy el frontend desktop ya tiene una base sana para fines productivos y educativ
 - polling y concurrencia encapsulados;
 - consultas de listados mejor modeladas;
 - drawers y feedback desacoplados;
-- presentacion más limpia en módulos complejos.
+- presentación más limpia en módulos complejos.
 
 Lo que aún queda como deuda natural:
 

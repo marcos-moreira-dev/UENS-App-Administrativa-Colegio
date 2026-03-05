@@ -1,6 +1,6 @@
 ﻿# 09_backend_v1_seguridad_documentacion_y_despliegue_minimo
 
-> Complemento vigente: para el hardening operativo ya implementado en código revisar tambien `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`.
+> Complemento vigente: para el hardening operativo ya implementado en código revisar también `20_backend_v_1_hardening_seguridad_login_rate_limit_cors_headers_ownership.md`.
 
 - **Versión:** 0.2
 - **Estado:** En revisión (reconstruido y alineado con `05–08`)
@@ -1284,7 +1284,7 @@ Propiedades activas:
 - `app.security.refresh-token.expiration-seconds`
 - `app.security.refresh-token.token-bytes-length`
 
-Tambien queda formalizado un repositorio documental desacoplado para reportes:
+También queda formalizado un repositorio documental desacoplado para reportes:
 - `DocumentStoragePort`
 - `LocalFilesystemDocumentStorageAdapter`
 

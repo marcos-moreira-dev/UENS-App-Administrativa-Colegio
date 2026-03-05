@@ -116,7 +116,7 @@ Primera vista del instalador MSI en Windows, pensada para distribución del clie
 
 ![Instalador 2](images/v1/installer%202.png)
 
-Segunda vista del instalador para evidenciar el flujo de instalacion y su presentacion final.
+Segunda vista del instalador para evidenciar el flujo de instalacion y su presentación final.
 
 ### Modelo conceptual del dominio
 
@@ -181,7 +181,7 @@ Para entorno local, usa plantilla y archivo privado:
 2. Ajusta credenciales y claves (DB, JWT, etc.) solo en tu archivo `.env` local.
 3. No subas `.env` al repositorio.
 
-En produccion, no uses archivos versionados para secretos. Deben inyectarse por variables de entorno o un gestor de secretos (vault, secret manager del proveedor cloud, etc.).
+En producción, no uses archivos versionados para secretos. Deben inyectarse por variables de entorno o un gestor de secretos (vault, secret manager del proveedor cloud, etc.).
 
 ## Licencia
 

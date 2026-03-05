@@ -22,7 +22,7 @@ Se implementa una cola simple en BD (`reporte_solicitud_queue`) con worker progr
  - Mayor complejidad operacional.
  - Necesidad de monitorear stuck jobs.
 
-## Notas de implementacion
+## Notas de implementación
 - Se usa claim por lote para reducir colisiones.
 - En error temporal se puede volver a `PENDIENTE`.
 - En error final se marca `ERROR` y se conserva detalle.

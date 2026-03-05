@@ -10,7 +10,7 @@ Este documento responde cuatro cosas:
 
 1. que significa i18n dentro de este desktop;
 2. cual es el alcance real de idiomas;
-3. que parte ya esta preparada y que parte sigue en migracion;
+3. que parte ya esta preparada y que parte sigue en migración;
 4. como deben escribirse los textos visibles del sistema.
 
 Nota:
@@ -23,7 +23,7 @@ Nota:
 El desktop queda oficialmente limitado a:
 
 - **Espanol** (`es`) como idioma por defecto;
-- **Ingles** (`en`) como idioma secundario opcional.
+- **Inglés** (`en`) como idioma secundario opcional.
 
 No se contemplan más idiomas en esta fase.
 
@@ -58,9 +58,9 @@ Si el valor es invalido, el sistema vuelve a `es`.
 
 Conclusion real:
 - la infraestructura i18n **si existe**;
-- la migracion funcional **todavia es parcial**.
+- la migración funcional **todavía es parcial**.
 
-La documentación no debe prometer una externalizacion total mientras esa migracion no se complete.
+La documentación no debe prometer una externalizacion total mientras esa migración no se complete.
 
 ---
 
@@ -82,7 +82,7 @@ Ejemplos correctos:
 - `Auditoria`
 - `Información`
 
-Nota de implementacion:
+Nota de implementación:
 - en código Java se aceptan escapes Unicode;
 - en FXML pueden usarse entidades XML si hace falta evitar problemas de encoding;
 - lo importante es que **la UI renderizada** muestre el espanol correctamente.
@@ -123,14 +123,14 @@ Usar `ResourceBundle` para:
 - mensajes globales de sesión o shell.
 
 ### 6.2 Texto directo permitido, con límites
-Durante la migracion se acepta texto directo en:
+Durante la migración se acepta texto directo en:
 - controllers;
 - FXML;
 - presenters.
 
 Solo si:
 - es especifico del módulo;
-- todavia no compensa crear una key compartida;
+- todavía no compensa crear una key compartida;
 - mantiene redaccion coherente con el resto del sistema.
 
 ### 6.3 Regla de crecimiento
@@ -177,7 +177,7 @@ Ejemplo correcto:
 - [x] Existe infraestructura i18n operativa.
 - [ ] Toda la UI esta externalizada al bundle.
 - [x] Los textos visibles nuevos deben escribirse en espanol correcto.
-- [x] La documentación reconoce que la migracion sigue parcial.
+- [x] La documentación reconoce que la migración sigue parcial.
 
 ---
 

@@ -133,7 +133,7 @@ Para UENS no es prioridad salvo que sirvas muchos archivos publicos o descargas 
 
 ### Después
 
-- si la asincronia crece, RabbitMQ
+- si la asincronía crece, RabbitMQ
 
 ### Mucho después
 

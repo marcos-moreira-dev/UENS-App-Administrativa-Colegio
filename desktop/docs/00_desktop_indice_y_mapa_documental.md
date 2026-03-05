@@ -11,7 +11,7 @@
 Este archivo es el índice y mapa documental del desktop. Sirve para:
 - ubicar el contexto oficial
 - saber que documentos gobiernan cada etapa
-- distinguir entre arbol objetivo y estado real del repo
+- distinguir entre árbol objetivo y estado real del repo
 
 ---
 
@@ -99,7 +99,7 @@ Todos viven en `desktop/docs/`.
 
 ---
 
-## 5) Etapas de implementacion
+## 5) Etapas de implementación
 
 ### Etapa 0
 - dominio

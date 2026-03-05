@@ -437,7 +437,7 @@ Suele implicar:
 - documentos internos
 - base de conocimiento viva
 
-### 11.2 Cuando no usarlo todavia
+### 11.2 Cuando no usarlo todavía
 
 - si solo quieres resumir texto enviado por el usuario
 - si el problema se resuelve con búsqueda tradicional
@@ -491,7 +491,7 @@ Puedes arrancar con:
 
 ## 13. Operación y costos
 
-La IA tambien exige presupuesto y mantenimiento.
+La IA también exige presupuesto y mantenimiento.
 
 Puntos operativos:
 

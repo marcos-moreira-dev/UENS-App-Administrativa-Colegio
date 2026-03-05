@@ -144,7 +144,7 @@ Regla:
 
 ---
 
-## 6) Etapas de diseño e implementacion
+## 6) Etapas de diseño e implementación
 
 ### Etapa 0 - Aterrizaje del dominio y contratos
 - negocio: entender entidades, reglas y límites;
@@ -180,7 +180,7 @@ Regla:
 ### Etapa 5 - Calificaciones
 - filtros por estudiante/clase/parcial;
 - nota validada;
-- parcial como control numerico acotado.
+- parcial como control numérico acotado.
 
 ### Etapa 6 - Reportes asíncronos
 - solicitudes;

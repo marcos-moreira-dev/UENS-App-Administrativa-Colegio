@@ -27,7 +27,7 @@ Su propósito es evitar que cada controller responda “a su manera” y asegura
 
 ## 2. Principios de diseño del contrato API (V1)
 
-## 2.0. Estado de implementacion actualizado
+## 2.0. Estado de implementación actualizado
 
 Al corte técnico del `2026-03-04`, el backend mantiene este contrato sin cambios de esquema sobre `V2_3FN.sql`, pero con una mejora interna importante:
 
